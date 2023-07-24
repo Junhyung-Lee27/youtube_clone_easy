@@ -27,4 +27,6 @@ function getVideoInfo(video_id) {
         });
 }
 
+// 비디오 정보 불러오기 테스트 (삭제해도 괜찮음)
 getVideoInfo(0);
+getVideoList();
