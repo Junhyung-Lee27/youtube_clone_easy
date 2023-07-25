@@ -5,6 +5,98 @@ section {
     background-color: #000;
 }
 
+/* 검색창 밑 부분 All, item item 들 들어가는 부분 박스 */
+.topMenu {
+    display: flex;
+    width: 1200px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--background-color, #212121);
+}
+
+/* All 부분 여백 조정  */
+.topMenu-itmes-all {
+    display: inline-flex;
+    padding: 12px 12px 12px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* All 버튼 크기 조정 */
+.topMenu-itmes-allbtn {
+    display: flex;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 32px;
+    /* 현재 클릭 되어 있기 때문에 하얀색 다른 버튼 클릭하면 회색으로 바뀌게끔 수정 필요 */
+    background: #FFF;
+}
+
+/* All 버튼 폰트 */
+.topMenu-items-allfont {
+    /* 클릭되어 있기 때문에 검은색, 다른 버튼 클릭하면 흰색으로 변경되게끔 수정필요 */
+    color: #030303;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Item 버튼 여백 조정 */
+.topMenu-items-item {
+    display: inline-flex;
+    padding: 12px 12px 12px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Item 버튼 크기 조정 */
+.topMenu-items-itembtn {
+    display: flex;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+
+    border-radius: 32px;
+
+    /* 클릭하면 흰색으로 바뀌게 수정 필요 */
+    border: 0.3px solid var(--gray-color, #AAA);
+    background: var(--border-color, #303030);
+}
+
+/* Item 버튼 폰트 조정 */
+.topMenu-items-itemfont {
+    /* 해당 버튼 누르면 글자색 검은색으로 변경하는 기능 필요 */
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* TopMenu 부분 > 버튼 패딩 */
+.topMenu-icon-box {
+    display: inline-flex;
+    padding: 20px;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(33, 33, 33, 0.90);
+}
+
+/* TopMenu 부분 > 버튼 크기 조정 */
+.topMenu-icon-btn {
+    width: 16px;
+    height: 16px;
+}
+
 /* 전체 썸네일 들어갈 칸 */
 .thumbnail {
     display: flex;

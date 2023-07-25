@@ -100,7 +100,7 @@
     background-color: #AAAAAA;
 }
 
-/* 각각 버튼들에 대한 속성 */
+/* 각각 버튼들(Home, Videos, PlayLists 등)에 대한 속성 */
 .topmenu-button {
     display: flex;
     padding: 16px 32px 15px 32px;
