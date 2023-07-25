@@ -1,3 +1,8 @@
+
+/* 폰트와 padding이 같이 들어가 있는 경우가 많은데 그 부분은 수정이 필요하다면 나누는 수정 작업 필요 */
+
+
+
 /* 채널 커버 */
 .channel-cover {
     display: flex;
@@ -153,7 +158,17 @@
     display: inline-flex;
     padding: 24px 287px 24px 65px;
     align-items: flex-start;
+    background-color: black;
 }
+
+/* 유튜브 대표 영상이 들어가고 옆 제목과 자막을 띄어주는 역할*/
+.player {
+    display: flex;
+    padding-right: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    }
 
 /* 유튜브 대표 영상 나오는 부분 */
 .youtube-player {
@@ -202,6 +217,8 @@
     flex-shrink: 0;
     background: #FC0D1C;
 }
+
+/* 버튼들은 위치 조정이 필요함 (사용한다면) */
 
 /* 대표영상 플레이 버튼 */
 .ico-play {
@@ -253,4 +270,267 @@
     fill: #EAEAEA;
     stroke-width: 1px;
     stroke: rgba(0, 0, 0, 0.10);
+}
+
+/* 설정 버튼 */
+.ico-hd {
+    width: 20px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* 영상을 가로로 길게 늘리는 버튼 (영화버튼) */
+
+.ico-theater {
+    width: 20px;
+    height: 14px;
+    flex-shrink: 0;
+    fill: #EAEAEA;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.10);
+}
+
+/* 영상 tv로 보내는 버튼 */
+.ico-tv {
+    width: 22px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: #EAEAEA;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.10);
+}
+
+/* 전체화면 버튼 */
+.ico-fullscreen {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: #EAEAEA;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.10);
+}
+
+
+/* 영상 설명 부분 영상 설명 쪽 부분은 패딩이랑 크기를 추가적으로 설정할 필요가 있어보임*/
+.video-desc {
+    display: flex;
+    padding-bottom: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    height: auto;
+}
+
+/* 영상 설명의 제목 너비 */
+.video-desc-title {
+    display: flex;
+    padding-bottom: 0px;
+    align-items: flex-start;
+    gap: 10px;
+
+    /* 제목 폰트 설정 */
+    color: var(--white-color, #FFF);
+    font-variant-numeric: stacked-fractions;
+    font-feature-settings: 'hlig' on, 'dlig' on;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.14px;
+}
+
+/* 영상 조회수 및 올린 날짜 */
+.video-time {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* 대표영상 옆 조회수 밑에 존재하는 설명문 */
+.desc {
+    width: 400px;
+    flex-shrink: 0;
+
+    color: var(--white-color, #FFF);
+    font-variant-numeric: stacked-fractions;
+    font-feature-settings: 'hlig' on, 'dlig' on;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.14px;
+}
+
+
+/* 대표영상 아래 있는 playlist */
+
+.playList {
+    display: flex;
+    padding: 0px 65px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* playList 내부의 날짜와 PlayAll 부분 크기 */
+.playList-box {
+    display: flex;
+    padding-top: 8px;
+    align-items: flex-start;
+}
+
+/* Search On 부분 크기*/
+.playList-title {
+    display: flex;
+    padding: 9px 8px 8px 0px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Search On 부분 글자 설정 */
+.playList-titlefont {
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* SearchOn 옆에 있는 play All 쪽 박스 크기 */
+.playList-playbtnBox {
+    display: flex;
+    padding: 6px 16px;
+    align-items: flex-start;
+}
+
+/* 재생버튼 크기 */
+.playList-playAllicon {
+    width: 24px;
+    height: 24px;
+}
+
+/* playAll 부분 박스 크기 */
+
+.playList-playAllbox {
+    display: flex;
+    padding: 3px 0px 2px 8px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* playAll 글자 설정 */
+
+.playList-playAllfont {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+
+/* PlayAll 밑에 있는 비디오들 박스 크기 */
+.video-card {
+    display: flex;
+    padding: 24px 0px;
+    align-items: flex-start;
+    width: 1070px;
+    /* height는 auto 지만 피그마에선 242px */
+    height: auto;  
+}
+
+
+/* 비디오 하나 박스*/
+/* 박스 사이사이마다 4씩 간격이 존재하는데 그 설정은 넣지 않음 */
+.Xsmall-Video {
+    display: flex;
+    width: 214px;
+    padding-right: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 동영상의 썸네일 이미지 크기 */
+.Xsmall-Video-Thumbnailimage {
+    width: 210px;
+    height: 118px;
+    flex-shrink: 0;
+}
+
+/* 동영상의 시간 폰트 */
+/* 시간이 적혀야할 위치는 추후 설정 (설정해야한다면) */
+
+.Xsmall-Video-Time {
+    display: inline-flex;
+    padding: 3px 4px;
+    align-items: flex-start;
+    gap: 10px;
+
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* 영상의 제목 박스 크기 */
+.Xsmall-Video-titlebox {
+    display: flex;
+    padding: 8px 0px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* 영상의 제목 폰트 설정 */
+.Xsmall-Video-title {
+    width: 186px;
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* 채널 이름 박스 */
+.Xsmall-Video-channelNamebox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* 채널 이름 폰트 설정 */
+.Xsmall-Video-channelName {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* 채널 조회수 박스 */
+
+.Xsmall-Video-channelviewbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* 채널 조회수 폰트 설정 */
+.Xsmall-Video-channelview {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
