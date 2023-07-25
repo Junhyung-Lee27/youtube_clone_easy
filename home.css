@@ -10,40 +10,60 @@ section {
     width: 1440px;
     height: 1024px;
     background-color: #000;
+    font-family: 'Roboto', Arial, sans-serif
 }
 
 /* 검색창 밑 부분 All, item item 들 들어가는 부분 박스 */
-.topMenu {
+.top-menu {
     display: flex;
     width: 1200px;
-    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    flex-direction: row;
     align-items: flex-start;
     background: var(--background-color, #212121);
 }
 
-/* All 부분 여백 조정  */
+/* topmenu All 버튼  */
 #top-menu-all {
-    display: inline-flex;
-    padding: 12px 12px 12px 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-/* All 버튼 크기 조정 */
-.topMenu-itmes-allbtn {
     display: flex;
     padding: 8px 12px;
     flex-direction: column;
+    margin-left: 24px;
     align-items: flex-start;
     gap: 10px;
     border-radius: 32px;
-    /* 현재 클릭 되어 있기 때문에 하얀색 다른 버튼 클릭하면 회색으로 바뀌게끔 수정 필요 */
-    background: #FFF;
+    background: #FFF; 
+
+    color: #030303;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
+/* 기본적으로 클릭된 버튼 스타일 */
+/* 이후 설정 */
+/* #top-menu-all.active {
+    background-color: #FFFFFF;
+    color: #030303;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+} */
+
+/* 마우스 올라갔을 때 색 변경 */
+/* 이후 설정 */
+/* #top-menu-all:hover {
+    background-color: #aaa;
+} */
+
+
 /* Item 버튼 크기 조정 */
-.topMenu-items-itembtn {
+#top-menu-item {
     display: flex;
     padding: 8px 12px;
     flex-direction: column;
@@ -53,12 +73,7 @@ section {
     /* 클릭하면 흰색으로 바뀌게 수정 필요 */
     border: 0.3px solid var(--gray-color, #AAA);
     background: var(--border-color, #303030);
-}
-
-/* All 버튼 폰트 */
-.topMenu-items-allfont {
-    /* 클릭되어 있기 때문에 검은색, 다른 버튼 클릭하면 흰색으로 변경되게끔 수정필요 */
-    color: #030303;
+    color: #FFF;
     font-family: Roboto;
     font-size: 14px;
     font-style: normal;
@@ -66,42 +81,19 @@ section {
     line-height: normal;
 }
 
-/* Item 버튼 여백 조정 */
-.topMenu-items-item {
-    display: inline-flex;
-    padding: 12px 12px 12px 0px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-
-
-/* Item 버튼 폰트 조정 */
-.topMenu-items-itemfont {
-    /* 해당 버튼 누르면 글자색 검은색으로 변경하는 기능 필요 */
-    color: var(--white-color, #FFF);
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
 
 /* TopMenu 부분 > 버튼 패딩 */
-.topMenu-icon-box {
+#top-menu-icon {
     display: inline-flex;
     padding: 20px;
+    width: 16px;
+    height: 16px;
     align-items: flex-start;
+    color: #FFFFFF;
     gap: 10px;
     background: rgba(33, 33, 33, 0.90);
 }
 
-/* TopMenu 부분 > 버튼 크기 조정 */
-.topMenu-icon-btn {
-    width: 16px;
-    height: 16px;
-}
 
 /* 전체 썸네일 들어갈 칸 */
 .thumbnail {
@@ -113,6 +105,7 @@ section {
     align-items: flex-start;
     gap: 40px;
     flex-shrink: 0;
+    background-color: #000000;
 }
 
 /* 썸네일 가로 부분 (사용하지 않음)*/
@@ -126,37 +119,63 @@ section {
     flex-shrink: 0;
 } */
 
-/* 썸네일 이미지 */
-.thumbnail-images{
+/* 비디오 컨테이너 */
+
+.video-container {
+    display: flex;
     width: 276px;
-    height: 155px;
+    height: 247px;
+    padding-bottom: 0px;
+    flex-direction: column;
+    align-items: flex-start;
     flex-shrink: 0;
 }
 
-/* 프로필 사진 부분 패딩 */
-.thumbnail-profile-pic {
-    display: flex;
-    padding: 12px 12px 26px 0px;
-    align-items: flex-start;
-    gap: 10px;
+/* 썸네일 이미지 */
+.video-thumbnail{
+    width: 276px;
+    height: 155px;
+    flex-shrink: 0;
+    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+}
+
+/* 동영상 플레이 시간 */
+.video_time {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    padding: 6px 12px;
+    background-color: #000;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+
 }
 
 /* 사용자 사진 자체 */
-.user-avatar {
+.video-profile {
     display: flex;
     width: 36px;
     height: 36px;
     justify-content: center;
     align-items: center;
     border-radius: 24px;
+    margin-top: 12px;
+    margin-right: 12px;
+    margin-bottom: 26px;
 }
 
 /* 썸네일 아래 제목 */
-.thumbnail-title {
+.video-title {
     display: flex;
     padding-top: 12px;
     align-items: flex-start;
     gap: 10px;
+    margin-bottom: 6px;
 
     /* 제목의 글자 */
     color: #fff;
@@ -168,16 +187,11 @@ section {
 }
 
 /* 제목 밑에 채널 이름과 조회수 들어가는 부분 */
-.thumbnail-desc-info {
+
+.channel-name {
     display: flex;
-    width: 204px;
-    height: 28px;
     flex-direction: column;
     align-items: flex-start;
-}
-
-/* 채널 이름 */
-.channel-name {
     color: #aaa;
     font-family: Roboto;
     font-size: 12px;
@@ -186,9 +200,11 @@ section {
     line-height: normal;
 }
 
-/* 조회수 */
-.channel-time {
-    color: var(--gray-color, #AAA);
+.video_sub_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #aaa;
     font-family: Roboto;
     font-size: 12px;
     font-style: normal;
@@ -196,13 +212,3 @@ section {
     line-height: normal;
 }
 
-/* 하나의 영상이 들어갈 크기 */
-.thumbnail-row-thumbnail-item {
-    display: flex;
-    width: 276px;
-    height: 247px;
-    padding-bottom: 0px;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-shrink: 0;
-}
