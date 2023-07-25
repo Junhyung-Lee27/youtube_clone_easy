@@ -1,62 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="reset.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
 
-  <title>Youtube_channel</title>
+    <title>Channel</title>
 </head>
-<body>
-  <!-- 메인 화면에 있는 검색창 그대로 가져온 것-->
-  <header></header>
 
-  <!-- 메인 화면에 있는 좌측 사이드바 그대로 가져온 것-->
-  <div>
-    <nav>
-      <ul>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-      </ul>
-    </nav>
-  </div>
-  
-  
-  <!-- 채널 이미지 및 header>nav가 들어가 있는 곳 -->
-  <section id="section1">
-    <div><header></header></div>
-    <div>
-      <header>
-        <nav>
-          <lu>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-          </lu>
-        </nav>
-      </header>
-    </div>
-  </section>
-
-  <!-- 이 채널의 대표 영상 및 채널 설명 부분 -->
-  <section id="section2"></section>
-
-  <!-- 또 다른 자료들 -->
-  <!-- container가 하나의 영상이 됨 -->
-  <section id="section3"> 
-    <div class="container">
-      <div class="card">
-        <img src="#" class="card-img">
-        <div class="card-text">
-          <p></p>
+<body style="background-color: #212121;">
+    <!-- 상단 header 부분 (Home 화면에서 복사해옴) -->
+    <header>
+        <!-- header 좌측 -->
+        <div>
+            <img id="hamburger" src="./img_header/hamburger.svg" alt="hamburger menu">
+            <img id="youtube-logo" src="./img_header/Youtube-Logo.svg" alt="youtube logo">
         </div>
-      </div>
-    </div>
-  </section>
+
+        <!-- header 중간 : 검색창 -->
+        <div>
+            <form id="search-box">
+                <input id="search-box-input-text" type="text" name="search-box" placeholder="Search">
+                <input id="search-box-icon" type="image" src="./img_header/search.svg" name="search">
+            </form>
+            <input id="mic-icon" type="image" src="./img_header/mic.svg" name="microphone">
+        </div>
+
+        <!-- header 우측 : 내비게이션 메뉴  -->
+        <div>
+            <img class="navigation-icon" src="./img_header/create.svg" alt="create videos button">
+            <img class="navigation-icon" src="./img_header/apps.svg" alt="apps">
+            <img class="navigation-icon" src="./img_header/notifications.svg" alt="notifications">
+            <img id="navigation-profile" src="./img_header/User-Avatar.png" alt="manage my profile">
+        </div>
+    </header>
+
+    <!-- 사이드바 : 좌측에 고정 (Home 화면에서 복사해옴) -->
+    <nav>
+        <ul id="sidebar-top1">
+            <li><img src="./img_siderbar/siderbar_Top/IconHome.png"><a href="#">Home</a></li>
+            <li><img src="./img_siderbar/siderbar_Top/IconExplore.png"><a href="#">Explore</a></li>
+            <li><img src="./img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="#">Subscriptions</a></li>
+        </ul>
+        <hr> <!-- 구분선 -->
+        <ul id="sidebar-top2">
+            <li><img src="./img_siderbar/siderbar_Top2/Icon_Library.png"><a href="#">Library</a></li>
+            <li><img src="./img_siderbar/siderbar_Top2/Icon_History.png"><a href="#">History</a></li>
+            <li><img src="./img_siderbar/siderbar_Top2/Icon_YourVideos.png"><a href="#">Your Videos</a></li>
+            <li><img src="./img_siderbar/siderbar_Top2/Icon_WatchLater.png"><a href="#">Watch Later</a></li>
+            <li><img src="./img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="#">Liked Videos</a></li>
+            <li><img src="./img_siderbar/siderbar_Top2/Icon_ShowMore.png"><a href="#">Show More</a></li>
+        </ul>
+        <hr> <!-- 구분선 -->
+        <ul id="sidebar-subscriptions">
+            <p id="sidebar-title">SUBSCRIPTIONS</p>
+            <!-- TODO : 사이드바의 인물 사진 다운받아서 넣어야 함! -->
+            <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-1.png"><a href="#">James Gouse</a></li>
+            <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-2.png"><a href="#">Alan Cooper</a></li>
+            <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-3.png"><a href="#">Marcus Levin</a></li>
+            <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-4.png"><a href="#">Alexis Sears</a></li>
+            <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="#">Jesica Lambert</a></li>
+            <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-6.png"><a href="#">Anna White</a></li>
+            <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-7.png"><a href="#">Skylar Dias</a></li>
+            <li><img src="./img_siderbar/sidebar_subscriptions/Icon_ShowMore.svg"><a href="#">Show 13 More</a></li>
+        </ul>
+        <hr> <!-- 구분선 -->
+        <ul id="sidebar_bottom">
+            <p id="sidebar-title">MORE FROM YOUTUBE</p>
+            <li><img src="./img_siderbar/sidebar_Bottom/premium.svg"><a href="#">Youtube Premium</a></li>
+            <li><img src="./img_siderbar/sidebar_Bottom/gaming.svg"><a href="#">Gaming</a></li>
+            <li><img src="./img_siderbar/sidebar_Bottom/live.svg"><a href="#">Live</a></li>
+            <li><img src="./img_siderbar/sidebar_Bottom/sports.svg"><a href="#">Sports</a></li>
+        </ul>
+    </nav>
+
+    <!-- section-1 : 채널 커버 이미지, 채널 프로필, SUBSCRIBES 버튼 포함 -->
+    <section id="channel-section-1">
+        <!-- 채널 커버 이미지 -->
+        <div id="channel-cover">
+            <img src="./img_channel/channel_cover.png" alt="cover image of channel">
+        </div>
+        <!-- 채널 타이틀 영역 -->
+        <div id="channel-title">
+            <!-- 채널 프로필 이미지, 채널명, 구독자 수 -->
+            <div id="channel-profile-container">
+                <div>
+                    <img id="channel-profile" src="./img_channel/channel_profile.png">
+                </div>
+                <div>
+                    <h4 id="channel-name">Marcus Lewin</h>
+                    <p id="channel-subscribers">1.2M subscribers</p>
+                </div>
+            </div>
+            <!-- 구독 버튼 -->
+            <div class="subscribe-btn">
+                <button>SUBSCRIBES</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- nav : 채널 툴바(channel-toolbars)를 포함하고 있는 영역 -->
+    <nav id="channel-toolbar">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">VIDEOS</a></li>
+            <li><a href="#">PLAYLISTS</a></li>
+            <li><a href="#">COMMUNITY</a></li>
+            <li><a href="#">CHANNELS</a></li>
+            <li><a href="#">ABOUT</a></li>
+        </ul>
+        <img id="channel-toolbar-search-icon" src="./img_channel/search.svg">
+        <img id="channel-toolbar-search-btn" src="./img_channel/leftArrow.svg">
+    </nav>
+
+    <!-- 07.25 여기까지 완료했습니다!(지우고 아래 html 추가 진행) -->
+    <!-- section-2 : 대표 영상 및 정보 -->
+    <section id="channel-section2"></section>
+
+    <!-- 또 다른 자료들 -->
+    <!-- container가 하나의 영상이 됨 -->
+    <section id="channel-section3">
+        <div class="container">
+            <div class="card">
+                <img src="#" class="card-img">
+                <div class="card-text">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
