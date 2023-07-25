@@ -14,10 +14,10 @@
     -   작업파일 : header.css, sidebar.css
 -   css_2
     -   Home화면의 section, Channel 화면
-    -   작업파일 : home.css, channel.css
+    -   작업파일 : home.css, channel.css, style_1.css(<- 이거는 아무 내용이 없네요?)
 -   js
     -   js 코드 전체
-    -   작업파일 : get_video.js, youtube.js, style_1.css(<- 이거는 아무 내용이 없네요?)
+    -   작업파일 : get_video.js, youtube.js
 
 ## 프로젝트 일정
 
