@@ -8,12 +8,16 @@
 
 -   html
     -   html 코드 전체
+    -   작업파일 : home.html, channel.html
 -   css_1
-    -   공통된 부분(header(상단바), nav(사이드바), 비디오페이지)
+    -   Home화면의 header(상단바), nav(사이드바) & Video 화면
+    -   작업파일 : header.css, sidebar.css
 -   css_2
-    -   css_1을 제외한 부분
+    -   Home화면의 section, Channel 화면
+    -   작업파일 : home.css, channel.css
 -   js
     -   js 코드 전체
+    -   작업파일 : get_video.js, youtube.js, style_1.css(<- 이거는 아무 내용이 없네요?)
 
 ## 프로젝트 일정
 
@@ -92,4 +96,3 @@
 -   매일 역할을 돌아가면서 릴레이 코딩
 -   따라서 기본적으로 다른 사람의 코드도 이해할 수 있어야 하고, 다음 사람을 위해 #주석을 잘 달아놓아야 함
 -   매일 저녁 강사님이 해당 날짜의 분량만큼 코드 업로드
-    김예지 : 화이팅~~
