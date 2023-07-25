@@ -1,103 +1,103 @@
 /* 기본적으로 사용할 색상 변수로 정리 */
 :root {
-    /* 색상 */
-    --white-color: #fff;
-    --black-color: #140a00;
-    --blue-color: #045fd4;
-    --red-color: #ff0000;
-    --grey-dark-color: #909090;
-    --grey-light-color: #e0e0e0;
+  /* 색상 */
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
 
-    --background-color: #212121;
+  --background-color: #212121;
 
-    /* 패딩(이 부분은 안쓸 가능성 높음 */
-    --padding: 12px;
-    --avatar-size: 36px;
+  /* 패딩(이 부분은 안쓸 가능성 높음 */
+  --padding: 12px;
+  --avatar-size: 36px;
 
-    /* 폰트 사이즈 */
-    --font-large: 18px;
-    --font-medium: 14px;
-    --font-small: 12px;
-    --font-micro: 10px;
+  /* 폰트 사이즈 */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
 }
 
 
 /* 헤더의 크기 설정 */
 header {
-    display: flex;
-    width: 1440px;
-    height: 57px;
-    padding: var(--padding);
-    flex-shrink: 0;
-    justify-content: space-between;
-    background-color: var(--background-color);
-    opacity: 0.30000001192092896;
+  display: flex;
+  width: 1440px;
+  height: 57px;
+  padding: var(--padding);
+  flex-shrink: 0;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  opacity: 0.30000001192092896;
 }
 
 /* 로고부분 설정 */
 header .logo {
-    display: flex;
-    width: 90px;
-    height: 20px;
-    padding: 18px 14px 18px 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: var(--font-large);
+  display: flex;
+  width: 90px;
+  height: 20px;
+  padding: 18px 14px 18px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--font-large);
 }
 
 /* 맨 오른쪽 프로필  */
 header .profile {
-    display: flex;
-    padding: 4px 14px;
-    align-items: flex-start;
-    gap: 10px;
-    color: var(--white-color);
+  display: flex;
+  padding: 4px 14px;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--white-color);
 }
 
 /* 종(알림) */
 header .Notifications {
-    display: flex;
-    padding: 8px;
-    align-items: flex-start;
-    gap: 10px
+  display: flex;
+  padding: 8px;
+  align-items: flex-start;
+  gap: 10px
 }
 
 /* apps부분 */
 header .apps {
-    display: flex;
-    padding: 8px;
-    align-items: flex-start;
-    gap: 10px;
-    color: var(--white-color);
+  display: flex;
+  padding: 8px;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--white-color);
 }
 
 /* 영상 추가하는 버튼 부분 */
 header .create {
-    display: flex;
-    padding: 8px;
-    align-items: flex-start;
-    gap: 10px;
-    color: var(--white-color);
+  display: flex;
+  padding: 8px;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--white-color);
 }
 
 /* 유튜브 로고 왼쪽에 존재하는 부분 */
 header .hamburger {
-    display: flex;
-    padding: 8px;
-    align-items: flex-start;
-    gap: 10px;
-    color: var(--white-color)
+  display: flex;
+  padding: 8px;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--white-color)
 }
 
 /* 검색창 */
 header .search-bar {
-    display: flex;
-    align-items: center;
-    width: 362px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 2px 0px 0px 2px;
-    background: #121212;
-    padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  width: 362px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 2px 0px 0px 2px;
+  background: #121212;
+  padding: 5px 10px;
 }
