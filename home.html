@@ -10,65 +10,77 @@
 </head>
 
 <!-- background-color는 아이콘이 보이지 않아 임시로 넣어놓음-->
+
 <body style="background-color: #212121;">
 
     <!-- 상단 header 부분 -->
     <header>
-        <!-- 좌측 -->
-        <img id="hamburger" src="./img_header/hamburger.svg" alt="hamburger menu">
-        <img id="youtube-logo" src="./img_header/Youtube-Logo.svg" alt="youtube logo">
-
-        <!-- 중간 : 검색창 -->
-        <form>
-            <input type="text" name="search-box" placeholder="Search">
-            <input type="image" src="./img_header/search.svg" name="search">
-            <input type="image" src="./img_header/mic.svg" name="microphone">
-        </form>
-
-        <!-- 우측 : 메뉴  -->
+        <!-- header 좌측 -->
         <div>
-            <img src="./img_header/create.svg" alt="create videos button">
-            <img src="./img_header/apps.svg" alt="apps">
-            <img src="./img_header/notifications.svg" alt="notifications">
-            <img src="./img_header/User-Avatar.png" alt="manage my profile">
+            <img id="hamburger" src="./img_header/hamburger.svg" alt="hamburger menu">
+            <img id="youtube-logo" src="./img_header/Youtube-Logo.svg" alt="youtube logo">
         </div>
 
+        <!-- header 중간 : 검색창 -->
+        <div>
+            <form id="search-box">
+                <input id="search-box-input-text" type="text" name="search-box" placeholder="Search">
+                <input id="search-box-icon" type="image" src="./img_header/search.svg" name="search">
+            </form>
+            <input id="mic-icon" type="image" src="./img_header/mic.svg" name="microphone">
+        </div>
+
+        <!-- header 우측 : 내비게이션 메뉴  -->
+        <div>
+            <img class="navigation-icon" src="./img_header/create.svg" alt="create videos button">
+            <img class="navigation-icon" src="./img_header/apps.svg" alt="apps">
+            <img class="navigation-icon" src="./img_header/notifications.svg" alt="notifications">
+            <img id="navigation-profile" src="./img_header/User-Avatar.png" alt="manage my profile">
+        </div>
     </header>
 
     <!-- 좌측에 고정되어있는 사이드바 -->
-    <nav id="main_nav">
+    <nav>
         <ul>
-            <li><img src="./img_siderbar/siderbar_Top/IconHome.png"><a href="#">Home</a></li>
-            <li><img src="./img_siderbar/siderbar_Top/IconExplore.png"><a href="#">Explore</a></li>
-            <li><img src="./img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="#">Subscriptions</a></li>
+            <div id="sidebar-top1">
+                <li><img src="./img_siderbar/siderbar_Top/IconHome.png"><a href="#">Home</a></li>
+                <li><img src="./img_siderbar/siderbar_Top/IconExplore.png"><a href="#">Explore</a></li>
+                <li><img src="./img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="#">Subscriptions</a></li>
+            </div>
             <hr>
-            <li><img src="./img_siderbar/siderbar_Top2/Icon_Library.png"><a href="#">Library</a></li>
-            <li><img src="./img_siderbar/siderbar_Top2/Icon_History.png"><a href="#">History</a></li>
-            <li><img src="./img_siderbar/siderbar_Top2/Icon_YourVideos.png"><a href="#">Your Videos</a></li>
-            <li><img src="./img_siderbar/siderbar_Top2/Icon_WatchLater.png"><a href="#">Watch Later</a></li>
-            <li><img src="./img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="#">Liked Videos</a></li>
-            <li><img src="./img_siderbar/siderbar_Top2/Icon_ShowMore.png"><a href="#">Show More</a></li>
+            <div id="sidebar-top2">
+                <li><img src="./img_siderbar/siderbar_Top2/Icon_Library.png"><a href="#">Library</a></li>
+                <li><img src="./img_siderbar/siderbar_Top2/Icon_History.png"><a href="#">History</a></li>
+                <li><img src="./img_siderbar/siderbar_Top2/Icon_YourVideos.png"><a href="#">Your Videos</a></li>
+                <li><img src="./img_siderbar/siderbar_Top2/Icon_WatchLater.png"><a href="#">Watch Later</a></li>
+                <li><img src="./img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="#">Liked Videos</a></li>
+                <li><img src="./img_siderbar/siderbar_Top2/Icon_ShowMore.png"><a href="#">Show More</a></li>
+            </div>
             <hr>
-            <h4>SUBSCRIPTIONS</h4>
-            <li><img src=""><a href="#">James Gouse</a></li>
-            <li><img src=""><a href="#">Alan Cooper</a></li>
-            <li><img src=""><a href="#">Marcus Levin</a></li>
-            <li><img src=""><a href="#">Alexis Sears</a></li>
-            <li><img src=""><a href="#">Jesica Lambert</a></li>
-            <li><img src=""><a href="#">Anna White</a></li>
-            <li><img src=""><a href="#">Skylar Dias</a></li>
-            <li><img src=""><a href="#">Show 13 More</a></li>
+            <div id="sidebar-subscriptions">
+                <h4>SUBSCRIPTIONS</h4>
+                <!-- TODO : 사이드바의 인물 사진 다운받아서 넣어야 함! -->
+                <li><img src=""><a href="#">James Gouse</a></li>
+                <li><img src=""><a href="#">Alan Cooper</a></li>
+                <li><img src=""><a href="#">Marcus Levin</a></li>
+                <li><img src=""><a href="#">Alexis Sears</a></li>
+                <li><img src=""><a href="#">Jesica Lambert</a></li>
+                <li><img src=""><a href="#">Anna White</a></li>
+                <li><img src=""><a href="#">Skylar Dias</a></li>
+                <li><img src=""><a href="#">Show 13 More</a></li>
+            </div>
             <hr>
-            <h4>MORE FROM YOUTUBE</h4>
-            <li><img src="./img_siderbar/sidebar_Bottom/premium.svg"><a href="#">Youtube Premium</a></li>
-            <li><img src="./img_siderbar/sidebar_Bottom/gaming.svg"><a href="#">Gaming</a></li>
-            <li><img src="./img_siderbar/sidebar_Bottom/live.svg"><a href="#">Live</a></li>
-            <li><img src="./img_siderbar/sidebar_Bottom/sports.svg"><a href="#">Sports</a></li>
-
+            <div id="sidebar_bottom">
+                <h4>MORE FROM YOUTUBE</h4>
+                <li><img src="./img_siderbar/sidebar_Bottom/premium.svg"><a href="#">Youtube Premium</a></li>
+                <li><img src="./img_siderbar/sidebar_Bottom/gaming.svg"><a href="#">Gaming</a></li>
+                <li><img src="./img_siderbar/sidebar_Bottom/live.svg"><a href="#">Live</a></li>
+                <li><img src="./img_siderbar/sidebar_Bottom/sports.svg"><a href="#">Sports</a></li>
+            </div>
         </ul>
     </nav>
 
-    <!-- 사이드바 우측으로 메인 섹션 화면 -->
+    <!-- 메인 섹션 화면 -->
     <section id="main_section">
         <!-- 섹션시작 네비게이션 바 (가로정렬) -->
         <nav id="section-nav">
