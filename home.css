@@ -1,9 +1,23 @@
+/* 섹션 크기 */
 section {
     width: 1440px;
     height: 1024px;
     background-color: #000;
 }
 
+/* 전체 썸네일 들어갈 칸 */
+.thumbnail {
+    display: flex;
+    width: 1151px;
+    height: 1395px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-shrink: 0;
+}
+
+/* 썸네일 가로 부분 */
 .thumbnail-row {
     display: flex;
     width: 1151px;
@@ -14,13 +28,14 @@ section {
     flex-shrink: 0;
 }
 
-
+/* 썸네일 이미지 */
 .thumbnail-images{
     width: 276px;
     height: 155px;
     flex-shrink: 0;
 }
 
+/* 프로필 사진 부분 패딩 */
 .thumbnail-profile-pic {
     display: flex;
     padding: 12px 12px 26px 0px;
@@ -28,6 +43,7 @@ section {
     gap: 10px;
 }
 
+/* 사용자 사진 자체 */
 .user-avatar {
     display: flex;
     width: 36px;
@@ -37,12 +53,14 @@ section {
     border-radius: 24px;
 }
 
+/* 썸네일 아래 제목 */
 .thumbnail-title {
     display: flex;
     padding-top: 12px;
     align-items: flex-start;
     gap: 10px;
 
+    /* 제목의 글자 */
     color: #fff;
     font-family: Roboto;
     font-size: 12px;
@@ -51,13 +69,16 @@ section {
     line-height: normal;
 }
 
+/* 제목 밑에 채널 이름과 조회수 들어가는 부분 */
 .thumbnail-desc-info {
     display: flex;
     width: 204px;
+    height: 28px;
     flex-direction: column;
     align-items: flex-start;
 }
 
+/* 채널 이름 */
 .channel-name {
     color: #aaa;
     font-family: Roboto;
@@ -67,6 +88,7 @@ section {
     line-height: normal;
 }
 
+/* 조회수 */
 .channel-time {
     color: var(--gray-color, #AAA);
     font-family: Roboto;
@@ -76,6 +98,7 @@ section {
     line-height: normal;
 }
 
+/* 하나의 영상이 들어갈 크기 */
 .thumbnail-row-thumbnail-item {
     display: flex;
     width: 276px;
@@ -83,16 +106,5 @@ section {
     padding-bottom: 0px;
     flex-direction: column;
     align-items: flex-start;
-    flex-shrink: 0;
-}
-
-.thumbnail {
-    display: flex;
-    width: 1151px;
-    height: 1395px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
     flex-shrink: 0;
 }
