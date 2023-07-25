@@ -1,45 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="reset.css">
-  <title>Youtube</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="reset.css">
+    <title>Home</title>
 </head>
 
-<body>
-  <!-- 페이지 상단 검책창 부분 -->
-  <header></header>
+<!-- background-color는 별도의 css 파일로 대체되어야 합니다.-->
+<body style="background-color: #212121;">
 
-  <!-- 좌측에 고정되어있는 사이드바 -->
-  <div id="main_nav">
-    <ul>
-      <li><a href="#">menu1</a></li>
-      <li><a href="#">menu2</a></li>
-      <li><a href="#">menu3</a></li>
-      <li><a href="#">menu4</a></li>
-      <li><a href="#">menu5</a></li>
-    </ul>
-  </div>
-  <!-- 사이드바 우측으로 메인 섹션 화면 -->
-  <section id="nav_section">
-    <!-- 섹션시작 네비게이션 바 (가로정렬) -->
-    <div id="main_section_nav">
-      <ul>
-        <li><a href="#">menu1</a></li>
-        <li><a href="#">menu2</a></li>
-        <li><a href="#">menu3</a></li>
-        <li><a href="#">menu4</a></li>
-      </ul>
-    </div>
-  </section>
+    <!-- 상단 header 부분 -->
+    <header>
+        <!-- 좌측 -->
+        <img id="hamburger" src="./img_header/hamburger.svg" alt="hamburger menu">
+        <img id="youtube-logo" src="./img_header/Youtube-Logo.svg" alt="youtube logo">
+        
+        <!-- 중간 : 검색창 -->
+        <form>
+            <input type="text" name="search-box" placeholder="Search">
+            <input type="image" src="./img_header/search.svg" name="search">
+        </form>
+        <div>
+            <div>mic</div>
+        </div>
+        
+        <!-- 우측 : 메뉴  -->
+        <div>
+            <img src="./img_header/create.svg" alt="create videos button">
+            <img src="./img_header/apps.svg" alt="apps">
+            <img src="./img_header/notifications.svg" alt="notifications">
+            <img src="./img_header/User-Avatar.png" alt="manage my profile">
+            <div>create</div>
+            <div>apps</div>
+            <div>notifications</div>
+            <div>profile</div>
+        </div>
 
-  <!-- 영상데이터들이 나열 되는 곳 -->
-  <!-- 
-    채널html처럼 영상 하나하나씩 컨테이너에 집어넣어
-    정렬할 예정 
-  -->
-  <section id="main_section"></section>
+    </header>
+
+    <!-- 좌측에 고정되어있는 사이드바 -->
+    <nav id="main_nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Subscriptions</a></li>
+            <hr>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Your Videos</a></li>
+            <li><a href="#">Watch Later</a></li>
+            <li><a href="#">Liked Videos</a></li>
+            <li><a href="#">Show More</a></li>
+            <hr>
+            <h4>SUBSCRIPTIONS</h4>
+            <li><a href="#">James Gouse</a></li>
+            <li><a href="#">Alan Cooper</a></li>
+            <li><a href="#">Marcus Levin</a></li>
+            <li><a href="#">Alexis Sears</a></li>
+            <li><a href="#">Jesica Lambert</a></li>
+            <li><a href="#">Anna White</a></li>
+            <li><a href="#">Skylar Dias</a></li>
+            <li><a href="#">Show 13 More</a></li>
+            <hr>
+            <h4>MORE FROM YOUTUBE</h4>
+            <li><a href="#">Youtube Premium</a></li>
+            <li><a href="#">Gaming</a></li>
+            <li><a href="#">Live</a></li>
+            <li><a href="#">Sports</a></li>
+        </ul>
+    </nav>
+
+    <!-- 사이드바 우측으로 메인 섹션 화면 -->
+    <section id="main_section">
+        <!-- 섹션시작 네비게이션 바 (가로정렬) -->
+        <nav id="section-nav">
+            <ul>
+                <li><a href="#">All</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+            </ul>
+        </nav>
+
+        <!-- 영상데이터들이 나열 되는 곳 : 채널html처럼 영상 하나하나씩 컨테이너에 집어넣어 정렬할 예정 -->
+        <!-- 영상 컨테이너 (썸네일, 영상제목, 채널명, views 포함) -->
+        <div>
+            <div>썸네일</div>
+            <div>영상제목</div>
+            <div>채널명</div>
+            <div>views</div>
+            <div>week ago</div>
+        </div>
+    </section>
 </body>
+
 </html>
