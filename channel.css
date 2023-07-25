@@ -1,0 +1,256 @@
+/* 채널 커버 */
+.channel-cover {
+    display: flex;
+    width: 1200px;
+    height: 192px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* 채널 제목 열 */
+.channel-title {
+    display: flex;
+    padding: 16px 65px 4px 65px;
+    align-items: flex-start;
+    gap: 699px;
+}
+
+/* 채널 사용자 프로필 사진 패딩 이 부분은 수정 필요*/
+.channel-profile-pic {
+    display: flex;
+    padding-right: 0px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* 채널 사용자 프로필 사진 둥근 부분*/
+.user-avatar {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80px;
+    opacity: 0.6499999761581421;
+}
+
+/* 채널 사용자 이름 들어가는 부분 */
+.channel-profile-name {
+    display: flex;
+    padding: 18px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* 구독자 수 */
+.subscribers {
+    color: var(--gray-color, #AAA);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* 구독 버튼 패딩 */
+.channel-subscribers {
+    display: flex;
+    width: 124px;
+    padding: 22px 4px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* 구독버튼 자체 */
+.subscribers-button {
+    display: flex;
+    padding: 10px 16px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 2px;
+    background: #C00;
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+
+/* 채널 툴바 (Home, videos 등등) 라인 */
+.channel-toolbar {
+    display: flex;
+    padding: 0px 65px;
+    align-items: flex-start;
+    background-color: #AAAAAA;
+}
+
+/* 각각 버튼들에 대한 속성 */
+.topmenu-button {
+    display: flex;
+    padding: 16px 32px 15px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    /* 글자 속성 이 부분은 수정 필요, 버튼 누르면 하얀색 안누르면 글자가 회색*/
+    color: var(--white-color, #FFF);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+/* About 옆 돋보기 모양부터 > 까지 */
+.channel-toolbar-search {
+    display: flex;
+    padding-left: 0px;
+    align-items: flex-start;
+    gap: 202px;
+}
+
+/* 돋보기 옆 패딩 */
+.search-icon {
+    display: flex;
+    padding: 12px 8px;
+    align-items: flex-start;
+}
+
+/* 돋보기 모양 */
+.search {
+    width: 24px;
+    height: 24px;
+}
+
+/* > 패딩 */
+.search-button {
+    display: flex;
+    padding: 12px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+
+/* > 모양 */
+.leftArrow {
+    width: 24px;
+    height: 24px
+}
+
+/* 대표 영상 부분 패딩 */
+.smallvideo {
+    display: inline-flex;
+    padding: 24px 287px 24px 65px;
+    align-items: flex-start;
+}
+
+/* 유튜브 대표 영상 나오는 부분 */
+.youtube-player {
+    width: 424px;
+    height: 238px;
+    flex-shrink: 0;
+}
+
+/* 유튜브 대표영상 제목 파트 필요한지는 잘 모르겠음 */
+.youtube-player-top {
+    width: 424px;
+    height: 96px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.25) 100%);
+}
+
+/* 유튜브 대표영상 아래쪽 파트 필요한지는 잘 모르겠음 */
+.youtube-player-bottom {
+    width: 424px;
+    height: 96px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%);
+    background-blend-mode: multiply;
+}
+
+/* 유튜브 영상 전체 길이 필요한지는 잘 모르겠음*/
+.youtube-player-full {
+    width: 400px;
+    height: 3px;
+    flex-shrink: 0;
+    background: rgba(234, 234, 234, 0.20);
+}
+
+/* 유튜브 영상 로드 된 길이 필요한지는 잘 모르겠음 */
+.youtube-player-loaded {
+    width: 208.025px;
+    height: 3px;
+    flex-shrink: 0;
+    background: rgba(234, 234, 234, 0.50);
+}
+
+/* 유튜브 영상 재생된 길이  필요한지는 잘 모르겠음 */
+.youtube-player-played {
+    width: 139.125px;
+    height: 3px;
+    flex-shrink: 0;
+    background: #FC0D1C;
+}
+
+/* 대표영상 플레이 버튼 */
+.ico-play {
+    width: 13px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: #EAEAEA;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.10);
+}
+
+
+/* 다음 영상 버튼 */
+.ico-next {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    fill: #EAEAEA;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.10);
+}
+
+/* 소리 버튼 */
+.ico-sound {
+    width: 13.25px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: #EAEAEA;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.10);
+}
+
+/* 시간 쪽 */
+.time {
+    color: #EAEAEA;
+    font-family: Roboto;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 146.484%; /* 19.043px */
+    letter-spacing: 0.13px;
+}
+
+/* 자막 버튼 */
+.ico-titles {
+    width: 18px;
+    height: 14px;
+    flex-shrink: 0;
+    fill: #EAEAEA;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.10);
+}
