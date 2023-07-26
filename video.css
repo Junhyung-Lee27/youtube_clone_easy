@@ -72,10 +72,39 @@ section {
     font-weight: 700;
 }
 
+/* like, dislike, save, share의 아이콘 */
 .video-reaction-btn{
-
+    width: 24px;
+    height: 24px;
+    padding: 6px;
 }
 
+/* like, dislike, save, share의 텍스트 */
+.video-reaction-text{
+    padding: 10px 6px 10px 0px;
+    margin-right: 8px; /* 오른쪽 요소와의 간격 */
+    /* 폰트 설정  */
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 채널 정보, 영상 설명 영역 */
+#video-desc{
+    /* 정렬 */
+    display: flex;
+    flex-direction: column;
+    /* 구분선(테두리로 적용) */
+    border-top: 1px;
+    border-color: #303030;
+}
+
+/* TODO
+1. video-desc 내 요소 설정 (ex. #video-main-profile, #video-main-channel-name 등)
+2. video-comments 요소 설정 (ex. #video-comments-count, #video-dropdown 등)
+3. aside 요소 설정(aside 자체 정렬은 되어있음)
+*/
 
 /* aside 정렬 */
 aside {
