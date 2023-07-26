@@ -24,15 +24,20 @@ nav {
     padding: 8px 8px 8px 24px;
 }
 
+/* li에 hover 하면 배경색 변경됨 */
+#home-sidebar li:hover {
+    background-color: #303030;
+}
+
 /* 모든 a태그에 적용 */
 #home-sidebar a {
+    width: 144px;
     margin-left: 24px;
     color: white;
     font-family: Roboto;
     font-size: 14px;
     font-weight: 400;
-    text-decoration: none;
-    /* a태그의 밑줄을 없애줌 */
+    text-decoration: none; /* a태그의 밑줄을 없애줌 */
 }
 
 /* 모든 이미지에 적용*/
