@@ -1,0 +1,116 @@
+/* 화면 전체 사이즈 및 폰트 설정 */
+body {
+    width: 1440px;
+    height: fit-content;
+    background-color: #000;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/*html에 video section과 video aside를 한번에 묶는 컨테이너 필요!*/
+#video-section-aside {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0px 164px 0px 162px;
+}
+
+/* section 정렬 */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 24px;
+}
+
+/* section의 영상 영역 (동영상, 영상 제목, 기타 정보 포함) */
+#video-player {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+/* 동영상 */
+#main-video {
+    width: 640px;
+    height: 360px;
+}
+
+/* 영상 제목 */
+#video-main-title {
+    /* 폰트 관련 설정(피그마에서 가져옴) */
+    color: white;
+    font-variant-numeric: stacked-fractions;
+    font-feature-settings: 'hlig' on, 'dlig' on;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.18px;
+    /* 동영상과 간격 */
+    margin-top: 23px;
+}
+
+/* 영상 기타 정보(views, 날짜, 좋아요, 싫어요, share, save, ...) */
+#video-info {
+    height: 40px;
+    /* 정렬 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#video-views {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#video-upload-date{
+    margin-left: 4px; /* views와 upload-date 사이의 간격: 실제 화면 보면서 조정 필요함! */
+    margin-right: 91px;
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* like, dislike, save, share의 아이콘 */
+.video-reaction-btn{
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+}
+
+/* like, dislike, save, share의 텍스트 */
+.video-reaction-text{
+    padding: 10px 6px 10px 0px;
+    margin-right: 8px; /* 오른쪽 요소와의 간격 */
+    /* 폰트 설정  */
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 채널 정보, 영상 설명 영역 */
+#video-desc{
+    /* 정렬 */
+    display: flex;
+    flex-direction: column;
+    /* 구분선(테두리로 적용) */
+    border-top: 1px;
+    border-color: #303030;
+}
+
+/* TODO
+1. video-desc 내 요소 설정 (ex. #video-main-profile, #video-main-channel-name 등)
+2. video-comments 요소 설정 (ex. #video-comments-count, #video-dropdown 등)
+3. aside 요소 설정(aside 자체 정렬은 되어있음)
+*/
+
+/* aside 정렬 */
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 24px 24px 24px 0px; /*왼쪽은 section에 padding 있기 때문에 넣지 않음*/
+}
