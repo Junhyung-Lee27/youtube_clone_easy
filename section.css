@@ -1,0 +1,94 @@
+/*************************** top-menu ****************************/
+#top-menu {
+
+  width: 1201px;
+  height: 60px;
+  margin-left: 236px;
+  margin-top: -1.5px;
+  margin-bottom: -1.5px;
+  border : 1px dotted white;
+}
+.top-menu-item > li {
+  float : left;
+  margin-left: 0px;
+  border: 1px dotted red;
+}
+/* html에 top-menu-all id추가해야함 */
+.top-menu-item > #top-menu-all {
+  margin-left: -40px;
+
+  border: 1px dotted white;
+}
+.top-menu-item > li > a {
+  background-color: gray;
+  background-size: auto;
+  border-radius: 7px;
+  border: 1px dotted red;
+}
+
+/****************************** video-container ***********************/
+.video-container {
+  width: 276px;
+  height: 247px;
+  
+  padding-bottom: 0px;
+  margin: px;
+  margin-top: 24px;
+  margin-left: 20px;
+
+
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.video-container {
+  display: flex;
+  float : left;
+  width: 276px;
+  height: 247px;
+  padding-bottom: 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border : 1px dotted red;
+}
+
+/* etc */
+#main-section {
+  border: 1px dotted white;
+}
+
+.video-thumbnail {
+  border: 1px dotted white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 동영상 플레이 시간 */
+.video-time {
+  position: absolute;
+  font-size: 10px;
+  background-color: black;
+  color: #FFF;
+  flex-direction: column;
+  width: 35px;
+  height: 20px;
+  border : 1px dotted white;
+}
+
+.video-profile-container {
+  float: left;
+  width: 48px;
+  padding: 12px 12px 30px 0px;
+  clear:both;
+  margin-left: -1px;
+  border: 1px dotted white;
+}
+.video-profile {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
