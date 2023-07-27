@@ -69,7 +69,8 @@ section {
 /*** video-container ***/
 /* 비디오 컨테이너를 담을 박스의 간격 설정 (home.html에 video-continers 추가 필요!) */
 #video-containers {
-    margin: 24px 0px 0px 24px;
+    width: 100%;
+    margin: 24px 25px 0px 24px;
 }
 
 /* 비디오 컨테이너 설정 */
