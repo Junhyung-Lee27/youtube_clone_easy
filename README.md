@@ -11,10 +11,10 @@
     -   작업파일 : home.html, channel.html
 -   css_1
     -   Home화면의 header(상단바), nav(사이드바) & Video 화면
-    -   작업파일 : header.css, sidebar.css
+    -   작업파일 : header.css, sidebar.css, section.css, channel.css
 -   css_2
     -   Home화면의 section, Channel 화면
-    -   작업파일 : home.css, channel.css, style_1.css(<- 이거는 아무 내용이 없네요?)
+    -   작업파일 : home.css, channel.css
 -   js
     -   js 코드 전체
     -   작업파일 : get_video.js, youtube.js
