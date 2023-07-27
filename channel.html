@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
-
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="sidebar.css">
     <title>Channel</title>
 </head>
 
@@ -36,13 +37,13 @@
         </div>
     </header>
 
-    <!-- 사이드바 : 좌측에 고정 (Home 화면에서 복사해옴) -->
-    <nav>
+    <!-- 좌측에 고정되어있는 사이드바 -->
+    <nav id="home-sidebar">
         <ul id="sidebar-top1">
             <li><img src="./img_siderbar/siderbar_Top/IconHome.png"><a href="#">Home</a></li>
             <li><img src="./img_siderbar/siderbar_Top/IconExplore.png"><a href="#">Explore</a></li>
             <li><img src="./img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="#">Subscriptions</a></li>
-        </ul>
+        </ul> 
         <hr> <!-- 구분선 -->
         <ul id="sidebar-top2">
             <li><img src="./img_siderbar/siderbar_Top2/Icon_Library.png"><a href="#">Library</a></li>
@@ -54,7 +55,7 @@
         </ul>
         <hr> <!-- 구분선 -->
         <ul id="sidebar-subscriptions">
-            <p id="sidebar-title">SUBSCRIPTIONS</p>
+            <p class="sidebar-title">SUBSCRIPTIONS</p>
             <!-- TODO : 사이드바의 인물 사진 다운받아서 넣어야 함! -->
             <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-1.png"><a href="#">James Gouse</a></li>
             <li><img src="./img_siderbar/sidebar_subscriptions/Avatar-2.png"><a href="#">Alan Cooper</a></li>
@@ -67,7 +68,7 @@
         </ul>
         <hr> <!-- 구분선 -->
         <ul id="sidebar_bottom">
-            <p id="sidebar-title">MORE FROM YOUTUBE</p>
+            <p class="sidebar-title">MORE FROM YOUTUBE</p>
             <li><img src="./img_siderbar/sidebar_Bottom/premium.svg"><a href="#">Youtube Premium</a></li>
             <li><img src="./img_siderbar/sidebar_Bottom/gaming.svg"><a href="#">Gaming</a></li>
             <li><img src="./img_siderbar/sidebar_Bottom/live.svg"><a href="#">Live</a></li>
@@ -117,17 +118,21 @@
     <!-- 07.25 여기까지 완료했습니다!(지우고 아래 html 추가 진행) -->
     <!-- section-2 : 대표 영상 및 정보 -->
     <section id="channel-section2"></section>
-
-    <!-- 또 다른 자료들 -->
-    <!-- container가 하나의 영상이 됨 -->
+    <!-- 07.27 js 추가 필요 -->
+    
+    <hr>
     <section id="channel-section3">
+        <div>
+            <span class="playlist-title">동영상</span>
+            <!-- 유튜브 들어가보니 버튼과 텍스트가 묶여 있길래 묶어서 작성 -->
+            <a href="#">
+                <img class="playlist-play-btn" src="./img_channel/Group.png">
+                <span class="playlist-play-all">PLAY ALL</span>
+            </a>
+        </div>
         <div class="container">
-            <div class="card">
-                <img src="#" class="card-img">
-                <div class="card-text">
-                    <p></p>
-                </div>
-            </div>
+            <!-- 07.27 js 추가 필요 -->
+            <!-- 이미지랑 제목 조회수 받아오는 js 필요 -->
         </div>
     </section>
 </body>

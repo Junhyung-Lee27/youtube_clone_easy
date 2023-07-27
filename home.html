@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
+    <link href="
+    https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
+    " rel="stylesheet">
+    <link rel="stylesheet" href="./header.css">
+    <link rel="stylesheet" href="./sidebar.css">
+    <link rel="stylesheet" href="./section.css">
     <title>Home</title>
 </head>
 
@@ -82,34 +87,19 @@
         <!-- Top Menu : 섹션 상단의 네비게이션 바 (가로정렬) -->
         <nav id="top-menu">
             <ul class="top-menu-item">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Item</a></li>
-                <li><a href="#">Item</a></li>
-                <li><a href="#">Item</a></li>
-                <li><a href="#">Item</a></li>
+                <li><a href="#">전체</a></li>
+                <li><a href="#">토끼</a></li>
+                <li><a href="#">양자역학</a></li>
+                <li><a href="#">AI</a></li>
+                <li><a href="#">로봇</a></li>
             </ul>
         </nav>
 
         <!-- 영상데이터들이 나열 되는 곳 : 채널html처럼 영상 하나하나씩 컨테이너에 집어넣어 정렬할 예정 -->
         <!-- 비디오컨테이너 (썸네일, 영상제목, 채널명, views 포함) -->
-        <div class="video-container">
-            <div class="video-thumbnail">
-                <img src="./img_main_section/video-thumbnail.png">
-                <p class="video-time">23:45</p>
-            </div>
-            <div>
-                <img class="video-profile" src="">
-            </div>
-            <div>
-                <div>
-                    <h3 class="video-title">영상의 제목입니다. 영상의 제목입니다. 영상의 제목입니다.</h3>
-                </div>
-                <div>
-                    <h4 class="channel-name">채널이름이름</h4>
-                    <h5 class="video-sub-info">15K Views. 1week ago</h5>
-                </div>
-            </div>
+        <div class="video-container" id="video-container">
         </div>
+        <script src="test.js"></script>
     </section>
 </body>
 
