@@ -1,0 +1,64 @@
+/* 사이드바 전체 */
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 240px;
+    height: fit-content;
+    background-color: #212121;
+}
+
+/* 모든 ul에 적용 (sidebar-top1, top2, subscriptions, bottom 등) */
+#home-sidebar ul {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0px;
+}
+
+/* 모든 li에 적용 */
+#home-sidebar li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 8px 8px 24px;
+}
+
+/* li에 hover 하면 배경색 변경됨 */
+#home-sidebar li:hover {
+    background-color: #303030;
+}
+
+/* 모든 a태그에 적용 */
+#home-sidebar a {
+    width: 144px;
+    margin-left: 24px;
+    color: white;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none; /* a태그의 밑줄을 없애줌 */
+}
+
+/* 모든 이미지에 적용*/
+#home-sidebar img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+/* 모든 타이틀에 적용 */
+#home-sidebar .sidebar-title {
+    padding: 8px 24px;
+    color: #AAAAAA;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+hr {
+    background-color: #303030;
+    width: 224px;
+    height: 1px;
+    border: none;
+}
