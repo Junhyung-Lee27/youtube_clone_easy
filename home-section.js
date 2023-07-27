@@ -84,6 +84,21 @@ function displayVideoInfo(videoInfo) {
 
   const homeSection = document.getElementById("home-section");
   homeSection.appendChild(videoContainer);
+
+  
+  
+  //클릭이벤트 만드는중...
+  //HTML에 작성되지 않는 구조라 displayVideoInfo함수에서
+  //HTML의 구조가 생성되고 난 후 사용되야 되기 때문에 함수
+  //안에 이벤트를 넣었습니다.
+  // 영상 클릭시 video로 넘어가는 이벤트
+  const imgBtn = document.querySelector(".video-container");
+  imgBtn.addEventListener('click', function(event) {
+    
+    //문제점1: 한번 누르면 20번씩 작동되고...
+    //문제점2: 첫번쨰 영상에만 이벤트가 들어감...
+    console.log("확인");
+  });
 }
 
 // 업로드 날짜 포맷 함수
@@ -109,6 +124,6 @@ window.onload = function () {
 };
 
 
-// 영상 클릭시 video로 넘어가는 이벤트
-const imgBtn = document.querySelector(".video-container");
-console.log(imgBtn);
+
+
+
