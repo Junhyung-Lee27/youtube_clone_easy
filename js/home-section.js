@@ -19,7 +19,7 @@ function getVideoList() {
 
           // videoid 들을 배열에 저장
           const videoIds = [];
-          for (let i = 0; i < response.length - 1; i++) {
+          for (let i = 0; i < response.length; i++) {
               videoIds.push(response[i].video_id);
           }
 
