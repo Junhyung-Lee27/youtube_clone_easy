@@ -49,7 +49,7 @@
                 <li><img src="../src/img_siderbar/siderbar_Top/IconHome.png"><a href="#">Home</a></li>
                 <li><img src="../src/img_siderbar/siderbar_Top/IconExplore.png"><a href="#">Explore</a></li>
                 <li><img src="../src/img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="#">Subscriptions</a></li>
-            </ul>
+            </ul> 
             <hr> <!-- 구분선 -->
             <ul id="sidebar-top2">
                 <li><img src="../src/img_siderbar/siderbar_Top2/Icon_Library.png"><a href="#">Library</a></li>
@@ -67,12 +67,10 @@
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-2.png"><a href="#">Alan Cooper</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-3.png"><a href="#">Marcus Levin</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-4.png"><a href="#">Alexis Sears</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="#">Jesica Lambert</a>
-                </li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="#">Jesica Lambert</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-6.png"><a href="#">Anna White</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-7.png"><a href="#">Skylar Dias</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Icon_ShowMore.svg"><a href="#">Show 13 More</a>
-                </li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Icon_ShowMore.svg"><a href="#">Show 13 More</a></li>
             </ul>
             <hr> <!-- 구분선 -->
             <ul id="sidebar_bottom">
@@ -98,31 +96,14 @@
 
             <!-- 영상데이터들이 나열 되는 곳 : 채널html처럼 영상 하나하나씩 컨테이너에 집어넣어 정렬할 예정 -->
             <!-- 비디오컨테이너 (썸네일, 영상제목, 채널명, views 포함) -->
-            <!-- css 작업 위해 임시로 넣어놓음 -> js 작업 완료 후 삭제하여도 됨! -->
-            <div class="video-containers" id="video-containers">
-                <div class="video-container" id="video-container">
-                    <div class="video-thumbnail">
-                        <img src="../src/img_main_section/video-thumbnail.png">
-                        <p class="video-time">23:45</p>
-                    </div>
-                    <div>
-                        <img class="video-profile" src="../src/img_siderbar/sidebar_subscriptions/Avatar-1.png">
-                    </div>
-                    <div>
-                        <div>
-                            <h3 class="video-title">영상의 제목입니다. 영상의 제목입니다. 영상의 제목입니다.</h3>
-                        </div>
-                        <div>
-                            <h4 class="channel-name">채널이름이름</h4>
-                            <h5 class="video-sub-info">15K Views. 1week ago</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+           
+            <div id="home-section"></div>
+            
+            
         </section>
     </div>
+<!-- js는 section에 영상 불러오는 것 로드 (이름 변경 필요) -->
+    <script src="../js/home-section.js"></script>
 </body>
-<script src="../js/home-section.js"></script>
 
 </html>
