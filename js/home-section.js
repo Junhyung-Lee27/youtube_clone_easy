@@ -44,45 +44,67 @@ function getVideoInfo(video_id) {
 
 // 비디오 정보를 화면에 표시하는 함수
 function displayVideoInfo(videoInfo) {
-    const videoContainers = document.getElementById("video-containers");
-
+    // 비디오 컨테이너 정의
     const videoContainer = document.createElement("div");
     videoContainer.classList.add("video-container");
 
-    //비디오 썸네일
-    const videoThumbnail = document.createElement("img");
+    // 하위 컨테이너
+    const videoThumbnail = document.createElement("div");
     videoThumbnail.classList.add("video-thumbnail");
-    videoThumbnail.src = videoInfo.image_link;
-    const videoTime = document.createElement("p");
-    videoTime.classList.add("video-time");
     videoContainer.appendChild(videoThumbnail);
 
-    //비디오 프로필
+    const videoProfileContainer = document.createElement("div");
+    videoContainer.appendChild(videoProfileContainer);
+
+    const videoInfoContainer = document.createElement("div");
+    videoContainer.appendChild(videoInfoContainer);
+
+    //비디오 썸네일
+    const videoThumbnailImage = document.createElement("img");
+    videoThumbnailImage.src = videoInfo.image_link;
+    videoThumbnail.appendChild(videoThumbnailImage);
+
+    //비디오 타임 (시간 정보가 없음 -> 영상에서 시간 추출하는 방법 있을지?)
+    const videoTime = document.createElement("p");
+    videoTime.classList.add("video-time");
+    videoTime.textContent = "23:45";
+    videoThumbnail.appendChild(videoTime);
+
+    //비디오 프로필 (이미지는 getChannleInfo에서 가져와서 교체해줘야함)
     const videoProfile = document.createElement("img");
     videoProfile.src = "../src/img_header/User-Avatar.png";
     videoProfile.classList.add("video-profile");
-    videoContainer.appendChild(videoProfile);
+    videoProfileContainer.appendChild(videoProfile);
 
-    //비디오 타이틀
-    const videoTitle = document.createElement("div");
-    videoTitle.classList.add("video-title");
+    //비디오 타이틀, 채널이름, 서브 정보 container
+    const videoTitleContainer = document.createElement("div");
+    videoInfoContainer.appendChild(videoTitleContainer);
+
+    // 비디오 타이틀
+    const videoTitle = document.createElement("h3");
     videoTitle.textContent = videoInfo.video_title;
-    videoContainer.appendChild(videoTitle);
+    videoTitle.classList.add("video-title");
+    videoTitleContainer.appendChild(videoTitle);
 
-    //채널 이름
-    const channelName = document.createElement("div");
+    //채널 이름, 서브 정보 container
+    const videoNameSubinfoContainer = document.createElement("div");
+    videoInfoContainer.appendChild(videoNameSubinfoContainer);
+
+    // 채널 이름
+    const channelName = document.createElement("h4");
     channelName.classList.add("channel-name");
     channelName.textContent = videoInfo.video_channel;
-    videoContainer.appendChild(channelName);
+    videoNameSubinfoContainer.appendChild(channelName);
 
-    //비디오 서브 인포(조회수, 날짜)
-    const videoSubInfo = document.createElement("div");
+    // 서브 인포(조회수, 날짜)
+    const videoSubInfo = document.createElement("h5");
     videoSubInfo.classList.add("video-sub-info");
     videoSubInfo.textContent = `${videoInfo.views} Views | ${formatDate(videoInfo.upload_date)}`;
-    videoContainer.appendChild(videoSubInfo);
+    videoNameSubinfoContainer.appendChild(videoSubInfo);
 
-    const homeSection = document.getElementById("home-section");
-    homeSection.appendChild(videoContainer);
+    // videoContainers에 videoContainer 붙이기
+    const videoContainers = document.getElementById("video-containers");
+    videoContainers.appendChild(videoContainer);
 
     //클릭이벤트
     videoThumbnail.addEventListener("click", function () {
