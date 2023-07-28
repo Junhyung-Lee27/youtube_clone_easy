@@ -8,126 +8,115 @@
 
 // 비디오 리스트에서 비디오 id값을 받아오는 함수
 function getVideoList() {
-  const request = new XMLHttpRequest();
-  const url = 'http://oreumi.appspot.com/video/getVideoList';
-  request.open('GET', url, true);
+    const request = new XMLHttpRequest();
+    const url = "http://oreumi.appspot.com/video/getVideoList";
+    request.open("GET", url, true);
 
-  request.onreadystatechange = function () {
-      if (request.readyState === 4 && request.status === 200) {
-          // 파싱
-          const response = JSON.parse(request.responseText);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            // 파싱
+            const response = JSON.parse(request.responseText);
 
-          // videoid 들을 배열에 저장
-          const videoIds = [];
-          for (let i = 0; i < response.length; i++) {
-              videoIds.push(response[i].video_id);
-          }
+            // videoid 들을 배열에 저장
+            const videoIds = [];
+            for (let i = 0; i < response.length; i++) {
+                videoIds.push(response[i].video_id);
+            }
 
-          // 비디오 정보를 받아와서 표시하는 함수 호출
-          videoIds.forEach((videoId) => {
-              getVideoInfo(videoId);
-          });
-      }
-  };
-  request.send();
+            // 비디오 정보를 받아와서 표시하는 함수 호출
+            videoIds.forEach((videoId) => {
+                getVideoInfo(videoId);
+            });
+        }
+    };
+    request.send();
 }
 
 // 비디오 id 값들을 사용해 video 정보 받아오는 함수
 function getVideoInfo(video_id) {
-  fetch(`http://oreumi.appspot.com/video/getVideoInfo?video_id=${video_id}`)
-      .then((response) => response.json())
-      .then((data) => {
-          // video 정보를 표시하는 함수 호출
-          displayVideoInfo(data);
-      });
+    fetch(`http://oreumi.appspot.com/video/getVideoInfo?video_id=${video_id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            // video 정보를 표시하는 함수 호출
+            displayVideoInfo(data);
+        });
 }
 
 // 비디오 정보를 화면에 표시하는 함수
 function displayVideoInfo(videoInfo) {
-  const videoContainers = document.getElementById("video-containers");
-  
-  
-  const videoContainer = document.createElement("div");
-  videoContainer.classList.add("video-container");
+    const videoContainers = document.getElementById("video-containers");
 
-  //비디오 썸네일
-  const videoThumbnail = document.createElement("img");
-  videoThumbnail.classList.add("video-thumbnail");
-  videoThumbnail.src = videoInfo.image_link;
-  const videoTime = document.createElement("p")
-  videoTime.classList.add("video-time")
-  videoContainer.appendChild(videoThumbnail);
+    const videoContainer = document.createElement("div");
+    videoContainer.classList.add("video-container");
 
-  //비디오 프로필
-  const videoProfile = document.createElement("img");
-  videoProfile.src = "./img_header/User-Avatar.png"
-  videoProfile.classList.add("video-profile");
-  videoContainer.appendChild(videoProfile);
+    //비디오 썸네일
+    const videoThumbnail = document.createElement("img");
+    videoThumbnail.classList.add("video-thumbnail");
+    videoThumbnail.src = videoInfo.image_link;
+    const videoTime = document.createElement("p");
+    videoTime.classList.add("video-time");
+    videoContainer.appendChild(videoThumbnail);
 
-  //비디오 타이틀
-  const videoTitle = document.createElement("div");
-  videoTitle.classList.add("video-title");
-  videoTitle.textContent = videoInfo.video_title;
-  videoContainer.appendChild(videoTitle);
+    //비디오 프로필
+    const videoProfile = document.createElement("img");
+    videoProfile.src = "../src/img_header/User-Avatar.png";
+    videoProfile.classList.add("video-profile");
+    videoContainer.appendChild(videoProfile);
 
-  //채널 이름
-  const channelName = document.createElement("div");
-  channelName.classList.add("channel-name")
-  channelName.textContent = videoInfo.video_channel;
-  videoContainer.appendChild(channelName)
+    //비디오 타이틀
+    const videoTitle = document.createElement("div");
+    videoTitle.classList.add("video-title");
+    videoTitle.textContent = videoInfo.video_title;
+    videoContainer.appendChild(videoTitle);
 
-  //비디오 서브 인포(조회수, 날짜)
-  const videoSubInfo = document.createElement("div");
-  videoSubInfo.classList.add("video-sub-info");
-  videoSubInfo.textContent = `${videoInfo.views} Views | ${formatDate(videoInfo.upload_date)}`;
-  videoContainer.appendChild(videoSubInfo);
+    //채널 이름
+    const channelName = document.createElement("div");
+    channelName.classList.add("channel-name");
+    channelName.textContent = videoInfo.video_channel;
+    videoContainer.appendChild(channelName);
 
-  const homeSection = document.getElementById("home-section");
-  homeSection.appendChild(videoContainer);
+    //비디오 서브 인포(조회수, 날짜)
+    const videoSubInfo = document.createElement("div");
+    videoSubInfo.classList.add("video-sub-info");
+    videoSubInfo.textContent = `${videoInfo.views} Views | ${formatDate(videoInfo.upload_date)}`;
+    videoContainer.appendChild(videoSubInfo);
 
-  
-  
-  //클릭이벤트
-  videoThumbnail.addEventListener('click', function () {
-    window.location.href = `video.html?video_id=${videoInfo.video_id}`;
-  });
-  
-  // 클릭 이벤트 추가 : 제목 클릭 시 video.html로 이동
-  videoTitle.addEventListener('click', function () {
-    window.location.href = `video.html?video_id=${videoInfo.video_id}`;
-  });
-  
-  videoProfile.addEventListener('click', function () {
-    window.location.href = channel.html;
-  });
+    const homeSection = document.getElementById("home-section");
+    homeSection.appendChild(videoContainer);
+
+    //클릭이벤트
+    videoThumbnail.addEventListener("click", function () {
+        window.location.href = `video.html?video_id=${videoInfo.video_id}`;
+    });
+
+    // 클릭 이벤트 추가 : 제목 클릭 시 video.html로 이동
+    videoTitle.addEventListener("click", function () {
+        window.location.href = `video.html?video_id=${videoInfo.video_id}`;
+    });
+
+    videoProfile.addEventListener("click", function () {
+        window.location.href = channel.html;
+    });
 }
 
 // 업로드 날짜 포맷 함수
 function formatDate(uploadedTime) {
-  const uploaded = new Date(uploadedTime);
-  const now = new Date()
+    const uploaded = new Date(uploadedTime);
+    const now = new Date();
 
-  // 분으로 바꿈
-  const changeMinute = {
-      year: 518400,
-      month: 43200,
-      week: 10080,
-      day: 1440,
-      hour: 60,
-  }
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  return uploaded.toLocaleDateString("en-US", options);
+    // 분으로 바꿈
+    const changeMinute = {
+        year: 518400,
+        month: 43200,
+        week: 10080,
+        day: 1440,
+        hour: 60,
+    };
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return uploaded.toLocaleDateString("en-US", options);
 }
 
 // 화면 로딩이 완료된 후 비디오 목록 표시
 window.onload = function () {
-  getVideoList();
+    getVideoList();
 };
-
-
-
-
-
-
-
-
