@@ -1,3 +1,5 @@
+/* 사이드바 화면 끝까지 있도록 설정 */
+
 /* 사이드바 전체 */
 nav {
     display: flex;
@@ -5,9 +7,8 @@ nav {
     justify-content: flex-start;
     align-items: flex-start;
     width: 240px;
-    height: 1800px;
-    
     background-color: #212121;
+    /* position: fixed; 스크롤해도 고정 */
 }
 
 /* 모든 ul에 적용 (sidebar-top1, top2, subscriptions, bottom 등) */
