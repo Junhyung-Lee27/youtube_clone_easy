@@ -1,0 +1,226 @@
+/* channel.html에 추가 필요한 태그 */
+/* 사이드바와 섹션1, 2, 3, nav를 묶는 div 컨테이너(id = "sidebar-sections") */
+/* 섹션1, 2, 3, nav를 묶는 div 컨테이너(id = "sections") */
+
+/* 화면 전체 사이즈 및 폰트 설정 */
+body {
+    width: 100%;
+    height: fit-content;
+    background-color: #000;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* sidebar와 sections(section1, 2, 3, nav) 좌우 정렬 */
+#sidebar-sections {
+    display: flex;
+    flex-direction: row;
+}
+
+/* section1, 2, 3, nav 정렬 */
+#sections {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* section1 : 채널 커버 이미지, 타이틀 영역  */
+#channel-section-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 채널 커버 이미지 */
+#channel-cover>img {
+    width: 100%;
+    height: 192px;
+    object-fit: cover;
+    /* 이미지를 컨테이너에 맞춰 자름 */
+}
+
+/* 채널 타이틀 영역 */
+#channel-title {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #181818;
+    padding: 0px 65px 0px 65px;
+    margin-top: -4px;
+    /* 이유는 모르겠지만 커버 이미지와 간격이 있어서 임의 조정함 */
+}
+
+/* 채널 프로필 이미지, 채널명, 구독자수 */
+#channel-profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 247px;
+    height: 80px;
+}
+
+/* 채널 프로필 이미지 사이즈 및 간격 조정 */
+#channel-profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 24px;
+}
+
+/* 채널명 폰트 설정 */
+#channel-name {
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+/* 구독자수 폰트 설정 */
+#channel-subscribers {
+    color: #AAA;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* SUBSCRIBES 버튼 설정 */
+.subscribe-btn>button {
+    margin: 22px 4px;
+    padding: 10px 16px;
+    background-color: #C00;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+    border: none;
+}
+
+/* channel-toolbar */
+#channel-toolbar {
+    /* 사이즈 */
+    width: inherit;
+    height: 48px;
+    /* 정렬 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* channel-toolbar 내 ul 요소 */
+#channel-toolbar>ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+    padding-left: 65px;
+}
+
+/* ul 내 a 태그 설정 */
+#channel-toolbar a {
+    color: #AAA;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/* 검색(돋보기 아이콘) */
+#channel-toolbar-search-icon {
+    width: 24px;
+    height: 24px;
+    padding: 12px 8px;
+}
+
+/* 검색 실행버튼 (> 아이콘) */
+#channel-toolbar-search-btn {
+    width: 24px;
+    height: 24px;
+    padding: 12px;
+    margin-right: 69px;
+}
+
+/* 채널 section-2 */
+#channel-section2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* 요소를 위로 정렬 */
+    height: 286px;
+}
+
+/* 채널화면의 메인 영상 */
+#channel-main-video {
+    width: 424px;
+    height: 238px;
+    padding: 24px 24px 24px 65px;
+}
+
+/* 메인 영상 우측의 제목, views, upload_date, desc */
+#channel-section2>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* 요소를 좌로 정렬 */
+    padding-top: 24px;
+    width: 400px;
+    height: 238px;
+}
+
+/* 메인 영상 우측의 제목 */
+#channel-video-tile {
+    color: #FFF;
+    font-variant-numeric: stacked-fractions;
+    /*피그마에서 가져온 설정*/
+    font-feature-settings: 'hlig' on, 'dlig' on;
+    /*피그마에서 가져온 설정*/
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14px;
+}
+
+/* 메인 영상 우측의 views, upload_date */
+#channel-video-tile {
+    color: #AAA;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* 메인 영상 우측의 desc */
+#channel-video-desc {
+    color: #FFF;
+    font-variant-numeric: stacked-fractions;
+    /*피그마에서 가져온 설정*/
+    font-feature-settings: 'hlig' on, 'dlig' on;
+    /*피그마에서 가져온 설정*/
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+}
+
+/* section3 (playlist-title, play-btn, play-all) + (container) */
+#channel-section-3 {
+    display: flex;
+    flex-direction: column;
+    height: 288px;
+}
+
+/* playlist-title, play-btn, play-all 묶음(div) */
+#channel-section-3>div:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    height: 44px;
+}
+
+/* TODO */
+/* channel-section-2는 html 만들어지는대로 css 적용해서 잘 보여지는지 확인 필요 */
+/* channel-section-3는 각 요소 정렬, 폰트 설정, 비디오 컨테이너 등 작업할게 많음.. ㅜ */
+
+/* 구분선 */
+hr {
+    background-color: #303030;
+    width: 89%;
+    /* 계산해보니 89% 나옴.. */
+    height: 1px;
+    border: none;
+}
