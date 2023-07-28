@@ -5,7 +5,8 @@ nav {
     justify-content: flex-start;
     align-items: flex-start;
     width: 240px;
-    height: fit-content;
+    height: 1500px;
+    
     background-color: #212121;
 }
 

@@ -1,28 +1,30 @@
 /* 화면 전체 사이즈 및 폰트 설정 */
 body {
-    width: 100%;
-    height: fit-content;
-    background-color: #000;
-    font-family: 'Roboto', Arial, sans-serif;
+  width: 100%;
+  height: fit-content;
+  background-color: #000;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 /* sidebar와 section 정렬 (home.html에서 추가 필요!) */
 #sidebar-section {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 /* section 너비 설정 */
 section {
-    width: 100%;
+  width: 100%;
 }
 
 /*** top-menu ***/
 /* top-menu 전체 사이즈 설정 */
 #top-menu {
-    width: inherit;
-    height: 56px;
-    border-bottom: 2px solid #303030;
+  width: 110%;
+  height: 56px;
+  border-bottom: 2px solid #303030;
+  margin-left: -24px;
+  margin-top: -24px;
 }
 
 /* top-menu 가로 정렬 */
@@ -35,38 +37,45 @@ section {
 
 /* top-menu 리스트 사이즈 설정 */
 .top-menu-item li {
-    padding: 8px 12px;
-    border-radius: 32px;
-    border: 0.3px solid #AAA;
-    background: #303030;
-    margin: 12px 12px 12px 0px;
+  padding: 8px 12px;
+  border-radius: 32px;
+  border: 0.3px solid #AAA;
+  background: #303030;
+  margin: 12px 12px 12px 0px;
 }
 
 /* top-menu li 아이템에 마우스 호버하면 색상 변경 */
 .top-menu-item li:hover {
-    background-color: #535353;
+  background-color: #535353;
 }
 
 /* top-menu의 첫번째 아이템(all) 별도 설정 */
 .top-menu-item li:nth-child(1) {
-    margin: 12px 12px 12px 24px;
-    background-color: #FFF;
+  margin: 12px 12px 12px 24px;
+  background-color: #FFF;
 }
 
 /* top-menu 내 a 태그 설정 */
 .top-menu-item a {
-    color: #FFF;
-    font-size: 14px;
-    font-weight: 400;
-    text-decoration: none;
-    /* a태그의 밑줄을 없애줌 */
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none; /* a태그의 밑줄을 없애줌 */
 }
 
 /* 첫번째 아이템('all') 별도 설정 */
 .top-menu-item li:nth-child(1) a {
-    color: #030303;
+  color: #030303;
 }
 
+/*** video-container ***/
+/* 비디오 컨테이너를 담을 박스의 간격 설정 (home.html에 video-continers 추가 필요!) */
+#home-section {
+  margin: 24px 0px 0px 24px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
 /*** video-container ***/
 /* 비디오 컨테이너를 담을 박스의 간격 설정 (home.html에 video-continers 추가 필요!) */
 #video-containers {
@@ -74,22 +83,21 @@ section {
     margin: 24px 25px 0px 24px;
 }
 
+/* section 너비 설정 */
+
+/* 비디오 컨테이너 설정 */
 /* 비디오 컨테이너 설정 */
 .video-container {
-    width: 276px;
-    height: 247px;
-    /* 컨테이너 마진 */
-    margin: 0px 16px 40px 0px;
-    /* 임시 폰트 색상 */
-    color: white;
+ max-width: 300px;
+ padding: 10px;
 }
 
 /* 동영상 썸네일 이미지 설정 */
 .video-thumbnail {
-    width: 276px;
-    height: 155px;
-    position: relative;
-    /* 썸네일 위에 시간 요소를 겹치기 위해 필요함! */
+  width: 276px;
+  height: 155px;
+  position: relative;
+  /* 썸네일 위에 시간 요소를 겹치기 위해 필요함! */
 }
 
 /* 동영상 플레이 시간 */
@@ -110,34 +118,28 @@ section {
 }
 
 /* video-profile 왼쪽 정렬 */
-.video-container>div:nth-child(2) {
-    float: left;
+.video-container > div:nth-child(2) {
+  float: left;
 }
 
 .video-profile {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    margin: 12px 12px 26px 0px;
+    padding-top: 8px;
+    float: left;
+    /* 왼쪽으로 정렬하여 같은 라인에 나오게 함 */
 }
-
-.video-container>div:nth-child(3) {
-    display: block;
-    width: 204px;
-    height: 74px;
-    padding-top: 12px;
-}
-
+/* video-title을 inline-block으로 설정하여 같은 라인에 나오도록 함 */
 .video-title {
+    display: inline-block;
     color: #FFF;
     font-size: 12px;
     font-weight: 700;
-
-    width: 204px;
-    height: 28px;
-    margin-bottom: 6px;
-    padding-left: 48px;
-    /* border: 1px solid white; */
+    padding-top: 10px;
+    margin-left: 10px;
+    /* 프로필 사진과의 간격을 설정 (원하는 크기로 조정 가능) */
+    padding-bottom: 8px;
 }
 
 .channel-name,
