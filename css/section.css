@@ -1,7 +1,6 @@
 /* 화면 전체 사이즈 및 폰트 설정 */
 body {
     width: 100%;
-    height: fit-content;
     background-color: #000;
     font-family: 'Roboto', Arial, sans-serif;
 }
@@ -58,7 +57,8 @@ section {
     color: #FFF;
     font-size: 14px;
     font-weight: 400;
-    text-decoration: none; /* a태그의 밑줄을 없애줌 */
+    text-decoration: none;
+    /* a태그의 밑줄을 없애줌 */
 }
 
 /* 첫번째 아이템('all') 별도 설정 */
@@ -69,18 +69,17 @@ section {
 /*** video-container ***/
 /* 비디오 컨테이너를 담을 박스의 간격 설정 (home.html에 video-continers 추가 필요!) */
 #video-containers {
-    width: 100%;
-    margin: 24px 25px 0px 24px;
+    width: auto;
+    margin-left: 8px;
 }
 
 /* 비디오 컨테이너 설정 */
 .video-container {
+    display: inline-block;
     width: 276px;
     height: 247px;
     /* 컨테이너 마진 */
-    margin: 0px 16px 40px 0px;
-    /* 임시 폰트 색상 */
-    color: white;
+    margin: 24px 0px 10px 16px;
 }
 
 /* 동영상 썸네일 이미지 설정 */
@@ -89,6 +88,11 @@ section {
     height: 155px;
     position: relative;
     /* 썸네일 위에 시간 요소를 겹치기 위해 필요함! */
+}
+
+.video-thumbnail>img {
+    width: inherit;
+    height: inherit;
 }
 
 /* 동영상 플레이 시간 */
@@ -131,21 +135,20 @@ section {
     color: #FFF;
     font-size: 12px;
     font-weight: 700;
-
     width: 204px;
-    height: 28px;
+    height: auto;
     margin-bottom: 6px;
     padding-left: 48px;
-    /* border: 1px solid white; */
 }
 
-.channel-name, .video-sub-info {
+.channel-name,
+.video-sub-info {
     width: 204px;
     height: 14px;
     color: #AAA;
     font-size: 12px;
     font-weight: 400;
     padding-left: 48px;
-    /* border: 1px solid white; */
+    /* 텍스트 첫 글자를 대문자로 */
+    text-transform: capitalize;
 }
-
