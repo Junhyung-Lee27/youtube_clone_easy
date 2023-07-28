@@ -98,6 +98,10 @@ section {
   position: relative;
   /* 썸네일 위에 시간 요소를 겹치기 위해 필요함! */
 }
+
+.video-thumbnail:hover {
+  cursor: pointer;
+}
 /* 동영상 플레이 시간 */
 .video-time {
   position: absolute;
@@ -122,6 +126,11 @@ section {
     float: left;
     /* 왼쪽으로 정렬하여 같은 라인에 나오게 함 */
 }
+
+.video-profile:hover {
+  cursor: pointer;
+}
+
 /* video-title을 inline-block으로 설정하여 같은 라인에 나오도록 함 */
 .video-title {
     display: inline-block;
@@ -132,6 +141,10 @@ section {
     margin-left: 10px;
     /* 프로필 사진과의 간격을 설정 (원하는 크기로 조정 가능) */
     padding-bottom: 8px;
+}
+
+.video-title:hover {
+  cursor: pointer;
 }
 
 .channel-name,
