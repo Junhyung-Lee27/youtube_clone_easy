@@ -1,7 +1,7 @@
 /* 사이드바 화면 끝까지 있도록 설정 */
 
 /* 사이드바 전체 */
-nav {
+#home-sidebar {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -12,7 +12,8 @@ nav {
     /* position: fixed; 위치 고정 */
     position: fixed;
     top: 56px; /* 헤더 높이만큼 아래로 이동 */
-    overflow-y: auto; /* y 방향 넘치는 만큼 스크롤 가능 */
+    overflow-y: scroll; /* y 방향 넘치는 만큼 스크롤 가능 */
+    overflow-x: hidden;
 }
 
 /* 모든 ul에 적용 (sidebar-top1, top2, subscriptions, bottom 등) */
@@ -21,7 +22,6 @@ nav {
     flex-direction: column;
     padding: 12px 0px;
 }
-
 
 /* 모든 li에 적용 */
 #home-sidebar li {
@@ -64,6 +64,7 @@ nav {
     font-weight: 700;
 }
 
+/* footer 스타일 */
 #sidebar-footer {
     display: flex;
     flex-direction: column;
@@ -104,9 +105,21 @@ nav {
     font-weight: 700;
 }
 
+/* 구분선 */
 hr {
-    background-color: #303030;
-    width: 224px;
-    height: 1px;
-    border: none;
+    /* background-color: #303030; */
+    width: 222px;
+    border: 1px solid #303030;
+    margin: initial;
 }
+
+/* 사이드바 스크롤 스타일 */
+  #home-sidebar::-webkit-scrollbar {
+      width: 4px;
+  }
+  #home-sidebar::-webkit-scrollbar-thumb {
+      background-color: #303030;
+  }
+  #home-sidebar::-webkit-scrollbar-track {
+      background-color: #212121;
+  }

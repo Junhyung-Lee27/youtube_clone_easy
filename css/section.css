@@ -22,9 +22,11 @@ body {
 /*** top-menu ***/
 /* top-menu 전체 사이즈 설정 */
 #top-menu {
-    width: inherit;
+    width: 100%;
     height: 56px;
+    background-color: #212121;
     border-bottom: 2px solid #303030;
+    position: fixed;
     z-index: 1;
 }
 
@@ -34,8 +36,9 @@ body {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    width: inherit;
+    height: 56px;
 }
-
 
 /* top-menu 리스트 사이즈 설정 */
 .top-menu-item li {
@@ -156,6 +159,9 @@ body {
     font-size: 12px;
     font-weight: 400;
     padding-left: 48px;
-    /* 텍스트 첫 글자를 대문자로 */
+}
+
+/* 텍스트 첫 글자를 대문자로 */
+.channel-name {
     text-transform: capitalize;
 }
