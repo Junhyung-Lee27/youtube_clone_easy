@@ -99,7 +99,9 @@ function displayVideoInfo(videoInfo) {
     // 서브 인포(조회수, 날짜)
     const videoSubInfo = document.createElement("h5");
     videoSubInfo.classList.add("video-sub-info");
-    videoSubInfo.textContent = `${videoInfo.views} Views | ${formatDate(videoInfo.upload_date)}`;
+    videoSubInfo.textContent = `${formatViews(videoInfo.views)} · ${formatDate(
+        videoInfo.upload_date
+    )}`;
     videoNameSubinfoContainer.appendChild(videoSubInfo);
 
     // videoContainers에 videoContainer 붙이기
@@ -121,21 +123,55 @@ function displayVideoInfo(videoInfo) {
     });
 }
 
-// 업로드 날짜 포맷 함수
-function formatDate(uploadedTime) {
-    const uploaded = new Date(uploadedTime);
-    const now = new Date();
+function formatDate(dateStr) {
+    // 입력된 날짜 문자열을 파싱하여 Date 객체를 생성
+    function parseDate(dateStr) {
+        const parts = dateStr.split("/");
+        // parts[0]은 년도, parts[1]은 월, parts[2]는 일
+        return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
 
-    // 분으로 바꿈
-    const changeMinute = {
-        year: 518400,
-        month: 43200,
-        week: 10080,
-        day: 1440,
-        hour: 60,
-    };
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return uploaded.toLocaleDateString("en-US", options);
+    // 두 날짜 간의 차이를 계산
+    function calculateDifference(currentDate, pastDate) {
+        const diffMilliseconds = currentDate - pastDate;
+        const diffSeconds = diffMilliseconds / 1000;
+        const diffMinutes = diffSeconds / 60;
+        const diffHours = diffMinutes / 60;
+        const diffDays = diffHours / 24;
+        const diffWeeks = diffDays / 7;
+        const diffMonths = diffDays / 30.44; // 평균적으로 한 달은 30.44일로 계산
+
+        if (diffMonths >= 1) {
+            return Math.round(diffMonths) + "개월 전";
+        } else if (diffWeeks >= 1) {
+            return Math.round(diffWeeks) + "주 전";
+        } else if (diffDays >= 1) {
+            return Math.round(diffDays) + "일 전";
+        } else if (diffHours >= 1) {
+            return Math.round(diffHours) + "시간 전";
+        } else {
+            return Math.round(diffMinutes) + "분 전";
+        }
+    }
+
+    const pastDate = parseDate(dateStr);
+    const currentDate = new Date();
+    return calculateDifference(currentDate, pastDate);
+}
+
+function formatViews(views) {
+    // 1만 이상
+    if (views >= 10000) {
+        return `조회수 ${Math.round(views / 1000)}만회`;
+    }
+    // 1천 이상
+    else if (views.length >= 4) {
+        return `조회수 ${Math.round(views)}천회`;
+    }
+    // 1천 미만
+    else {
+        return `조회수 ${views}회`;
+    }
 }
 
 // 화면 로딩이 완료된 후 비디오 목록 표시
