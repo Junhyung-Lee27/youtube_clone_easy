@@ -117,7 +117,7 @@ function displayVideoInfo(videoInfo) {
     });
 
     videoProfile.addEventListener("click", function () {
-        window.location.href = channel.html;
+        window.location.href = `channel.html?channel_name=${videoInfo.video_channel}`;
     });
 }
 
