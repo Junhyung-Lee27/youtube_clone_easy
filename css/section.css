@@ -12,8 +12,11 @@ body {
 }
 
 /* section 너비 설정 */
-section {
-    width: 100%;
+#home-section {
+    width: calc(100% - 240px);
+    position: relative;
+    top: 56px;
+    left: 240px;
 }
 
 /*** top-menu ***/
@@ -22,6 +25,7 @@ section {
     width: inherit;
     height: 56px;
     border-bottom: 2px solid #303030;
+    z-index: 1;
 }
 
 /* top-menu 가로 정렬 */
@@ -69,8 +73,10 @@ section {
 /*** video-container ***/
 /* 비디오 컨테이너를 담을 박스의 간격 설정 (home.html에 video-continers 추가 필요!) */
 #video-containers {
-    width: auto;
-    margin-left: 8px;
+    width: calc(100%-8px);
+    padding-left: 8px;
+    position: absolute;
+    top: 58px;
 }
 
 /* 비디오 컨테이너 설정 */
