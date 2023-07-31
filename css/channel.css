@@ -45,6 +45,7 @@ body {
     background-color: #212121;
     padding: 0px 65px 0px 65px;
     margin-top: -4px;
+    margin-left: 200px;
     /* 이유는 모르겠지만 커버 이미지와 간격이 있어서 임의 조정함 */
 }
 
