@@ -125,7 +125,7 @@
                     <div id="channel-profile-container">
                         <img id="channel-profile" src="../src/img_channel/channel_profile.png">
                         <div id="channel-name-subscribers">
-                            <h4 id="channel-name">Marcus Lewin</h4>
+                            <h4 id="channel-name">Marcus Levin</h4>
                             <p id="channel-subscribers">1.2M subscribers</p>
                         </div>
                     </div>
@@ -137,26 +137,26 @@
             <!-- nav : 채널 툴바(channel-toolbars)를 포함하고 있는 영역 -->
             <nav id="channel-toolbar">
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">VIDEOS</a></li>
-                    <li><a href="#">PLAYLISTS</a></li>
-                    <li><a href="#">COMMUNITY</a></li>
-                    <li><a href="#">CHANNELS</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#" class="nav-item selected" data-target="home">HOME</a></li>
+                    <li><a href="#" class="nav-item" data-target="videos">VIDEOS</a></li>
+                    <li><a href="#" class="nav-item" data-target="playlists">PLAYLISTS</a></li>
+                    <li><a href="#" class="nav-item" data-target="community">COMMUNITY</a></li>
+                    <li><a href="#" class="nav-item" data-target="channels">CHANNELS</a></li>
+                    <li><a href="#" class="nav-item" data-target="about">ABOUT</a></li>
                 </ul>
                 <img id="channel-toolbar-search-icon" src="../src/img_channel/search.svg">
                 <img id="channel-toolbar-search-btn" src="../src/img_channel/leftArrow.svg">
             </nav>
-
+            <!-- 07.25 여기까지 완료했습니다! -->
             <!-- section-2 : 대표 영상 및 정보 (.css 작업 위해 추가)-->
             <!-- 이하 html은 js에서 불러옴 -->
 
-            <hr> <!-- 구분선 -->
+            <hr id="channel-hr"> <!-- 구분선 -->
             <section id="channel-section-3">
                 <div>
                     <span class="playlist-title">플레이리스트</span>
                     <!-- 유튜브 들어가보니 버튼과 텍스트가 묶여 있길래 묶어서 작성 -->
-                    <a href="#">
+                    <a href="#" id="playbtn">
                         <img class="playlist-play-btn" src="../src/img_channel/Group.png">
                         <span class="playlist-play-all">PLAY ALL</span>
                     </a>
@@ -168,6 +168,8 @@
             </section>
         </div>
     </div>
+
+    <script src="../js/test.js"></script>
 </body>
 
 </html>
