@@ -7,10 +7,10 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 240px;
+    position:fixed;
     height: calc(100vh - 56px); /* 사이드바 높이 : 전체 vh에서 헤더만큼의 px를 빼줌*/
     background-color: #212121;
     /* position: fixed; 위치 고정 */
-    position: fixed;
     top: 56px; /* 헤더 높이만큼 아래로 이동 */
     overflow-y: scroll; /* y 방향 넘치는 만큼 스크롤 가능 */
     overflow-x: hidden;

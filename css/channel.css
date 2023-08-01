@@ -4,6 +4,7 @@
 
 /* 화면 전체 사이즈 및 폰트 설정 */
 body {
+    display:flex;
     width: 100%;
     height: fit-content;
     background-color: #000;
@@ -13,23 +14,27 @@ body {
 /* sidebar와 sections(section1, 2, 3, nav) 좌우 정렬 */
 #sidebar-sections {
     width: 100%;
-    display: flex;
+    display:flex;
     flex-direction: row;
 }
 
 #sections {
     width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 56px;
+    left: 240px;
 }
 /* section1 : 채널 커버 이미지, 타이틀 영역  */
 #channel-section-1 {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;    
 }
 
 /* 채널 커버 이미지 */
-#channel-cover>img {
+#channel-cover > img {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -44,19 +49,18 @@ body {
     align-items: center;
     background-color: #212121;
     padding: 0px 65px 0px 65px;
-    margin-top: -4px;
-    margin-left: 200px;
+    margin-top: -3px;
     /* 이유는 모르겠지만 커버 이미지와 간격이 있어서 임의 조정함 */
 }
 
 /* 채널 프로필 이미지, 채널명, 구독자수 */
 #channel-profile-container {
     display: flex;
+    align-items: center;
     flex-direction: row;
-    width: 247px;
+    width: 260px;
     height: 80px;
     gap: 30px;
-    margin-right: 75%;
 }
 
 /* 채널 프로필 이미지 사이즈 및 간격 조정 */
@@ -69,12 +73,10 @@ body {
 
 
 /* 채널명 폰트 설정 */
-#channel-name {
-    display: flex;
+#channel-name-subscribers {
     color: #FFF;
     font-size: 24px;
     font-weight: 400;
-    margin-top:10px;
     margin-right: 200px;
     white-space: nowrap;
     
@@ -86,12 +88,14 @@ body {
     color: #AAA;
     font-size: 14px;
     font-weight: 400;
-    
 }
 
 /* SUBSCRIBES 버튼 설정 */
-.subscribe-btn {
-    display: flex;    
+#subscribe-btn-id {
+    display: flex;
+    margin-left: 800px;
+}
+.subscribe-btn { 
     padding: 10px 16px;
     background-color: #C00;
     color: #FFF;
@@ -108,39 +112,51 @@ body {
 /* channel-toolbar */
 #channel-toolbar {
     /* 사이즈 */
-    width: 101.3%;
+    width: 100%;
     height: 48px;
-    margin-left: -30px;
     /* 정렬 */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 /* channel-toolbar 내 ul 요소 */
-#channel-toolbar>ul {
+#channel-toolbar > ul:nth-child(1) {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 60%;
-    padding-left: 65px;
+    width: 100%;
 }
+#channel-toolbar > ul:nth-child(2) {
+    display: flex;
+}
+
 
 /* ul 내 a 태그 설정 */
 #channel-toolbar a {
+    display:flex;
     color: #AAA;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
     padding: 16px 25px 15px 25px;
-    
+}
+#channel-toolbar img {
+    margin-left:65px;
 }
 
-.nav-item.selected {
+.nav-item-selected {
     border-bottom: 1px solid #AAA;
     padding-bottom: 5px;
+    border:1px dotted red;
+    margin-left :69px;
 }
 
 /* 검색(돋보기 아이콘) */
@@ -172,13 +188,18 @@ body {
 }
 
 /* 채널 section-2 */
-#channel-section2 {
+#channel-section-2 {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     /* 요소를 위로 정렬 */
     height: 286px;
+
+    
 }
+/* #channel-section-2 > div:nth-child(1) {
+    border:1px dotted yellow;
+} */
 
 /* 채널화면의 메인 영상 */
 #channel-main-video {
@@ -188,19 +209,32 @@ body {
 }
 
 /* 메인 영상 우측의 제목, views, upload_date, desc */
-#channel-section2>div:nth-child(2) {
+
+#channel-section-2 > div:nth-child(1) {
+    width: 424px;
+    height: 238px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border:1px dotted yellow;
+
+    margin-left: 65px;
+    margin-top: 24px;
+}
+#channel-section-2 > div:nth-child(2) {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    /* 요소를 좌로 정렬 */
-    padding-top: 24px;
+    
     width: 400px;
     height: 238px;
+
+    margin-top: 24px;
+    margin-left: 24px;
 }
 
 /* 메인 영상 우측의 제목 */
-#channel-video-tile {
+#channel-section-2-video-title > p:nth-child(1) {
     color: #FFF;
     font-variant-numeric: stacked-fractions;
     /*피그마에서 가져온 설정*/
@@ -209,17 +243,24 @@ body {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.14px;
+    width: 400px;
+    height: 20px;
+    padding: 0px 0px 20px 0px;
+    gap: 10px;
 }
 
 /* 메인 영상 우측의 views, upload_date */
-#channel-video-tile {
+#channel-section-2-video-time > p:nth-child(1) {
     color: #AAA;
     font-size: 13px;
     font-weight: 700;
+
+    width:200px;
+    height: 34px;
 }
 
 /* 메인 영상 우측의 desc */
-#channel-video-desc {
+#channel-section-2-video-descriptions {
     color: #FFF;
     font-variant-numeric: stacked-fractions;
     /*피그마에서 가져온 설정*/
@@ -228,6 +269,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.14px;
+    width: 400px;
 }
 
 /* section3 (playlist-title, play-btn, play-all) + (container) */
