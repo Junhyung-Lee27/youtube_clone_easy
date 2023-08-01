@@ -1,54 +1,44 @@
 /* 화면 전체 사이즈 및 폰트 설정 */
 body {
-    width: 1440px;
-    height: fit-content;
-    background-color: #000;
+    width: 100%;
+    background-color: #181818;
     font-family: 'Roboto', Arial, sans-serif;
-    margin-left: 162px;
-    margin-right: 164px;
-}
-
-/* section 정렬 */
-section {
-    display: flex;
-    float : left;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 24px;
 }
 
 /*html에 video section과 video aside를 한번에 묶는 컨테이너 필요!*/
 #video-section-aside {
-    width: 426px;
+    width: 100%;
+    position: relative;
+    top: 56px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 24px;
-    border: 1px dotted yellow;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
-
-
+/* section 정렬 */
+#video-section {
+    width: 44%;
+    /* 640px / 1440px */
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0px 429px 24px;
+    margin: 0px 24px 0px 11.25%;
+    /* 11.25% : 섹션 왼쪽 마진 */
+}
 
 /* section의 영상 영역 (동영상, 영상 제목, 기타 정보 포함) */
 #video-player {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    border-bottom: 1px;
-    border-color: #303030;
-
 }
 
 /* 동영상 */
 #main-video {
     width: 100%;
-    height: 100%;
-    max-width: 640px;
-    
+    height: 360px;
     /* 임시용 */
-    color:white;
+    background-color: rgb(85, 85, 85);
 }
 
 /* 영상 제목 */
@@ -64,114 +54,98 @@ section {
     margin-top: 23px;
 }
 
-/* 영상 기타 정보(views, 날짜, 좋아요, 싫어요, share, save, ...) */
+/* 영상 기타 정보(views, 날짜) */
 #video-info {
+    width: 100%;
     height: 40px;
     /* 정렬 */
     display: flex;
     flex-direction: row;
     align-items: center;
+    /* 구분선까지 간격 */
+    margin-bottom: 8px;
 }
 
-/* video-views */
-#video-views {
-    display: flex;
-    align-items: center;
+#video-views-date {
+    width: 175px;
 }
-#video-views > a {
+
+#video-views-date>span {
     color: #aaa;
     font-size: 14px;
     font-weight: 700;
 }
 
-#video-upload-date{
-    margin-left: 4px; /* views와 upload-date 사이의 간격: 실제 화면 보면서 조정 필요함! */
-    margin-right: 91px;
-    color: #aaa;
-    font-size: 14px;
-    font-weight: 700;
-}
-/* class video-player */
-.video-main {
-    width: 640px;
+/* 좋아요, 싫어요, SHARE, SAVE, ... 버튼 */
+#reaction {
     display: flex;
+    flex-direction: row;
 }
-/* class reaction */
-.reaction {
-    display: flex;
-    float: right;
-}
-.reaction > div {
-    float: right;
-    display: flex;
-    align-items: center;
 
+#reaction>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-.reaction > div:nth-child(1) {
-    margin-left: 135px;
-}
-/* like, dislike, save, share의 아이콘 */
-.video-reaction-btn{
-    padding: 6px;
-    background-color: transparent;
-    border-color: transparent;
+
+.video-reaction-btn {
+    width: 24px;
+    height: 24px;
+    padding: 8px 6px;
     cursor: pointer;
 }
-/* like, dislike, save, share의 텍스트 */
-.video-reaction-text{
-    padding: 0px 0px 0px 6px;
-    margin-right: 8px; /* 오른쪽 요소와의 간격 */
+
+.video-reaction-text {
+    width: fit-content;
+    height: fit-content;
+    padding: 12px 6px 12px 0px;
+    /* 오른쪽 요소와의 간격 */
+    margin-right: 8px;
     /* 폰트 설정  */
     color: white;
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
 }
 
-/* 채널 정보, 영상 설명 영역 */
-#video-info {
+/* video-desc : 채널 프로필, 채널명, 구독 버튼, 영상 설명 영역 */
+#video-desc {
+    width: 100%;
+    height: fit-content;
+    /* 아래 구분선까지 간격 */
+    margin-bottom: 16px;
+}
+
+#video-channel-title{
     display: flex;
-    width: 640px;
-    height: 67px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* 위 구분선까지 간격 */
+    margin-top: 16px;
+}
 
+#video-channel-title>div:last-child{
+    margin-left: auto;
 }
-#video-info div:nth-child(1) {
-    width:64px;
-    height: 51px;
-}
+
 #video-main-profile {
     width: 48px;
     height: 48px;
-    padding: 0px 16px 3px 2;
-    gap: 10px;
+    margin-right: 16px;
     border-radius: 50%;
 }
+
 #video-main-channel-name {
+    color: #FFF;
     font-size: 14px;
-    width: 93px;
-    height: 51px;
-    left: 64px;
+    font-weight: 400;
 }
+
 #video-subscriber {
     font-size: 12px;
-    color : gray;
+    color: gray;
 }
-#video-desc-text {
-    display: flex;
-    float : right;
-    margin-left:64px;
-}
-#video-desc-text > div {
-    font-size:14px;
-    /* 정렬 */
-    width:576px;
-    height:48px;
-    flex-direction: column;
-    /* 구분선(테두리로 적용) */
-    border-bottom: 1px;
-    border-color: #303030;
-    color: white;
-}
+
 #subscribe-btn {
     background-color: red;
     color: white;
@@ -179,103 +153,290 @@ section {
     border-radius: 2px;
     padding: 10px 16px;
     cursor: pointer;
-    margin-left: 362px;
+    /* margin-left: 362px; */
 }
 
+#video-desc-text {
+    width: calc(100%-64px);
+    height: fit-content;
+    max-height: 42px;
+    padding-top: 12px;
+    padding-left: 64px;
+    /* 폰트 설정 */
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+    /* 3줄 이상이면 자르기 */
+    display: -webkit-box; /* 해당 영역을 box 형태로 관리 */
+    -webkit-line-clamp: 3; /* 최대 라인수 설정 */
+    -webkit-box-orient: vertical; /* box의 흐름 방향을 수직으로 설정 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
+#video-show-more{
+    position: relative;
+    top: 4px;
+    padding-left: 64px;
+    /* 폰트 설정 */
+    color: #AAA;
+    font-size: 12px;
+    font-weight: 700;
+}
 
-/* 코멘트 파트 */
+/* 댓글 파트 */
+#video-comments{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* 위 구분선 간격 */
+    margin-top: 24px;
+}
+
+/* Comments, SORT BY 부분 */
 #comments-sortby {
-    width: 226px;
     height: 24px;
-    display:flex;
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
-#video-show-more {
-    background-color: transparent;
-    color: #D8D8D8;
-    border-color: transparent;
-    font-size: x-small;
-    display: flex;
-    cursor: pointer;
-}
 
-/* 댓글 영역 */
-#video-dropdown {
-    width: 20px;
-    height: 23px;
-    padding-right: 20px;
-    background-color: transparent;
-    border-color: transparent;
-    cursor: pointer;
-}
-
-#video-comments-count {
-    font-size: 16px;
-    color: white;
-}
-
-#video-sort-by {
+#video-comments-count, #video-sort-by {
+    color: #FFF;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+#video-dropdown {
+    width: 24px;
+    height: 24px;
+    margin-left: 28px;
+    margin-right: 8px;
     cursor: pointer;
-    color: white;
+}
+
+/* 댓글 입력 박스 */
+#add-comment {
+    height: 40px;
+    /* 정렬 */
+    display: flex;
+    flex-direction: row;
+    /* comments-sortby와 간격 */
+    margin-top: 24px;
+    /* 다른 댓글들과의 간격 */
+    margin-bottom: 32px;
 }
 
 .video-user {
-    border-radius: 45%;
-    padding-right: 2px;
-    padding-block: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* 간격 */
+    margin-right: 16px;
 }
 
 #video-comment-area {
+    width: 100%;
     background-color: transparent;
-    border-color: transparent;
-    border-bottom: 1px #303030;
-}
-
-.video-user-name {
-    font-weight: 600;
+    height: 24px;
+    border-width: 0 0 1px 0;
+    border-color: #303030;
+    /* placeholder 설정 */
+    color: #AAA;
     font-size: 14px;
-    color: white;
+    font-weight: 400;
+    line-height: 20px;
 }
 
-#video-comment-time {
-    font-size: xx-small;
-    font-weight: lighter;
-    color: white;
+ /* 다른 사람들 댓글 보이는 영역 (James Gouse, Alan Cooper 있는 부분) */
+.user-comment-box {
+    width: 100%;
+    height: 84px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+ .video-user-name {
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.video-comment-time {
+    color: #AAA;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 .video-comment-text {
     font-size: 14px;
     color: white;
+    /* 이름, 8 hours ago와의 간격 */
+    margin-top: 4px;
+    /* 아래 툴박스(좋아요, 싫어요, reply)와의 간격 */
+    margin-bottom: 2px;
+}
+
+/* 댓글에 대한 like, dislike, reply 파트 */
+.video-comment-toolbar{
+    /* 정렬 */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .video-like {
-    background-color: transparent;
-    border-color: transparent;
+    width: 18px;
+    height: 18px;
+    padding: 7px;
     cursor: pointer;
 }
 
 .video-like-text {
+    /* 폰트 */
+    color: #AAA;
     font-size: 12px;
-    color: white;
+    font-weight: 400;
+    line-height: 18px;
+    /* 간격 */
+    padding: 7px 8px 7px 0px;
 }
 
 .video-comment-reply {
-    background-color: transparent;
-    border-color: transparent;
-    cursor: pointer;
+    /* 폰트 */
+    color: #AAA;
     font-size: 12px;
-    padding-left: 15px;
-    color: white;
+    font-weight: 400;
+    line-height: 18px;
+    /* 간격 */
+    padding: 8px 16px;
+    /* 기타 설정 */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
-/* aside 정렬 */
-aside {
+/* aside 파트 */
+#video-aside {
+    width: 28%;
+    gap: 2px;
+    /* 402px / 1440px */
     display: flex;
     flex-direction: column;
+    padding: 24px 24px 429px 0px;
+    margin-right: 11.25%;
+}
+
+/* aside의 Top menu */
+#top-menu {
+    /* aside 전체 너비에 대략 맞춤 */
+    width: 109%;
+    height: 51px;
+    /* 넘치면 스크롤 가능 */
+    overflow: scroll;
+}
+
+/* top-menu 스크롤바 숨김 */
+#top-menu::-webkit-scrollbar {
+    display: none;
+}
+
+#video-aside-menu{
+    width: max-content;
+    height: 51px;
+    /* flex 설정 */
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
-    padding: 24px 24px 24px 0px; /*왼쪽은 section에 padding 있기 때문에 넣지 않음*/
+    align-items: center;
+}
+
+#video-aside-menu a{
+    /* 간격 설정 */
+    margin: 8px 8px 8px 0px;
+    padding: 8px 12px;
+    /* 배경 및 테두리 */
+    background-color: #303030;
+    border: 0.3px solid #AAA;
+    border-radius: 32px;
+    /* a태그의 밑줄을 없애줌 */
+    text-decoration: none;
+    /* 폰트 설정 */
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#video-aside-section{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.video-aside-container{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    align-items: center;
+    gap: 8px;
+}
+
+.video-aside-container>div:nth-child(1){
+    width: 168px;
+    height: 94px;
+    background-color: rgb(85, 85, 85);
+    position: relative;
+}
+
+.video-aside-time {
+    /* 시간 박스 */
+    display: block;
+    width: 33px;
+    height: 18px;
+    background-color: black;
+    /* 시간 폰트 */
+    font-size: 10px;
+    color: #FFF;
+    text-align: center;
+    line-height: 18px;
+    /* 썸네일 위에 올리기 */
+    position: absolute;
+    top: 76.5%;
+    left: 78%;
+}
+
+.video-aside-container>div:nth-child(2) {
+    width: 226px;
+    height: 94px;
+    /* 정렬 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.video-aside-title {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 2px;
+}
+
+.video-aside-channel-name, .video-aside-sub-info {
+    color: #AAA;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+/* 구분선 속성 */
+hr {
+    width: 100%;
+    border: 1px solid #303030;
+    margin: initial;
 }
