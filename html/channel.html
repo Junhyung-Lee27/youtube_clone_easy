@@ -66,8 +66,7 @@
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-2.png"><a href="#">Alan Cooper</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-3.png"><a href="#">Marcus Levin</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-4.png"><a href="#">Alexis Sears</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="#">Jesica Lambert</a>
-                </li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="#">Jesica Lambert</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-6.png"><a href="#">Anna White</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-7.png"><a href="#">Skylar Dias</a></li>
                 <li><img src="../src/img_siderbar/sidebar_subscriptions/Icon_ShowMore.svg"><a href="#">Show 13 More</a>
@@ -130,25 +129,50 @@
                         </div>
                     </div>
                     <!-- 구독버튼 -->
-                    <button class="subscribe-btn">SUBSCRIBES</button>
+                    <div id="subscribe-btn-id">
+                        <button class="subscribe-btn">SUBSCRIBES</button>
+                    </div>
                 </div>
             </section>
 
+            <div>
             <!-- nav : 채널 툴바(channel-toolbars)를 포함하고 있는 영역 -->
-            <nav id="channel-toolbar">
-                <ul>
-                    <li><a href="#" class="nav-item selected" data-target="home">HOME</a></li>
-                    <li><a href="#" class="nav-item" data-target="videos">VIDEOS</a></li>
-                    <li><a href="#" class="nav-item" data-target="playlists">PLAYLISTS</a></li>
-                    <li><a href="#" class="nav-item" data-target="community">COMMUNITY</a></li>
-                    <li><a href="#" class="nav-item" data-target="channels">CHANNELS</a></li>
-                    <li><a href="#" class="nav-item" data-target="about">ABOUT</a></li>
-                </ul>
-                <img id="channel-toolbar-search-icon" src="../src/img_channel/search.svg">
-                <img id="channel-toolbar-search-btn" src="../src/img_channel/leftArrow.svg">
+            <nav id="channel-toolbar" style="border:1px dotted yellow">
+                    <ul>
+                        <li><a href="#" class="nav-item" data-target="home">HOME</a></li>
+                        <li><a href="#" class="nav-item" data-target="videos">VIDEOS</a></li>
+                        <li><a href="#" class="nav-item" data-target="playlists">PLAYLISTS</a></li>
+                        <li><a href="#" class="nav-item" data-target="community">COMMUNITY</a></li>
+                        <li><a href="#" class="nav-item" data-target="channels">CHANNELS</a></li>
+                        <li><a href="#" class="nav-item" data-target="about">ABOUT</a></li>
+                        <img id="channel-toolbar-search-icon" src="../src/img_channel/search.svg">
+                        <img id="channel-toolbar-search-btn" src="../src/img_channel/leftArrow.svg">                     
+                    </ul>
+
+
             </nav>
             <!-- 07.25 여기까지 완료했습니다! -->
             <!-- section-2 : 대표 영상 및 정보 (.css 작업 위해 추가)-->
+            <section id="channel-section-2">
+                <div style="border:1px dotted yellow">
+                    <!-- 영상 들어오는 곳 -->
+                </div>
+
+                <div>
+                    <div>
+                        <div id="channel-section-2-video-title">
+                            <p>Blind Woodturner: Turning passion into fine art</p>
+                        </div>
+                        <div id="channel-section-2-video-time">
+                            <p>576,969 views . 3 weeks ago</p>
+                        </div>
+                    </div>
+                    <div id="channel-section-2-video-descriptions">
+                        <p>Chris Fisher, also known as the Blind Woodturner, learned his craft by listening to hundreds of hours of YouTube videos and experimenting in his workshop. Now he’s a YouTube creator himself, sells his products worldwide, and does demonstrations all around the country.</p>
+                    </div>
+                </div>
+            </section>
+
             <!-- 이하 html은 js에서 불러옴 -->
 
             <hr id="channel-hr"> <!-- 구분선 -->
@@ -166,6 +190,7 @@
                     <!-- 이미지랑 제목 조회수 받아오는 js 필요 -->
                 </div>
             </section>
+            </div>
         </div>
     </div>
 
