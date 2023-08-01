@@ -1,10 +1,7 @@
 // 홈 화면의 썸네일과 제목, 채널, 조회수 등을 받아오는 js 파일입니다.
-// 아직 변수명을 피그마에서 정한 것처럼 정하진 않았습니다.
-// 이걸 사용해서 home 화면에 넣어도 되고 이 파일을 사용하지 않고 이미지와 텍스트를 각각 html에 적어서 사용해도 무방할 것 같습니다.
-// 이 파일을 사용한다고 하면, 이미지에 영상 길이와 제목 옆 프로필 사진이 추가가 안되어 있기 때문에 추가해야합니다.
-// 업로드 시간 형식 계산이 필요합니다 (수정 중)(ex:몇 개월 전)
-// 제목이나 사진을 누르면 video페이지로, 채널을 누르면 channel 페이지로 이동하는 동작이 필요합니다.
-// 필요없다 생각되면 정보 받아오는 기능만 일부 수정해서 새롭게 만들면 될 것 같습니다.
+// 8.1 일자 수정
+// 검색 기능 추가 필요
+
 
 // 비디오 리스트에서 비디오 id값을 받아오는 함수
 function getVideoList() {
@@ -42,85 +39,67 @@ function getVideoInfo(video_id) {
         });
 }
 
-// 비디오 정보를 화면에 표시하는 함수
+function channelimage(channelname) {
+    const url = "http://oreumi.appspot.com/channel/getChannelInfo";
+    const data = { video_channel: channelname };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        displaychannelimage(data);
+    });
+}
+
+/** home화면 비디오 나오게 하는 함수 */
 function displayVideoInfo(videoInfo) {
-    // 비디오 컨테이너 정의
-    const videoContainer = document.createElement("div");
-    videoContainer.classList.add("video-container");
-
-    // 하위 컨테이너
-    const videoThumbnail = document.createElement("div");
-    videoThumbnail.classList.add("video-thumbnail");
-    videoContainer.appendChild(videoThumbnail);
-
-    const videoProfileContainer = document.createElement("div");
-    videoContainer.appendChild(videoProfileContainer);
-
-    const videoInfoContainer = document.createElement("div");
-    videoContainer.appendChild(videoInfoContainer);
-
-    //비디오 썸네일
-    const videoThumbnailImage = document.createElement("img");
-    videoThumbnailImage.src = videoInfo.image_link;
-    videoThumbnail.appendChild(videoThumbnailImage);
-
-    //비디오 타임 (시간 정보가 없음 -> 영상에서 시간 추출하는 방법 있을지?)
-    const videoTime = document.createElement("p");
-    videoTime.classList.add("video-time");
-    videoTime.textContent = "23:45";
-    videoThumbnail.appendChild(videoTime);
-
-    //비디오 프로필 (이미지는 getChannleInfo에서 가져와서 교체해줘야함)
-    const videoProfile = document.createElement("img");
-    videoProfile.src = "../src/img_header/User-Avatar.png";
-    videoProfile.classList.add("video-profile");
-    videoProfileContainer.appendChild(videoProfile);
-
-    //비디오 타이틀, 채널이름, 서브 정보 container
-    const videoTitleContainer = document.createElement("div");
-    videoInfoContainer.appendChild(videoTitleContainer);
-
-    // 비디오 타이틀
-    const videoTitle = document.createElement("h3");
-    videoTitle.textContent = videoInfo.video_title;
-    videoTitle.classList.add("video-title");
-    videoTitleContainer.appendChild(videoTitle);
-
-    //채널 이름, 서브 정보 container
-    const videoNameSubinfoContainer = document.createElement("div");
-    videoInfoContainer.appendChild(videoNameSubinfoContainer);
-
-    // 채널 이름
-    const channelName = document.createElement("h4");
-    channelName.classList.add("channel-name");
-    channelName.textContent = videoInfo.video_channel;
-    videoNameSubinfoContainer.appendChild(channelName);
-
-    // 서브 인포(조회수, 날짜)
-    const videoSubInfo = document.createElement("h5");
-    videoSubInfo.classList.add("video-sub-info");
-    videoSubInfo.textContent = `${formatViews(videoInfo.views)} · ${formatDate(
-        videoInfo.upload_date
-    )}`;
-    videoNameSubinfoContainer.appendChild(videoSubInfo);
-
-    // videoContainers에 videoContainer 붙이기
+    if (videoInfo.video_channel == "oreumi" || videoInfo.video_channel == "개조") {
+        image = `https://storage.googleapis.com/oreumi.appspot.com/${videoInfo.video_channel}_profile.jpg`;
+    }
+    else {
+        image = `https://storage.googleapis.com/oreumi.appspot.com/나와_토끼들_profile.jpg`;
+    }
+    
     const videoContainers = document.getElementById("video-containers");
-    videoContainers.appendChild(videoContainer);
+    let videoURL = `./video.html?id=${videoInfo.video_id}`
+    let channelURL = `channel.html?channel_name=${videoInfo.video_channel}`;
+    // 비디오 컨테이너 HTML 구성
+    const videoContainerHTML = `
+      <div class="video-container">
+        <div class="video-thumbnail" onclick="navigateToVideo('${videoURL}')">
+          <img src=${videoInfo.image_link} alt="Video Thumbnail">
+          <p class="video-time">0:10</p>
+        </div>
+        <div class="video-profile-container" onclick="navigateToChannel('${channelURL}')">
+          <img src='${image}' alt="Video Profile" class="video-profile"onclick="navigateToChannel('${channelURL}')">
+        </div>
+        <div class="video-info-container">
+          <div class="video-title-container" onclick="navigateToVideo('${videoURL}')">
+              <h3 class="video-title">${videoInfo.video_title}</h3>
+          </div>
+          <div class="video-name-subinfo-container">
+            <h4 class="channel-name" onclick="navigateToChannel('${channelURL}')">${videoInfo.video_channel}</h4>
+            <h5 class="video-sub-info">${formatViews(videoInfo.views)} · ${formatDate(videoInfo.upload_date)}</h5>
+          </div>
+        </div>
+      </div>
+    `;
+  
+    // 비디오 컨테이너에 비디오 정보 추가
+    videoContainers.innerHTML += videoContainerHTML;
+  }
 
-    //클릭이벤트
-    videoThumbnail.addEventListener("click", function () {
-        window.location.href = `video.html?video_id=${videoInfo.video_id}`;
-    });
+function navigateToVideo(videoURL) {
+    window.location.href = videoURL;
+}
 
-    // 클릭 이벤트 추가 : 제목 클릭 시 video.html로 이동
-    videoTitle.addEventListener("click", function () {
-        window.location.href = `video.html?video_id=${videoInfo.video_id}`;
-    });
-
-    videoProfile.addEventListener("click", function () {
-        window.location.href = `channel.html?channel_name=${videoInfo.video_channel}`;
-    });
+function navigateToChannel(channelURL) {
+    window.location.href = channelURL;
 }
 
 function formatDate(dateStr) {
