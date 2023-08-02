@@ -1,21 +1,20 @@
-// channel_toolbar 밑에 밑줄이 생기게끔 하는 js
+// 현재 작동이 잘 안되는데 작동이 왜 안되는지는 html이나 css 문제인지 잘 모르겠습니다.
 
 const navItems = document.querySelectorAll('.nav-item');
 
-        function selectNavItem(event) {
-            event.preventDefault();
+function selectNavItem(event) {
+    event.preventDefault();
 
-            // Remove underline from all nav items
-            navItems.forEach(navItem => {
-                navItem.classList.remove('selected');
-            });
+    navItems.forEach(navItem => {
+        navItem.classList.remove('selected');
+    });
 
-            // Add underline to the clicked nav item
-            const target = event.target;
-            target.classList.add('selected');
-        }
 
-        // Add event listeners to each nav item
-        navItems.forEach(navItem => {
-            navItem.addEventListener('click', selectNavItem);
-        });
+    const target = event.target;
+    target.classList.add('selected');
+}
+
+
+navItems.forEach(navItem => {
+    navItem.addEventListener('click', selectNavItem);
+});

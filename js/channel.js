@@ -1,3 +1,4 @@
+
 const currentURL = new URL(window.location.href);
 
 // URLSearchParams 객체 생성
@@ -50,6 +51,7 @@ function getVideoList() {
     request.send();
 }
 
+/** POST방식으로 channel이름, 배너, 프로필, 구독자수의 데이터를 받아오는 함수 */
 function channelimage(channelname) {
     const url = "http://oreumi.appspot.com/channel/getChannelInfo";
     const data = { video_channel: channelname };
@@ -67,6 +69,7 @@ function channelimage(channelname) {
     });
 }
 
+/** 대표영상을 정하기 위해 가장 높은 조회수를 가진 videoID를 사용해 video 정보 가져오기 */
 function representivevideo(maxvideoID) {
     fetch(`http://oreumi.appspot.com/video/getVideoInfo?video_id=${maxvideoID}`)
         .then((response) => response.json())
@@ -76,7 +79,7 @@ function representivevideo(maxvideoID) {
         });
 }
 
-// 비디오 id 값들을 사용해 video 정보 받아오는 함수
+/** 비디오 id 값들을 사용해 video 정보 받아오는 함수 */
 function getVideoInfo(video_id) {
     
     fetch(`http://oreumi.appspot.com/video/getVideoInfo?video_id=${video_id}`)
@@ -87,51 +90,63 @@ function getVideoInfo(video_id) {
         });
         
 }
-/** 채널 배경화면과 채널명, 구독자수, 채널주인 프로필 사진 보여주는 함수 */
+/** 채널 커버이미지와 채널명, 구독자수, 채널주인 프로필 사진 보여주는 함수 */
 function displaychannelimage(channelimageInfo) {
     const channelsection1 = document.getElementById("channel-section-1");
 
     const channelimagecontainerHTML = `
-      <div class="channel-image-container">
-        <div id="channel-cover">
-          <img src="${channelimageInfo.channel_banner}" alt="Channel Cover">
-        </div>
-        <div id="channel-title">
-          <div id="channel-profile-container">
+      <div id="channel-cover">
+        <img src="${channelimageInfo.channel_banner}" alt="Channel Cover">
+      </div>
+      <div id="channel-title">
+        <div id="channel-profile-container">
             <img id="channel-profile" src="${channelimageInfo.channel_profile}" alt="Channel Profile">
             <div class="channel-name-subscribers">
               <h4 id="channel-name">${channelimageInfo.channel_name}</h4>
-              <p id="channel-subscribers">${channelimageInfo.subscribers}</p>
+              <p id="channel-subscribers">${formatsubscribers(channelimageInfo.subscribers)}</p>
             </div>
           </div>
-          <button class="subscribe-btn">SUBSCRIBES</button>
+          <div id="subscribe-btn-id">
+            <button class="subscribe-btn">SUBSCRIBES</button>
+          </div>
         </div>
       </div>
     `;
 
+    
     channelsection1.innerHTML += channelimagecontainerHTML;
+
+    const subscribeBtn = document.querySelector(".subscribe-btn");
+    subscribeBtn.addEventListener("click", function () {
+
+      if (subscribeBtn.textContent === "SUBSCRIBES") {
+        subscribeBtn.textContent = "SUBSCRIBED";
+      }
+      else {
+        subscribeBtn.textContent = "SUBSCRIBES";
+        isSubscribed = "SUBSCRIBES";
+      }
+      
+  });
 }
 
 
 /** 아래쪽에 나오는 영상들 */
 function displayVideoInfo(videoInfo) {
+    let videoURL = `video.html?id=${videoInfo.video_id}`;
     if (videoInfo.video_channel === channel_Name) {
         const videoContainers = document.getElementById("video-containers");
 
         const videoContainerHTML = `
-          <div class="video-container">
+          <div class="video-container" onclick="navigateToVideo('${videoURL}')">
             <div class="video-thumbnail">
               <img src="${videoInfo.image_link}" alt="Video Thumbnail">
               <p class="video-time">0:10</p>
             </div>
             <div class="video-info-container">
-              <div class="video-title-container">
-                <h3 class="video-title">${videoInfo.video_title}</h3>
-              </div>
-              <div class="video-name-subinfo-container">
-                <h4 class="channel-name">${videoInfo.video_channel}</h4>
-                <h5 class="video-sub-info">${formatViews(videoInfo.views)} · ${formatDate(videoInfo.upload_date)}</h5>
-              </div>
+              <h3 class="channel-video-title">${videoInfo.video_title}</h3>         
+              <h4 class="channel-channel-name">${videoInfo.video_channel}</h4>
+              <h5 class="channel-video-sub-info">${formatViews(videoInfo.views)} · ${formatDate(videoInfo.upload_date)}</h5>
             </div>
           </div>
         `;
@@ -144,22 +159,15 @@ function displayVideoInfo(videoInfo) {
 function displayVideorepresentive(representvideo) {
     const channelsection2 = document.getElementById("channel-section-2");
     const representvideocontainerHTML = `
-      <div class="video-container">
-        <div class="channel-video-desc">
-          <div class="channel-video-title-container">
-            <h3 class="channel-video-title">${representvideo.video_title}</h3>
-          </div>
-          <div class="channel-video-subinfo-container">
-            <h5 class="channel-video-sub-info">${formatViews(representvideo.views)} · ${formatDate(representvideo.upload_date)}</h5>
-          </div>
-          <div class="channel-video-detail-container">
-            <h5 class="channel-video-detail">${representvideo.video_detail}</h5>
-          </div>
-        </div>
-        <video src="${representvideo.video_link}"></video>
+      <div class="channel-main-video-container">
+        <video src="${representvideo.video_link}" autoplay muted controls></video>
+      </div>
+      <div id="channel-video-desc">
+        <h3 id="channel-video-title">${representvideo.video_title}</h3>
+        <h5 id="channel-video-sub-info">${formatViews(representvideo.views)} · ${formatDate(representvideo.upload_date)}</h5>
+        <h5 id="video-detail">${representvideo.video_detail}</h5>
       </div>
     `;
-
     channelsection2.innerHTML += representvideocontainerHTML;
 }
 
@@ -202,7 +210,7 @@ function formatDate(dateStr) {
 function formatViews(views) {
     // 1만 이상
     if (views >= 10000) {
-        return `조회수 ${Math.round(views / 1000)}만회`;
+        return `조회수 ${Math.round(views / 10000)}만회`;
     }
     // 1천 이상
     else if (views.length >= 4) {
@@ -212,6 +220,19 @@ function formatViews(views) {
     else {
         return `조회수 ${views}회`;
     }
+}
+
+function formatsubscribers(subscribersnum) {
+  if (subscribersnum >= 10000) {
+    return `구독자 ${Math.round(subscribersnum / 10000)}만명`
+  }
+  else{
+    return `구독자 ${subscribersnum}명`
+  }
+}
+
+function navigateToVideo(videoURL) {
+  window.location.href = videoURL;
 }
 
 // 화면 로딩이 완료된 후 비디오 목록 표시
