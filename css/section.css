@@ -3,6 +3,22 @@ body {
     width: 100%;
     background-color: #000;
     font-family: 'Roboto', Arial, sans-serif;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* 스크롤바 스타일 */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #212121;
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #000000;
 }
 
 /* sidebar와 section 정렬 (home.html에서 추가 필요!) */
@@ -119,8 +135,8 @@ body {
     line-height: 18px;
     /* 썸네일 위에 올리기 */
     position: absolute;
-    top: 133px;
-    left: 239px;
+    right: 4px;
+    bottom: 4px;
 }
 
 /* video-profile 왼쪽 정렬 */
