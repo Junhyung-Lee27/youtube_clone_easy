@@ -38,41 +38,41 @@ body {
     align-items: center;
     width: inherit;
     height: 56px;
+    margin-left:24px;
 }
 
 /* top-menu 리스트 사이즈 설정 */
-.top-menu-item li {
+.top-menu-li {
     padding: 8px 12px;
     border-radius: 32px;
     border: 0.3px solid #AAA;
     background: #303030;
     margin: 12px 12px 12px 0px;
-}
-
-/* top-menu li 아이템에 마우스 호버하면 색상 변경 */
-.top-menu-item li:hover {
-    background-color: #535353;
-}
-
-/* top-menu의 첫번째 아이템(all) 별도 설정 */
-.top-menu-item li:nth-child(1) {
-    margin: 12px 12px 12px 24px;
-    background-color: #FFF;
-}
-
-/* top-menu 내 a 태그 설정 */
-.top-menu-item a {
-    color: #FFF;
+    color:#FFF;
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
-    /* a태그의 밑줄을 없애줌 */
+}
+.top-menu-li.active {
+    background-color: #FFF;
+    color:#000;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+} 
+
+.top-menu-li.active:hover {
+    background-color: #FFF;
+    cursor: pointer;
 }
 
-/* 첫번째 아이템('all') 별도 설정 */
-.top-menu-item li:nth-child(1) a {
-    color: #030303;
+/* top-menu li 아이템에 마우스 호버하면 색상 변경 */
+.top-menu-li:hover {
+    background-color: #535353;
+    cursor: pointer;
 }
+
+
 
 /*** video-container ***/
 /* 비디오 컨테이너를 담을 박스의 간격 설정 (home.html에 video-continers 추가 필요!) */
@@ -179,3 +179,8 @@ body {
 .video-info-container {
     cursor: pointer;
 } */
+
+.home-section-expanded {
+    width: 100% !important;
+    left: 0px !important;
+}
