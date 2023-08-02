@@ -39,6 +39,11 @@ body::-webkit-scrollbar-track {
     padding-bottom: 429px;
 }
 
+.channel-section-expanded {
+    width: 100% !important;
+    left: 0px !important;
+}
+
 /* section1 : 채널 커버 이미지, 타이틀 영역  */
 #channel-section-1 {
     width: 100%;
@@ -237,6 +242,10 @@ body::-webkit-scrollbar-track {
     width: 424px;
     height: 238px;
     object-fit: cover;
+}
+
+.video-container:hover{
+    cursor: pointer;
 }
 
 /* 메인 영상 우측의 정보 영역 */
