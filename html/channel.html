@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,10 +25,10 @@
 
         <!-- header 중간 : 검색창 -->
         <div>
-            <form id="search-box">
+            <div id="search-box">
                 <input id="search-box-input-text" type="text" name="search-box" placeholder="Search">
-                <input id="search-box-icon" type="image" src="../src/img_header/search.svg" name="search">
-            </form>
+                <button id="search_button"><img id="search-box-icon" src="../src/img_header/search.svg" name="search"></button>
+            </div>
             <input id="mic-icon" type="image" src="../src/img_header/mic.svg" name="microphone">
         </div>
 
@@ -114,32 +115,14 @@
         <div id="sections">
             <!-- section-1 : 채널 커버 이미지, 채널 프로필, SUBSCRIBES 버튼 포함 -->
             <section id="channel-section-1">
-                <!-- 채널 커버 이미지 -->
-                <div id="channel-cover">
-                    <img src="../src/img_channel/channel_cover.png" alt="cover image of channel">
-                </div>
-                <!-- 채널 타이틀 영역 -->
-                <div id="channel-title">
-                    <!-- 채널 프로필 이미지, 채널명, 구독자 수 -->
-                    <div id="channel-profile-container">
-                        <img id="channel-profile" src="../src/img_channel/channel_profile.png">
-                        <div id="channel-name-subscribers">
-                            <h4 id="channel-name">Marcus Levin</h4>
-                            <p id="channel-subscribers">1.2M subscribers</p>
-                        </div>
-                    </div>
-                    <!-- 구독버튼 -->
-                    <div id="subscribe-btn-id">
-                        <button class="subscribe-btn">SUBSCRIBES</button>
-                    </div>
-                </div>
+                
             </section>
 
             <div>
             <!-- nav : 채널 툴바(channel-toolbars)를 포함하고 있는 영역 -->
-            <nav id="channel-toolbar" style="border:1px dotted yellow">
+            <nav id="channel-toolbar">
                     <ul>
-                        <li><a href="#" class="nav-item" data-target="home">HOME</a></li>
+                        <li><a href="#" class="nav-item selected" data-target="home">HOME</a></li>
                         <li><a href="#" class="nav-item" data-target="videos">VIDEOS</a></li>
                         <li><a href="#" class="nav-item" data-target="playlists">PLAYLISTS</a></li>
                         <li><a href="#" class="nav-item" data-target="community">COMMUNITY</a></li>
@@ -148,29 +131,11 @@
                         <img id="channel-toolbar-search-icon" src="../src/img_channel/search.svg">
                         <img id="channel-toolbar-search-btn" src="../src/img_channel/leftArrow.svg">                     
                     </ul>
-
-
             </nav>
             <!-- 07.25 여기까지 완료했습니다! -->
             <!-- section-2 : 대표 영상 및 정보 (.css 작업 위해 추가)-->
             <section id="channel-section-2">
-                <div style="border:1px dotted yellow">
-                    <!-- 영상 들어오는 곳 -->
-                </div>
-
-                <div>
-                    <div>
-                        <div id="channel-section-2-video-title">
-                            <p>Blind Woodturner: Turning passion into fine art</p>
-                        </div>
-                        <div id="channel-section-2-video-time">
-                            <p>576,969 views . 3 weeks ago</p>
-                        </div>
-                    </div>
-                    <div id="channel-section-2-video-descriptions">
-                        <p>Chris Fisher, also known as the Blind Woodturner, learned his craft by listening to hundreds of hours of YouTube videos and experimenting in his workshop. Now he’s a YouTube creator himself, sells his products worldwide, and does demonstrations all around the country.</p>
-                    </div>
-                </div>
+                
             </section>
 
             <!-- 이하 html은 js에서 불러옴 -->
@@ -185,7 +150,7 @@
                         <span class="playlist-play-all">PLAY ALL</span>
                     </a>
                 </div>
-                <div class="container">
+                <div id="video-containers">
                     <!-- 07.27 js 추가 필요 -->
                     <!-- 이미지랑 제목 조회수 받아오는 js 필요 -->
                 </div>
@@ -194,7 +159,8 @@
         </div>
     </div>
 
-    <script src="../js/test.js"></script>
+    <script src="../js/channel-toolbar.js"></script>
+    <script src="../js/channel.js"></script>
 </body>
 
 </html>

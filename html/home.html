@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="
-    https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
-    " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/section.css">
@@ -25,10 +23,10 @@
 
         <!-- header 중간 : 검색창 -->
         <div>
-            <form id="search-box">
+            <div id="search-box">
                 <input id="search-box-input-text" type="text" name="search-box" placeholder="Search">
-                <input id="search-box-icon" type="image" src="../src/img_header/search.svg" name="search">
-            </form>
+                <button id="search_button"><img id="search-box-icon" src="../src/img_header/search.svg" name="search"></button>
+            </div>
             <input id="mic-icon" type="image" src="../src/img_header/mic.svg" name="microphone">
         </div>
 
@@ -118,11 +116,12 @@
             <!-- Top Menu : 섹션 상단의 네비게이션 바 (가로정렬) -->
             <nav id="top-menu">
                 <ul class="top-menu-item">
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">Item</a></li>
-                    <li><a href="#">Item</a></li>
-                    <li><a href="#">Item</a></li>
-                    <li><a href="#">Item</a></li>
+                    <li class="top-menu-li active">전체</li>
+                    <li class="top-menu-li">동물</li>
+                    <li class="top-menu-li">가상현실</li>
+                    <li class="top-menu-li">공학</li>
+                    <li class="top-menu-li">인공지능</li>
+                    <li class="top-menu-li">환경</li>
                 </ul>
             </nav>
 
