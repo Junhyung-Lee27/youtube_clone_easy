@@ -54,8 +54,12 @@ body::-webkit-scrollbar-track {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
-    /* 임시용 */
-    background-color: rgb(85, 85, 85);
+    background-color: transparent;
+}
+
+#main-video>video {
+    width: 100%;
+    object-fit: contain;
 }
 
 /* 영상 제목 */
@@ -390,6 +394,16 @@ body::-webkit-scrollbar-track {
     font-weight: 400;
 }
 
+#video-aside-menu li.active a{
+    background-color: #FFF;
+    color: #000000;
+}
+
+#video-aside-menu a:hover{
+    background-color: #535353;
+    cursor: pointer;
+}
+
 #video-aside-section{
     display: flex;
     flex-direction: column;
@@ -407,8 +421,13 @@ body::-webkit-scrollbar-track {
 .video-aside-container>div:nth-child(1){
     width: 168px;
     height: 94px;
-    background-color: rgb(85, 85, 85);
+    background-color: transparent;
     position: relative;
+}
+
+.video-aside-thumbnail{
+    width: 100%;
+    object-fit: contain;
 }
 
 .video-aside-time {
