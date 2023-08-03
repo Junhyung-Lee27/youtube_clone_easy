@@ -82,6 +82,10 @@ header div:nth-child(2) {
     width: 65px;
 }
 
+#search_button:hover {
+    cursor: pointer;
+}
+
 /* 헤더 중간 : 검색 박스 내 입력 필드 */
 #search-box-input-text {
     width: 352px;
