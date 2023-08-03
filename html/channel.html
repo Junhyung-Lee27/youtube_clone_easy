@@ -20,7 +20,7 @@
         <!-- header 좌측 -->
         <div>
             <img id="hamburger" src="../src/img_header/hamburger.svg" alt="hamburger menu">
-            <img id="youtube-logo" src="../src/img_header/Youtube-Logo.svg" alt="youtube logo">
+            <a href="home.html"><img id="youtube-logo" src="../src/img_header/Youtube-Logo.svg" alt="youtube logo"></a>
         </div>
 
         <!-- header 중간 : 검색창 -->
@@ -46,9 +46,9 @@
         <!-- 좌측에 고정되어있는 사이드바 -->
         <nav id="home-sidebar">
             <ul id="sidebar-top1">
-                <li><img src="../src/img_siderbar/siderbar_Top/IconHome.png"><a href="#">Home</a></li>
-                <li><img src="../src/img_siderbar/siderbar_Top/IconExplore.png"><a href="#">Explore</a></li>
-                <li><img src="../src/img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="#">Subscriptions</a></li>
+                <li><img src="../src/img_siderbar/siderbar_Top/IconHome.png"><a href="home.html" target="_self">Home</a></li>
+                <li><img src="../src/img_siderbar/siderbar_Top/IconExplore.png"><a href="http://www.naver.com"  target="_blank">Explore</a></li>
+                <li><img src="../src/img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="home.html">Subscriptions</a></li>
             </ul>
             <hr> <!-- 구분선 -->
             <ul id="sidebar-top2">
@@ -57,36 +57,40 @@
                 <li><img src="../src/img_siderbar/siderbar_Top2/Icon_YourVideos.png"><a href="#">Your Videos</a></li>
                 <li><img src="../src/img_siderbar/siderbar_Top2/Icon_WatchLater.png"><a href="#">Watch Later</a></li>
                 <li><img src="../src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="#">Liked Videos</a></li>
+
+                <li><img src="../src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="#">재생목록1</a></li>
+                <li><img src="../src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="#">재생목록1</a></li>
+                <li><img src="../src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="#">재생목록1</a></li>
                 <li><img src="../src/img_siderbar/siderbar_Top2/Icon_ShowMore.png"><a href="#">Show More</a></li>
             </ul>
             <hr> <!-- 구분선 -->
             <ul id="sidebar-subscriptions">
                 <p class="sidebar-title">SUBSCRIPTIONS</p>
                 <!-- TODO : 사이드바의 인물 사진 다운받아서 넣어야 함! -->
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-1.png"><a href="#">James Gouse</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-2.png"><a href="#">Alan Cooper</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-3.png"><a href="#">Marcus Levin</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-4.png"><a href="#">Alexis Sears</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="#">Jesica Lambert</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-6.png"><a href="#">Anna White</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-7.png"><a href="#">Skylar Dias</a></li>
-                <li><img src="../src/img_siderbar/sidebar_subscriptions/Icon_ShowMore.svg"><a href="#">Show 13 More</a>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-1.png"><a href="channel.html?channel_name=James Gouse">James Gouse</a></li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-2.png"><a href="channel.html?channel_name=Alan Cooper">Alan Cooper</a></li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-3.png"><a href="channel.html?channel_name=Marcus Levin">Marcus Levin</a></li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-4.png"><a href="channel.html?channel_name=Alexis Sears">Alexis Sears</a></li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="channel.html?channel_name=Jesica Lambert">Jesica Lambert</a>
                 </li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-6.png"><a href="channel.html?channel_name=Anna White">Anna White</a></li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Avatar-7.png"><a href="channel.html?channel_name=Skylar Dias">Skylar Dias</a></li>
+                <li><img src="../src/img_siderbar/sidebar_subscriptions/Icon_ShowMore.svg"><a href="#">Show 13 More</a></li>
             </ul>
             <hr> <!-- 구분선 -->
             <ul id="sidebar_bottom">
                 <p class="sidebar-title">MORE FROM YOUTUBE</p>
-                <li><img src="../src/img_siderbar/sidebar_Bottom/premium.svg"><a href="#">Youtube Premium</a></li>
-                <li><img src="../src/img_siderbar/sidebar_Bottom/gaming.svg"><a href="#">Gaming</a></li>
-                <li><img src="../src/img_siderbar/sidebar_Bottom/live.svg"><a href="#">Live</a></li>
-                <li><img src="../src/img_siderbar/sidebar_Bottom/sports.svg"><a href="#">Sports</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom/premium.svg"><a href="https://www.youtube.com/premium_benefits" target="_blank">Youtube Premium</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom/gaming.svg"><a href="http://www.youtube.com/gaming" target="_blank">Gaming</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom/live.svg"><a href="https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig" target="_blank">Live</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom/sports.svg"><a href="https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw" target="_blank">Sports</a></li>
             </ul>
             <hr> <!-- 구분선 -->
             <ul id="sidebar_bottom2">
-                <li><img src="../src/img_siderbar/sidebar_Bottom2/settings.svg"><a href="#">Settings</a></li>
-                <li><img src="../src/img_siderbar/sidebar_Bottom2/report.svg"><a href="#">Report history</a></li>
-                <li><img src="../src/img_siderbar/sidebar_Bottom2/help.svg"><a href="#">Help</a></li>
-                <li><img src="../src/img_siderbar/sidebar_Bottom2/feedback.svg"><a href="#">Send feedback</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom2/settings.svg"><a href="https://www.youtube.com/account" target="_blank">Settings</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom2/report.svg"><a href="https://www.youtube.com/reporthistory" target="_blank">Report history</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom2/help.svg"><a href="https://www.youtube.com/" target="_blank">Help</a></li>
+                <li><img src="../src/img_siderbar/sidebar_Bottom2/feedback.svg"><a href="https://www.youtube.com/" target="_blank">Send feedback</a></li>
             </ul>
             <hr> <!-- 구분선 -->
             <footer id="sidebar-footer">
@@ -122,7 +126,7 @@
             <!-- nav : 채널 툴바(channel-toolbars)를 포함하고 있는 영역 -->
             <nav id="channel-toolbar">
                     <ul>
-                        <li><a href="#" class="nav-item selected" data-target="home">HOME</a></li>
+                        <li><a href="channel.html" target="_parent" class="nav-item selected" data-target="home">HOME</a></li>
                         <li><a href="#" class="nav-item" data-target="videos">VIDEOS</a></li>
                         <li><a href="#" class="nav-item" data-target="playlists">PLAYLISTS</a></li>
                         <li><a href="#" class="nav-item" data-target="community">COMMUNITY</a></li>
