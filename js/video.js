@@ -150,7 +150,7 @@ async function displayVideoAside(videoList) {
         <div class="video-aside-container" onclick="navigateToVideo('${videoURL}')">
             <div>
                 <image class="video-aside-thumbnail" src="${videoInfo.image_link}"></image>
-                <span class="video-aside-time">0:10</span>
+                <span class="video-aside-time">0:09</span>
             </div>
             <div>
                 <span class="video-aside-title">${videoInfo.video_title}</span>
