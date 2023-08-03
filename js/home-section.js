@@ -116,7 +116,7 @@ searchButton.addEventListener("click", function () {
 
 searchBox.addEventListener("keypress", function (event) {
   // 엔터 키의 키 코드 = 13
-  if (event.key === 13) {
+  if (event.keyCode === 13) {
     let searchKeyword = searchBox.value;
     getVideoList().then((videoList) => {
       let filteredVideoList = videoList.filter((video) =>
