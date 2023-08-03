@@ -211,11 +211,9 @@ body::-webkit-scrollbar-track {
 }
 
 /* toolbar - 선택된 메뉴 스타일 */
-.nav-item-selected {
+.nav-item.selected {
     border-bottom: 1px solid #AAA;
     padding-bottom: 5px;
-    border:1px dotted red;
-    margin-left :69px;
 }
 
 /* 채널 section-2 */
