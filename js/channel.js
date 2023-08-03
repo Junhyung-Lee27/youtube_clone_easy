@@ -8,8 +8,6 @@ const urlParams = new URLSearchParams(currentURL.search);
 // 아래 channelName과 다르게 하기 위함
 const channel_Name = urlParams.get('channel_name');
 
-
-
 // 비디오 리스트에서 비디오 id값을 받아오는 함수
 function getVideoList() {
     const request = new XMLHttpRequest();
@@ -134,7 +132,6 @@ function displaychannelimage(channelimageInfo) {
   });
 }
 
-
 /** 아래쪽에 나오는 영상들 */
 function displayVideoInfo(videoInfo) {
     let videoURL = `video.html?id=${videoInfo.video_id}`;
@@ -235,11 +232,23 @@ function formatsubscribers(subscribersnum) {
   }
 }
 
+/** video html로 바로가기 위한 함수 */
 function navigateToVideo(videoURL) {
   window.location.href = videoURL;
+}
+
+// home으로 바로가기 위한 함수
+function navigateToHome() {
+    window.location.href = `home.html`;
 }
 
 // 화면 로딩이 완료된 후 비디오 목록 표시
 window.onload = function () {
     getVideoList();
+    
+    // 유튜브 로고 클릭 시 홈 이동
+    let youtube_logo = document.getElementById("youtube-logo");
+    youtube_logo.addEventListener("click", function () {
+        navigateToHome();
+    });
 };

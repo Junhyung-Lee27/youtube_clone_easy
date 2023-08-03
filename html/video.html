@@ -40,63 +40,12 @@
     <div id="video-section-aside">
         <section id="video-section">
             <!-- js를 사용해서 비디오 및 title, 조회수, 업로드 날짜 받아옴 -->
-            <!-- 받아오고 옆에 좋아요수, 싫어요 수, 공유, 저장 버튼 표시 -->
-            <div id="video-player">
-                <div id="main-video"></div>
-                <h1 id="video-main-title">Blind Woodturner: Turning passion into fine art</h1>
-                <div id="video-info">
-                    <div id="video-views-date"> <!-- 임시로 추가 -->
-                        <span id="video-views">576,969 views</span>
-                        <span id="video-upload-date">Oct 8, 2021</span>
-                    </div>
-                    <div id="reaction">
-                        <div>
-                            <img class="video-reaction-btn" src="../src/img_video/Liked.svg">
-                            <span class="video-reaction-text">1.7K</span>
-                        </div>
-                        <div>
-                            <img class="video-reaction-btn" src="../src/img_video/DisLiked.svg">
-                            <span class="video-reaction-text">632</span>
-                        </div>
-                        <div>
-                            <img class="video-reaction-btn" src="../src/img_video/Share.svg">
-                            <span class="video-reaction-text">SHARE</span>
-                        </div>
-                        <div>
-                            <img class="video-reaction-btn" src="../src/img_video/Save.svg">
-                            <span class="video-reaction-text">SAVE</span>
-                        </div>
-                        <div>
-                            <img class="video-reaction-btn" src="../src/img_video/More.svg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr> <!-- 구분선-->
-            <!-- 비디오 설명 부분 채널 주인명과 구독자 수, 구독 버튼-->
-            <div id="video-desc">
-                <div id="video-channel-title">
-                    <img id="video-main-profile" src="../src/img_channel/channel_profile.png">
-                    <div id="video-info-text">
-                        <span id="video-main-channel-name">Marcus Levin</span><br>
-                        <span id="video-subscriber">1.2M subscribers</span>
-                    </div>
-                    <div>
-                        <button id="subscribe-btn">SUBSCIRBES</button>
-                    </div>
-                </div>
-                <!-- js 코드를 사용해서 설명 불러오기 -->
-                <p id="video-desc-text">
-                    텍스트는 3줄까지만 보입니다. Chris Fisher, also known as the Blind
-                    Woodturner, learned his craft by listening to hundreds of hours of YouTube videos and experimenting
-                    in his workshop. Now he’s a YouTube creator himself, sells
-                    his products worldwide, and does demonstrations all around the country.
-                </p>
-                <span id="video-show-more">SHOW MORE</span>
-            </div>
-            <hr><!-- 구분선 -->
-
-            <!-- 댓글 창 구현 -->
+            <!-- 받아오고 옆에 좋아요수, 싫어요 수, 공유, 저장 버튼 표시(js로 받아옴) -->
+            <div id="video-player"></div>
+            <!-- 비디오 설명 부분 채널 주인명과 구독자 수, 구독 버튼(js로 받아옴)-->
+            <div id="video-desc"></div>
+            
+                <!-- 댓글 창 구현 -->
             <div id="video-comments">
                 <div id="comments-sortby">
                     <span id="video-comments-count">286 Comments</span>
@@ -148,59 +97,15 @@
             <!-- 오른쪽 All, From Marcus ~~ 들어가는 버튼 부분 -->
             <nav id="top-menu">
                 <ul id="video-aside-menu">
-                    <li><a href="#">All</a></li>
+                    <li class="active"><a href="#">All</a></li>
                     <li><a href="#">From oreumi</a></li>
                     <li><a href="#">From 나와 토끼들</a></li>
                     <li><a href="#">From 개조</a></li>
                 </ul>
             </nav>
 
-            <!-- video-aside-section에는 이제 js로 home에서 받은 것처럼 영상을 받아옵니다. -->
+            <!-- video-aside-section에는 js로 영상을 받아옵니다. -->
             <section id="video-aside-section">
-                <div class="video-aside-container">
-                    <div>
-                        <image class="video-aside-thumbnail"></image>
-                        <span class="video-aside-time">23:45</span>
-                    </div>
-                    <div>
-                        <span class="video-aside-title">Ep 6: Living to Serve | SEARCH ON</span>
-                        <span class="video-aside-channel-name">James Gouse</span>
-                        <span class="video-aside-sub-info">1M views. 3 years ago</span>
-                    </div>
-                </div>
-                <div class="video-aside-container">
-                    <div>
-                        <image class="video-aside-thumbnail"></image>
-                        <span class="video-aside-time">23:45</span>
-                    </div>
-                    <div>
-                        <span class="video-aside-title">Ep 6: Living to Serve | SEARCH ON</span>
-                        <span class="video-aside-channel-name">James Gouse</span>
-                        <span class="video-aside-sub-info">1M views. 3 years ago</span>
-                    </div>
-                </div>
-                <div class="video-aside-container">
-                    <div>
-                        <image class="video-aside-thumbnail"></image>
-                        <span class="video-aside-time">23:45</span>
-                    </div>
-                    <div>
-                        <span class="video-aside-title">Ep 6: Living to Serve | SEARCH ON</span>
-                        <span class="video-aside-channel-name">James Gouse</span>
-                        <span class="video-aside-sub-info">1M views. 3 years ago</span>
-                    </div>
-                </div>
-                <div class="video-aside-container">
-                    <div>
-                        <image class="video-aside-thumbnail"></image>
-                        <span class="video-aside-time">23:45</span>
-                    </div>
-                    <div>
-                        <span class="video-aside-title">Ep 6: Living to Serve | SEARCH ON</span>
-                        <span class="video-aside-channel-name">James Gouse</span>
-                        <span class="video-aside-sub-info">1M views. 3 years ago</span>
-                    </div>
-                </div>
             </section>
         </aside>
     </div>
