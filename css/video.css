@@ -156,10 +156,18 @@ body::-webkit-scrollbar-track {
     border-radius: 50%;
 }
 
+#video-main-profile:hover {
+    cursor: pointer;
+}
+
 #video-main-channel-name {
     color: #FFF;
     font-size: 14px;
     font-weight: 400;
+}
+
+#video-main-channel-name:hover {
+    cursor: pointer;
 }
 
 #video-subscriber {
@@ -416,6 +424,10 @@ body::-webkit-scrollbar-track {
     /* justify-content: flex-start; */
     align-items: center;
     gap: 8px;
+}
+
+.video-aside-container:hover {
+    cursor: pointer;
 }
 
 .video-aside-container>div:nth-child(1){

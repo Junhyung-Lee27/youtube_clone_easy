@@ -57,6 +57,7 @@ async function displayVideoSection(videoInfo) {
     // 요소 선택
     let video_player = document.getElementById("video-player");
     let video_desc = document.getElementById("video-desc");
+    let channelURL = `channel.html?channel_name=${channelInfo.channel_name}`;
 
     // 화면에 데이터 표시
     const videoplayerHTML = `
@@ -96,13 +97,13 @@ async function displayVideoSection(videoInfo) {
 
     const videoDescHTML = `
         <div id="video-channel-title">
-            <img id="video-main-profile" src="${channelInfo.channel_profile}">
+            <img id="video-main-profile" src="${channelInfo.channel_profile}" onclick="navigateToChannel('${channelURL}')">
             <div id="video-info-text">
-                <span id="video-main-channel-name">${channelInfo.channel_name}</span><br>
-                <span id="video-subscriber">${channelInfo.subscribers}</span>
+                <span id="video-main-channel-name" onclick="navigateToChannel('${channelURL}')">${channelInfo.channel_name}</span><br>
+                <span id="video-subscriber">${formatsubscribers(channelInfo.subscribers)}</span>
             </div>
             <div>
-                <button id="subscribe-btn">SUBSCIRBES</button>
+                <button id="subscribe-btn">SUBSCRIBES</button>
             </div>
         </div>
         <p id="video-desc-text">
@@ -114,6 +115,22 @@ async function displayVideoSection(videoInfo) {
 
     video_player.innerHTML += videoplayerHTML;
     video_desc.innerHTML += videoDescHTML;
+
+    const subscribeBtn = document.getElementById("subscribe-btn");
+    subscribeBtn.addEventListener("click", function () {
+
+      if (subscribeBtn.textContent === "SUBSCRIBES") {
+        subscribeBtn.textContent = "SUBSCRIBED";
+        subscribeBtn.style.backgroundColor = "white";
+        subscribeBtn.style.color = "black";
+      }
+      else {
+        subscribeBtn.textContent = "SUBSCRIBES";
+        subscribeBtn.style.backgroundColor = "#C00";
+        subscribeBtn.style.color = "#FFF";
+      }
+      
+  });
 }
 
 /** 비디오 리스트를 받아 aside에 보여주는 함수 */
@@ -133,7 +150,7 @@ async function displayVideoAside(videoList) {
         <div class="video-aside-container" onclick="navigateToVideo('${videoURL}')">
             <div>
                 <image class="video-aside-thumbnail" src="${videoInfo.image_link}"></image>
-                <span class="video-aside-time">23:45</span>
+                <span class="video-aside-time">0:10</span>
             </div>
             <div>
                 <span class="video-aside-title">${videoInfo.video_title}</span>
@@ -247,6 +264,15 @@ function formatViews(views) {
         return `조회수 ${views}회`;
     }
 }
+
+function formatsubscribers(subscribersnum) {
+    if (subscribersnum >= 10000) {
+      return `구독자 ${Math.round(subscribersnum / 10000)}만명`
+    }
+    else{
+      return `구독자 ${subscribersnum}명`
+    }
+  }
 
 // 화면 로딩이 완료된 후 실행
 window.onload = function () {
