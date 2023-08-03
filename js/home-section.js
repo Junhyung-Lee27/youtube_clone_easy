@@ -1,82 +1,76 @@
-// 홈 화면의 썸네일과 제목, 채널, 조회수 등을 받아오는 js 파일입니다.
-// 8.1 일자 수정
-// 검색 기능 추가 필요
+// 처음 화면 로드 시 전체 비디오 리스트 가져오기
 
+getVideoList().then(createVideoItem);
 
-// 비디오 리스트에서 비디오 id값을 받아오는 함수
-function getVideoList() {
-    const request = new XMLHttpRequest();
-    const url = "http://oreumi.appspot.com/video/getVideoList";
-    request.open("GET", url, true);
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            // 파싱
-            const response = JSON.parse(request.responseText);
-
-            // videoid 들을 배열에 저장
-            const videoIds = [];
-            for (let i = 0; i < response.length; i++) {
-                videoIds.push(response[i].video_id);
-            }
-
-            // 비디오 정보를 받아와서 표시하는 함수 호출
-            videoIds.forEach((videoId) => {
-                getVideoInfo(videoId);
-            });
-        }
-    };
-    request.send();
+/** 비디오 리스트를 받아오는 함수 */
+async function getVideoList() {
+  let response = await fetch("http://oreumi.appspot.com/video/getVideoList");
+  let videoListData = await response.json();
+  return videoListData;
 }
 
-// 비디오 id 값들을 사용해 video 정보 받아오는 함수
-function getVideoInfo(video_id) {
-    fetch(`http://oreumi.appspot.com/video/getVideoInfo?video_id=${video_id}`)
-        .then((response) => response.json())
-        .then((data) => {
-            // video 정보를 표시하는 함수 호출
-            displayVideoInfo(data);
-        });
+/** 비디오 id를 가지고 비디오에 대한 정보를 가져오는 함수 */
+async function getVideoInfo(videoId) {
+  let url = `http://oreumi.appspot.com/video/getVideoInfo?video_id=${videoId}`;
+  let response = await fetch(url);
+  let videoData = await response.json();
+  return videoData;
 }
 
-function channelimage(channelname) {
-    const url = "http://oreumi.appspot.com/channel/getChannelInfo";
-    const data = { video_channel: channelname };
+//채널 캐시정보 담을 객체 선언
+let channelCache = {};
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        displaychannelimage(data);
-    });
+/** 채널 정보를 가져오는 함수 */
+async function getChannelInfo(channelName) {
+  // 캐시에 채널 정보가 있는지 확인
+  if (channelCache[channelName]) {
+    return channelCache[channelName];
+  }
+
+  let url = `http://oreumi.appspot.com/channel/getChannelInfo`;
+
+  let response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ video_channel: channelName }),
+  });
+
+  let channelData = await response.json();
+
+  // 캐시에 채널 정보 저장
+  channelCache[channelName] = channelData;
+
+  return channelData;
 }
 
-/** home화면 비디오 나오게 하는 함수 */
-function displayVideoInfo(videoInfo) {
-    if (videoInfo.video_channel == "oreumi" || videoInfo.video_channel == "개조") {
-        image = `https://storage.googleapis.com/oreumi.appspot.com/${videoInfo.video_channel}_profile.jpg`;
-    }
-    else {
-        image = `https://storage.googleapis.com/oreumi.appspot.com/나와_토끼들_profile.jpg`;
-    }
-    
-    const videoContainers = document.getElementById("video-containers");
-    let videoURL = `./video.html?id=${videoInfo.video_id}`
-    let channelURL = `channel.html?channel_name=${videoInfo.video_channel}`;
-    // 비디오 컨테이너 HTML 구성
-    const videoContainerHTML = `
+// 피드 비디오 리스트 로드
+async function createVideoItem(videoList) {
+  let feed = document.getElementById("video-containers");
+  let feedItems = "";
+
+  let videoInfoPromises = videoList.map((video) =>
+    getVideoInfo(video.video_id)
+  );
+  let videoInfoList = await Promise.all(videoInfoPromises);
+
+  for (let i = 0; i < videoList.length; i++) {
+    let videoId = videoList[i].video_id;
+    let videoInfo = videoInfoList[i];
+    let channelInfo = await getChannelInfo(videoList[i].video_channel);
+
+    let channelURL = `channel.html?channel_name=${videoList[i].video_channel}`;
+    let videoURL = `video.html?id=${videoId}`;
+
+    feedItems += `
       <div class="video-container">
         <div class="video-thumbnail" onclick="navigateToVideo('${videoURL}')">
           <img src=${videoInfo.image_link} alt="Video Thumbnail">
           <p class="video-time">0:10</p>
         </div>
         <div class="video-profile-container" onclick="navigateToChannel('${channelURL}')">
-          <img src='${image}' alt="Video Profile" class="video-profile"onclick="navigateToChannel('${channelURL}')">
+          <img src='${channelInfo.channel_profile}' alt="Video Profile" class="video-profile"onclick="navigateToChannel('${channelURL}')">
         </div>
         <div class="video-info-container">
           <div class="video-title-container" onclick="navigateToVideo('${videoURL}')">
@@ -89,19 +83,82 @@ function displayVideoInfo(videoInfo) {
         </div>
       </div>
     `;
-  
-    // 비디오 컨테이너에 비디오 정보 추가
-    videoContainers.innerHTML += videoContainerHTML;
   }
+
+  // 화면에 추가
+  feed.innerHTML = feedItems;
+}
 
 function navigateToVideo(videoURL) {
     window.location.href = videoURL;
 }
 
+/** channel html로 바로가기 위한 함수 */
 function navigateToChannel(channelURL) {
     window.location.href = channelURL;
 }
 
+
+let searchButton = document.getElementById("search-box-icon");
+let searchBox = document.getElementById("search-box-input-text");
+let topmenu = document.querySelectorAll(".top-menu-li");
+
+// 검색 버튼 클릭 시 필터링 실행
+searchButton.addEventListener("click", function () {
+  let searchKeyword = searchBox.value;
+  getVideoList().then((videoList) => {
+    let filteredVideoList = videoList.filter((video) =>
+      video.video_title.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
+    createVideoItem(filteredVideoList);
+  });
+});
+
+searchBox.addEventListener("keypress", function (event) {
+  // 엔터 키의 키 코드 = 13
+  if (event.key === 13) {
+    let searchKeyword = searchBox.value;
+    getVideoList().then((videoList) => {
+      let filteredVideoList = videoList.filter((video) =>
+        video.video_title.toLowerCase().includes(searchKeyword.toLowerCase())
+      );
+      createVideoItem(filteredVideoList);
+    });
+  }
+});
+
+topmenu.forEach(item => {
+    item.addEventListener("click", function() {
+        topmenu.forEach(menuItem => {
+            menuItem.classList.remove("active");
+        });
+
+
+        item.classList.add("active");
+        let tagword = item.textContent;
+        if (tagword === "동물") {
+            tagword = ["토끼", "판다쌍둥이푸바오아이바오러바오"];
+        }
+        getVideoList().then((videoList) => {
+            let filteredVideoList;
+            if (tagword === "전체") {
+                filteredVideoList = videoList;
+            }
+            else if (Array.isArray(tagword)) {
+                filteredVideoList = videoList.filter((video) =>
+                    video.video_tag.some(tag => tagword.includes(tag.toLowerCase()))
+                );
+            }
+            else {
+                filteredVideoList = videoList.filter((video) =>
+                video.video_tag[0].toLowerCase().includes(tagword.toLowerCase()));
+            }
+            createVideoItem(filteredVideoList);
+        });
+    });
+});
+
+/** 날짜 포맷 정하는 함수 */
 function formatDate(dateStr) {
     // 입력된 날짜 문자열을 파싱하여 Date 객체를 생성
     function parseDate(dateStr) {
@@ -110,7 +167,7 @@ function formatDate(dateStr) {
         return new Date(parts[0], parts[1] - 1, parts[2]);
     }
 
-    // 두 날짜 간의 차이를 계산
+    /** 두 날짜간 차이 계산 */
     function calculateDifference(currentDate, pastDate) {
         const diffMilliseconds = currentDate - pastDate;
         const diffSeconds = diffMilliseconds / 1000;
@@ -138,10 +195,11 @@ function formatDate(dateStr) {
     return calculateDifference(currentDate, pastDate);
 }
 
+/** 조회수 형식을 정하는 함수 */
 function formatViews(views) {
     // 1만 이상
     if (views >= 10000) {
-        return `조회수 ${Math.round(views / 1000)}만회`;
+        return `조회수 ${Math.round(views / 10000)}만회`;
     }
     // 1천 이상
     else if (views.length >= 4) {
@@ -153,7 +211,3 @@ function formatViews(views) {
     }
 }
 
-// 화면 로딩이 완료된 후 비디오 목록 표시
-window.onload = function () {
-    getVideoList();
-};
