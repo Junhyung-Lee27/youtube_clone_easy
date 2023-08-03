@@ -103,9 +103,12 @@ header div:nth-child(2) {
 
 /* 헤더 중간 : 검색 박스 내 돋보기 아이콘 버튼 */
 #search-box-icon {
-    width: 20px;
-    height: 20px;
-    
+    width: 24px;
+    height: 24px;
+    padding: 8px 20px 8px 20px;
+    background-color: #303030;
+    border-radius: 0px 2px 2px 0px;
+    border: 1px solid #303030;
 }
 
 /* 헤더 중간 : 마이크 아이콘 버튼 */
