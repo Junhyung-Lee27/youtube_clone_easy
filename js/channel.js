@@ -121,10 +121,14 @@ function displaychannelimage(channelimageInfo) {
 
       if (subscribeBtn.textContent === "SUBSCRIBES") {
         subscribeBtn.textContent = "SUBSCRIBED";
+        subscribeBtn.style.backgroundColor = "white";
+        subscribeBtn.style.color = "black";
       }
       else {
         subscribeBtn.textContent = "SUBSCRIBES";
         isSubscribed = "SUBSCRIBES";
+        subscribeBtn.style.backgroundColor = "#C00";
+        subscribeBtn.style.color = "#FFF";
       }
       
   });
