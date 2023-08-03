@@ -113,7 +113,7 @@ async function displayVideoSection(videoInfo) {
     `;
 
     video_player.innerHTML += videoplayerHTML;
-    video_desc += videoDescHTML;
+    video_desc.innerHTML += videoDescHTML;
 }
 
 /** 비디오 리스트를 받아 aside에 보여주는 함수 */

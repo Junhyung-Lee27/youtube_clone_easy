@@ -132,9 +132,8 @@ body::-webkit-scrollbar-track {
 /* video-desc : 채널 프로필, 채널명, 구독 버튼, 영상 설명 영역 */
 #video-desc {
     width: 100%;
-    height: fit-content;
-    /* 아래 구분선까지 간격 */
-    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 #video-channel-title{
@@ -200,6 +199,7 @@ body::-webkit-scrollbar-track {
     position: relative;
     top: 4px;
     padding-left: 64px;
+    margin-bottom: 16px;
     /* 폰트 설정 */
     color: #AAA;
     font-size: 12px;
