@@ -60,8 +60,8 @@ async function createVideoItem(videoList) {
     let videoInfo = videoInfoList[i];
     let channelInfo = await getChannelInfo(videoList[i].video_channel);
 
-    let channelURL = `channel.html?channel_name=${videoList[i].video_channel}`;
-    let videoURL = `video.html?id=${videoId}`;
+    let channelURL = `html/channel.html?channel_name=${videoList[i].video_channel}`;
+    let videoURL = `html/video.html?id=${videoId}`;
 
     feedItems += `
       <div class="video-container">
