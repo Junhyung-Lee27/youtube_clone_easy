@@ -47,25 +47,26 @@ async function getChannelInfo(channelName) {
 
 // 피드 비디오 리스트 로드
 async function createVideoItem(videoList) {
-  let feed = document.getElementById("video-containers");
-  let feedItems = "";
+    let feed = document.getElementById("video-containers");
+    let feedItems = "";
 
-  let videoInfoPromises = videoList.map((video) =>
-    getVideoInfo(video.video_id)
-  );
-  let videoInfoList = await Promise.all(videoInfoPromises);
+    let videoInfoPromises = videoList.map((video) =>
+        getVideoInfo(video.video_id)
+    );
+    let videoInfoList = await Promise.all(videoInfoPromises);
 
-  for (let i = 0; i < videoList.length; i++) {
-    let videoId = videoList[i].video_id;
-    let videoInfo = videoInfoList[i];
-    let channelInfo = await getChannelInfo(videoList[i].video_channel);
+    for (let i = 0; i < videoList.length; i++) {
+        let videoId = videoList[i].video_id;
+        let videoInfo = videoInfoList[i];
+        let channelInfo = await getChannelInfo(videoList[i].video_channel);
 
-    let channelURL = `html/channel.html?channel_name=${videoList[i].video_channel}`;
-    let videoURL = `html/video.html?id=${videoId}`;
+        let channelURL = `html/channel.html?channel_name=${videoList[i].video_channel}`;
+        let videoURL = `html/video.html?id=${videoId}`;
 
     feedItems += `
       <div class="video-container">
         <div class="video-thumbnail" onclick="navigateToVideo('${videoURL}')">
+          <video class="video-play" src="https://storage.googleapis.com/oreumi.appspot.com/video_${videoId}.mp4"></video>
           <img src=${videoInfo.image_link} alt="Video Thumbnail">
           <p class="video-time">0:10</p>
         </div>
@@ -87,6 +88,51 @@ async function createVideoItem(videoList) {
 
   // 화면에 추가
   feed.innerHTML = feedItems;
+  
+  // 화면에 비디오 로드된 후 마우스오버 및 아웃 이벤트리스터 추가
+  let containers = document.getElementsByClassName("video-container");
+    for (let i = 0; i < containers.length; i++) {
+        let container = containers[i];
+        let thumbnail = container.querySelector(".video-thumbnail");
+        let thumbnail_img = thumbnail.querySelector("img")
+        let video_play = thumbnail.getElementsByClassName("video-play")[0];
+
+        // 마우스 오버됐을 때
+        thumbnail.addEventListener('mouseenter', function() {
+            console.log("mouse in")
+
+            timeoutId = setTimeout(function() {
+                thumbnail.style.overflow = "none";
+                video_play.style.display = "block";
+                thumbnail_img.style.height = "0px";
+                video_play.muted = true;
+                video_play.play();
+            }, 500);
+        });
+
+        // 마우스 아웃 됐을 때
+        thumbnail.addEventListener('mouseleave', function() {
+            console.log("mouse out")
+
+            clearTimeout(timeoutId);
+            video_play.currentTime = 0;
+            video_play.style.display = "none";
+            thumbnail_img.style.height = "inherit";
+        });
+    }
+}
+
+function extractIdFromOnClick(element) {
+    const onClickValue = element.getAttribute('onclick');
+    
+    if (typeof onClickValue === 'string') {
+        const matchResult = onClickValue.match(/id=(\d+)/);
+
+        if (matchResult && matchResult[1]) {
+        const idValue = matchResult[1];
+        return idValue
+    }
+  }
 }
 
 function navigateToVideo(videoURL) {
@@ -210,4 +256,3 @@ function formatViews(views) {
         return `조회수 ${views}회`;
     }
 }
-

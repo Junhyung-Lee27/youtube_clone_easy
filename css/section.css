@@ -120,6 +120,14 @@ body::-webkit-scrollbar-track {
 .video-thumbnail>img {
     width: inherit;
     height: inherit;
+
+    border-radius: 6px;
+}
+
+.video-play {
+    display: none;
+    width: inherit;
+    height: inherit;
 }
 
 /* 동영상 플레이 시간 */
