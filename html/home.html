@@ -1,26 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="
-        https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
-        " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/sidebar.css">
-    <link rel="stylesheet" href="../css/channel.css">
-    <title>Channel</title>
+    <link rel="stylesheet" href="../css/section.css">
+    <title>Home</title>
 </head>
 
 <body>
-    <!-- 상단 header 부분 (Home 화면에서 복사해옴) -->
+
+    <!-- 상단 header 부분 -->
     <header>
         <!-- header 좌측 -->
         <div>
             <img id="hamburger" src="../src/img_header/hamburger.svg" alt="hamburger menu">
-            <a href="home.html"><img id="youtube-logo" src="../src/img_header/Youtube-Logo.svg" alt="youtube logo"></a>
+            <a href="home.html" target="_self"><img id="youtube-logo" src="../src/img_header/Youtube-Logo.svg" alt="youtube logo"></a>
         </div>
 
         <!-- header 중간 : 검색창 -->
@@ -41,7 +40,7 @@
         </div>
     </header>
 
-    <!-- 사이드바와 section 포함 -->
+    <!-- 사이드바 + 섹션 -->
     <div id="sidebar-section">
         <!-- 좌측에 고정되어있는 사이드바 -->
         <nav id="home-sidebar">
@@ -114,58 +113,30 @@
                     <span>© 2021 Google LLC</span>
                 </div>
             </footer>
+
         </nav>
-
-        <div id="sections">
-            <!-- section-1 : 채널 커버 이미지, 채널 프로필, SUBSCRIBES 버튼 포함 -->
-            <section id="channel-section-1">
-                
-            </section>
-
-            <div>
-            <!-- nav : 채널 툴바(channel-toolbars)를 포함하고 있는 영역 -->
-            <nav id="channel-toolbar">
-                    <ul>
-                        <li><a href="channel.html" target="_parent" class="nav-item selected" data-target="home">HOME</a></li>
-                        <li><a href="#" class="nav-item" data-target="videos">VIDEOS</a></li>
-                        <li><a href="#" class="nav-item" data-target="playlists">PLAYLISTS</a></li>
-                        <li><a href="#" class="nav-item" data-target="community">COMMUNITY</a></li>
-                        <li><a href="#" class="nav-item" data-target="channels">CHANNELS</a></li>
-                        <li><a href="#" class="nav-item" data-target="about">ABOUT</a></li>
-                        <img id="channel-toolbar-search-icon" src="../src/img_channel/search.svg">
-                        <img id="channel-toolbar-search-btn" src="../src/img_channel/leftArrow.svg">                     
-                    </ul>
+        <!-- 메인 화면의 섹션 -->
+        <section id="home-section">
+            <!-- Top Menu : 섹션 상단의 네비게이션 바 (가로정렬) -->
+            <nav id="top-menu">
+                <ul class="top-menu-item">
+                    <li class="top-menu-li active">전체</li>
+                    <li class="top-menu-li">동물</li>
+                    <li class="top-menu-li">가상현실</li>
+                    <li class="top-menu-li">공학</li>
+                    <li class="top-menu-li">인공지능</li>
+                    <li class="top-menu-li">환경</li>
+                </ul>
             </nav>
-            <!-- 07.25 여기까지 완료했습니다! -->
-            <!-- section-2 : 대표 영상 및 정보 (.css 작업 위해 추가)-->
-            <section id="channel-section-2">
-                
-            </section>
 
-            <!-- 이하 html은 js에서 불러옴 -->
-
-            <hr id="channel-hr"> <!-- 구분선 -->
-            <section id="channel-section-3">
-                <div>
-                    <span class="playlist-title">플레이리스트</span>
-                    <!-- 유튜브 들어가보니 버튼과 텍스트가 묶여 있길래 묶어서 작성 -->
-                    <a href="#" id="playbtn">
-                        <img class="playlist-play-btn" src="../src/img_channel/Group.png">
-                        <span class="playlist-play-all">PLAY ALL</span>
-                    </a>
-                </div>
-                <div id="video-containers">
-                    <!-- 07.27 js 추가 필요 -->
-                    <!-- 이미지랑 제목 조회수 받아오는 js 필요 -->
-                </div>
-            </section>
+            <!-- 비디오컨테이너 (썸네일, 영상제목, 채널명, views 포함) -->
+            <div id="video-containers">
             </div>
-        </div>
+        </section>
     </div>
-
-    <script src="../js/channel-toolbar.js"></script>
-    <script src="../js/channel.js"></script>
-    <script src="../js/channel-hamburger.js"></script>
+    <!-- js는 section에 영상 불러오는 것 로드 -->
+    <script src="../js/home-section.js"></script>
+    <script src="../js/home-hamburger.js"></script>
 </body>
 
 </html>
