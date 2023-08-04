@@ -239,7 +239,7 @@ function navigateToVideo(videoURL) {
 
 // home으로 바로가기 위한 함수
 function navigateToHome() {
-    window.location.href = `home.html`;
+    window.location.href = `index.html`;
 }
 
 // 화면 로딩이 완료된 후 비디오 목록 표시

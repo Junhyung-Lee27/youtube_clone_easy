@@ -209,7 +209,7 @@ function navigateToChannel(channelURL) {
 
 // home으로 바로가기 위한 함수
 function navigateToHome() {
-    window.location.href = `home.html`;
+    window.location.href = `index.html`;
 }
 
 /** 날짜 포맷 정하는 함수 Oct 8, 2021 -> 24개월 전 */
