@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/section.css">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <!-- 상단 header 부분 -->
+    <header>
+        <!-- header 좌측 -->
+        <div>
+            <img id="hamburger" src="src/img_header/hamburger.svg" alt="hamburger menu">
+            <a href="index.html" target="_self"><img id="youtube-logo" src="src/img_header/Youtube-Logo.svg" alt="youtube logo"></a>
+        </div>
+
+        <!-- header 중간 : 검색창 -->
+        <div>
+            <div id="search-box">
+                <input id="search-box-input-text" type="text" name="search-box" placeholder="Search">
+                <button id="search_button"><img id="search-box-icon" src="src/img_header/search.svg" name="search"></button>
+            </div>
+            <input id="mic-icon" type="image" src="src/img_header/mic.svg" name="microphone">
+        </div>
+
+        <!-- header 우측 : 내비게이션 메뉴  -->
+        <div>
+            <img class="navigation-icon" src="src/img_header/create.svg" alt="create videos button">
+            <img class="navigation-icon" src="src/img_header/apps.svg" alt="apps">
+            <img class="navigation-icon" src="src/img_header/notifications.svg" alt="notifications">
+            <img id="navigation-profile" src="src/img_header/User-Avatar.png" alt="manage my profile">
+        </div>
+    </header>
+
+    <!-- 사이드바 + 섹션 -->
+    <div id="sidebar-section">
+        <!-- 좌측에 고정되어있는 사이드바 -->
+        <nav id="home-sidebar">
+            <ul id="sidebar-top1">
+                <li><img src="src/img_siderbar/siderbar_Top/IconHome.png"><a href="index.html" target="_self">Home</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top/IconExplore.png"><a href="http://www.naver.com"  target="_blank">Explore</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top/IconSubscriptions.png"><a href="index.html">Subscriptions</a></li>
+            </ul>
+            <hr> <!-- 구분선 -->
+            <ul id="sidebar-top2">
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_Library.png"><a href="">Library</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_History.png"><a href="">History</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_YourVideos.png"><a href="">Your Videos</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_WatchLater.png"><a href="">Watch Later</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="">Liked Videos</a></li>
+                
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="">재생목록1</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="">재생목록2</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_LikedVideos.png"><a href="">재생목록3</a></li>
+                <li><img src="src/img_siderbar/siderbar_Top2/Icon_ShowMore.png"><a href="">Show More</a></li>
+            </ul>
+            <hr> <!-- 구분선 -->
+            <ul id="sidebar-subscriptions">
+                <p class="sidebar-title">SUBSCRIPTIONS</p>
+                <!-- TODO : 사이드바의 인물 사진 다운받아서 넣어야 함! -->
+                <li><img src="src/img_siderbar/sidebar_subscriptions/oreumi_profile.png"><a href="channel.html?channel_name=oreumi">oreumi</a></li>
+                <li><img src="src/img_siderbar/sidebar_subscriptions/나와_토끼들_profile.png"><a href="channel.html?channel_name=나와 토끼들">나와 토끼들</a></li>
+                <li><img src="src/img_siderbar/sidebar_subscriptions/개조_profile.png"><a href="channel.html?channel_name=개조">개조</a></li>
+                <li><img src="src/img_siderbar/sidebar_subscriptions/Avatar-4.png"><a href="">Alexis Sears</a></li>
+                <li><img src="src/img_siderbar/sidebar_subscriptions/Avatar-5.png"><a href="">Jesica Lambert</a>
+                </li>
+                <li><img src="src/img_siderbar/sidebar_subscriptions/Avatar-6.png"><a href="">Anna White</a></li>
+                <li><img src="src/img_siderbar/sidebar_subscriptions/Avatar-7.png"><a href="">Skylar Dias</a></li>
+                <li><img src="src/img_siderbar/sidebar_subscriptions/Icon_ShowMore.svg"><a href="">Show 13 More</a></li>
+            </ul>
+            <hr> <!-- 구분선 -->
+            <ul id="sidebar_bottom">
+                <p class="sidebar-title">MORE FROM YOUTUBE</p>
+                <li><img src="src/img_siderbar/sidebar_Bottom/premium.svg"><a href="https://www.youtube.com/premium_benefits" target="_blank">Youtube Premium</a></li>
+                <li><img src="src/img_siderbar/sidebar_Bottom/gaming.svg"><a href="http://www.youtube.com/gaming" target="_blank">Gaming</a></li>
+                <li><img src="src/img_siderbar/sidebar_Bottom/live.svg"><a href="https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig" target="_blank">Live</a></li>
+                <li><img src="src/img_siderbar/sidebar_Bottom/sports.svg"><a href="https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw" target="_blank">Sports</a></li>
+            </ul>
+            <hr> <!-- 구분선 -->
+            <ul id="sidebar_bottom2">
+                <li><img src="src/img_siderbar/sidebar_Bottom2/settings.svg"><a href="https://www.youtube.com/account" target="_blank">Settings</a></li>
+                <li><img src="src/img_siderbar/sidebar_Bottom2/report.svg"><a href="https://www.youtube.com/reporthistory" target="_blank">Report history</a></li>
+                <li><img src="src/img_siderbar/sidebar_Bottom2/help.svg"><a href="https://www.youtube.com/" target="_blank">Help</a></li>
+                <li><img src="src/img_siderbar/sidebar_Bottom2/feedback.svg"><a href="https://www.youtube.com/" target="_blank">Send feedback</a></li>
+            </ul>
+            <hr> <!-- 구분선 -->
+            <footer id="sidebar-footer">
+                <div>
+                    <a href="">About</a>
+                    <a href="">Press</a>
+                    <a href="">Copyright</a>
+                    <a href="">Contact us</a>
+                    <a href="">Creators</a>
+                    <a href="">Advertise</a>
+                    <a href="">Developers</a>
+                </div>
+                <div>
+                    <a href="">Terms</a>
+                    <a href="">Privacy</a>
+                    <a href="">Policy & Safety</a>
+                    <a href="">How Youtube works</a>
+                    <a href="">Test new features</a>
+                </div>
+                <div>
+                    <span>© 2021 Google LLC</span>
+                </div>
+            </footer>
+
+        </nav>
+        <!-- 메인 화면의 섹션 -->
+        <section id="home-section">
+            <!-- Top Menu : 섹션 상단의 네비게이션 바 (가로정렬) -->
+            <nav id="top-menu">
+                <ul class="top-menu-item">
+                    <li class="top-menu-li active">전체</li>
+                    <li class="top-menu-li">동물</li>
+                    <li class="top-menu-li">가상현실</li>
+                    <li class="top-menu-li">공학</li>
+                    <li class="top-menu-li">인공지능</li>
+                    <li class="top-menu-li">환경</li>
+                </ul>
+            </nav>
+
+            <!-- 비디오컨테이너 (썸네일, 영상제목, 채널명, views 포함) -->
+            <div id="video-containers">
+            </div>
+        </section>
+    </div>
+    <!-- js는 section에 영상 불러오는 것 로드 -->
+    <script src="../js/home-section.js"></script>
+    <script src="../js/home-hamburger.js"></script>
+</body>
+
+</html>
