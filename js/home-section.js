@@ -66,7 +66,7 @@ async function createVideoItem(videoList) {
     feedItems += `
       <div class="video-container">
         <div class="video-thumbnail" onclick="navigateToVideo('${videoURL}')">
-          <video class="video-play" src="https://storage.googleapis.com/oreumi.appspot.com/video_${videoId}.mp4"></video>
+          <video class="video-play fade-in" src="https://storage.googleapis.com/oreumi.appspot.com/video_${videoId}.mp4"></video>
           <img src=${videoInfo.image_link} alt="Video Thumbnail">
           <p class="video-time">0:10</p>
         </div>
@@ -99,10 +99,7 @@ async function createVideoItem(videoList) {
 
         // 마우스 오버됐을 때
         thumbnail.addEventListener('mouseenter', function() {
-            console.log("mouse in")
-
             timeoutId = setTimeout(function() {
-                thumbnail.style.overflow = "none";
                 video_play.style.display = "block";
                 thumbnail_img.style.height = "0px";
                 video_play.muted = true;
@@ -112,8 +109,6 @@ async function createVideoItem(videoList) {
 
         // 마우스 아웃 됐을 때
         thumbnail.addEventListener('mouseleave', function() {
-            console.log("mouse out")
-
             clearTimeout(timeoutId);
             video_play.currentTime = 0;
             video_play.style.display = "none";

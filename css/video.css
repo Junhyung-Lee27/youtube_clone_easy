@@ -438,8 +438,26 @@ body::-webkit-scrollbar-track {
 }
 
 .video-aside-thumbnail{
-    width: 100%;
-    object-fit: contain;
+    width: inherit;
+    height: inherit;
+    /* object-fit: contain; */
+
+    border-radius: 6px;
+}
+
+.video-play {
+    display: none;
+    width: inherit;
+    height: inherit;
+}
+
+/* 마우스 오버 시 fade in 효과를 주기 위한 스타일 */
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.fade-in {
+    animation: fadeIn 1s;
 }
 
 .video-aside-time {

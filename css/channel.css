@@ -341,7 +341,7 @@ body::-webkit-scrollbar-track {
     display: flex;
     flex-direction: row;
     /* 간격 설정 */
-    gap: 4px;
+    gap: 10px;
     padding: 24px 0px;
     /* 화면 넘어가면 스크롤 */
     overflow-x: scroll;
@@ -380,9 +380,27 @@ body::-webkit-scrollbar-track {
 
 /* 비디오 썸네일 이미지 */
 .video-thumbnail>img{
-    width: 210px;
-    height: 118px;
-    object-fit: cover;
+    width: inherit;
+    height: inherit;
+    /* object-fit: cover; */
+
+    border-radius: 6px;
+}
+
+.video-play {
+    display: none;
+    width: inherit;
+    height: inherit;
+}
+
+/* 마우스 오버 시 fade in 효과를 주기 위한 스타일 */
+@keyframes fadeIn {
+    0% {opacity: 0;}
+
+    100% {opacity: 1;}
+}
+.fade-in {
+    animation: fadeIn 1s;
 }
 
 /* 비디오 시간 */
@@ -433,9 +451,10 @@ body::-webkit-scrollbar-track {
 
 /* 구분선 */
 #channel-hr {
-    margin-left: 65px;
+    width: auto;
+    margin: 0px 65px;
     background-color: #303030;
-    width: 89%;
+    /* width: 89%; */
     /* 계산해보니 89% 나옴.. */
     height: 1px;
     border: none;

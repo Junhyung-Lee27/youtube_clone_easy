@@ -149,6 +149,7 @@ async function displayVideoAside(videoList) {
         videoAsideItems += `
         <div class="video-aside-container" onclick="navigateToVideo('${videoURL}')">
             <div>
+                <video class="video-play fade-in" src="https://storage.googleapis.com/oreumi.appspot.com/video_${videoInfo.video_id}.mp4"></video>
                 <image class="video-aside-thumbnail" src="${videoInfo.image_link}"></image>
                 <span class="video-aside-time">0:09</span>
             </div>
@@ -165,6 +166,33 @@ async function displayVideoAside(videoList) {
 
     // 화면에 추가
     video_aside_section.innerHTML = videoAsideItems;
+
+        // 화면에 비디오 로드된 후 마우스오버 및 아웃 이벤트리스너 추가
+    let containers = document.getElementsByClassName("video-aside-container");
+        for (let i = 0; i < containers.length; i++) {
+            let container = containers[i];
+            let thumbnail_box = container.querySelector("div");
+            let thumbnail_img = thumbnail_box.querySelector("img")
+            let video_play = thumbnail_box.querySelector(".video-play");
+
+            // 마우스 오버됐을 때
+            thumbnail_box.addEventListener('mouseenter', function() {
+                timeoutId = setTimeout(function() {
+                    video_play.style.display = "block";
+                    thumbnail_img.style.height = "0px";
+                    video_play.muted = true;
+                    video_play.play();
+                }, 500);
+            });
+
+            // 마우스 아웃 됐을 때
+            thumbnail_box.addEventListener('mouseleave', function() {
+                clearTimeout(timeoutId);
+                video_play.currentTime = 0;
+                video_play.style.display = "none";
+                thumbnail_img.style.height = "inherit";
+            });
+        }
 }
 
 /** 채널 필터링된 비디오 리스트를 받아 aside에 보여주는 함수 */

@@ -141,8 +141,9 @@ function displayVideoInfo(videoInfo) {
         const videoContainerHTML = `
           <div class="video-container" onclick="navigateToVideo('${videoURL}')">
             <div class="video-thumbnail">
-              <img src="${videoInfo.image_link}" alt="Video Thumbnail">
-              <p class="video-time">0:10</p>
+                <video class="video-play fade-in" src="https://storage.googleapis.com/oreumi.appspot.com/video_${videoInfo.video_id}.mp4"></video>
+                <img src="${videoInfo.image_link}" alt="Video Thumbnail">
+                <p class="video-time">0:10</p>
             </div>
             <div class="video-info-container">
               <h3 class="channel-video-title">${videoInfo.video_title}</h3>         
@@ -153,6 +154,33 @@ function displayVideoInfo(videoInfo) {
         `;
 
         videoContainers.innerHTML += videoContainerHTML;
+
+    // 화면에 비디오 로드된 후 마우스오버 및 아웃 이벤트리스너 추가
+    let containers = document.getElementsByClassName("video-container");
+        for (let i = 0; i < containers.length; i++) {
+            let container = containers[i];
+            let thumbnail = container.querySelector(".video-thumbnail");
+            let thumbnail_img = thumbnail.querySelector("img")
+            let video_play = thumbnail.querySelector(".video-play");
+
+            // 마우스 오버됐을 때
+            thumbnail.addEventListener('mouseenter', function() {
+                timeoutId = setTimeout(function() {
+                    video_play.style.display = "block";
+                    thumbnail_img.style.height = "0px";
+                    video_play.muted = true;
+                    video_play.play();
+                }, 500);
+            });
+
+            // 마우스 아웃 됐을 때
+            thumbnail.addEventListener('mouseleave', function() {
+                clearTimeout(timeoutId);
+                video_play.currentTime = 0;
+                video_play.style.display = "none";
+                thumbnail_img.style.height = "inherit";
+            });
+        }
     }
 }
 
