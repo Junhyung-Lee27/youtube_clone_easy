@@ -4,14 +4,14 @@ getVideoList().then(createVideoItem);
 
 /** 비디오 리스트를 받아오는 함수 */
 async function getVideoList() {
-  let response = await fetch("http://oreumi.appspot.com/video/getVideoList");
+  let response = await fetch("https://oreumi.appspot.com/video/getVideoList");
   let videoListData = await response.json();
   return videoListData;
 }
 
 /** 비디오 id를 가지고 비디오에 대한 정보를 가져오는 함수 */
 async function getVideoInfo(videoId) {
-  let url = `http://oreumi.appspot.com/video/getVideoInfo?video_id=${videoId}`;
+  let url = `https://oreumi.appspot.com/video/getVideoInfo?video_id=${videoId}`;
   let response = await fetch(url);
   let videoData = await response.json();
   return videoData;
@@ -27,7 +27,7 @@ async function getChannelInfo(channelName) {
     return channelCache[channelName];
   }
 
-  let url = `http://oreumi.appspot.com/channel/getChannelInfo`;
+  let url = `https://oreumi.appspot.com/channel/getChannelInfo`;
 
   let response = await fetch(url, {
     method: "POST",
@@ -60,8 +60,8 @@ async function createVideoItem(videoList) {
     let videoInfo = videoInfoList[i];
     let channelInfo = await getChannelInfo(videoList[i].video_channel);
 
-    let channelURL = `channel.html?channel_name=${videoList[i].video_channel}`;
-    let videoURL = `video.html?id=${videoId}`;
+    let channelURL = `html/channel.html?channel_name=${videoList[i].video_channel}`;
+    let videoURL = `html/video.html?id=${videoId}`;
 
     feedItems += `
       <div class="video-container">

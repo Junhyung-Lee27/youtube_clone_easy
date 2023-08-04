@@ -11,7 +11,7 @@ const channel_Name = urlParams.get('channel_name');
 // 비디오 리스트에서 비디오 id값을 받아오는 함수
 function getVideoList() {
     const request = new XMLHttpRequest();
-    const url = "http://oreumi.appspot.com/video/getVideoList";
+    const url = "https://oreumi.appspot.com/video/getVideoList";
     request.open("GET", url, true);
 
     request.onreadystatechange = function () {
@@ -51,7 +51,7 @@ function getVideoList() {
 
 /** POST방식으로 channel이름, 배너, 프로필, 구독자수의 데이터를 받아오는 함수 */
 function channelimage(channelname) {
-    const url = "http://oreumi.appspot.com/channel/getChannelInfo";
+    const url = "https://oreumi.appspot.com/channel/getChannelInfo";
     const data = { video_channel: channelname };
 
     fetch(url, {
@@ -69,7 +69,7 @@ function channelimage(channelname) {
 
 /** 대표영상을 정하기 위해 가장 높은 조회수를 가진 videoID를 사용해 video 정보 가져오기 */
 function representivevideo(maxvideoID) {
-    fetch(`http://oreumi.appspot.com/video/getVideoInfo?video_id=${maxvideoID}`)
+    fetch(`https://oreumi.appspot.com/video/getVideoInfo?video_id=${maxvideoID}`)
         .then((response) => response.json())
         .then((data) => {
             // video 정보를 표시하는 함수 호출
@@ -80,7 +80,7 @@ function representivevideo(maxvideoID) {
 /** 비디오 id 값들을 사용해 video 정보 받아오는 함수 */
 function getVideoInfo(video_id) {
     
-    fetch(`http://oreumi.appspot.com/video/getVideoInfo?video_id=${video_id}`)
+    fetch(`https://oreumi.appspot.com/video/getVideoInfo?video_id=${video_id}`)
         .then((response) => response.json())
         .then((data) => {
             // video 정보를 표시하는 함수 호출
@@ -239,7 +239,7 @@ function navigateToVideo(videoURL) {
 
 // home으로 바로가기 위한 함수
 function navigateToHome() {
-    window.location.href = `home.html`;
+    window.location.href = `index.html`;
 }
 
 // 화면 로딩이 완료된 후 비디오 목록 표시
