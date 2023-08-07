@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
     <link href="
         https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
         " rel="stylesheet">
@@ -19,13 +19,15 @@
         <!-- 좌측 상단-->
         <div>
             <img id="hamburger" src="../src/img_header/hamburger.svg" alt="hamburger menu">
-            <a href="../index.html"><img id="youtube-logo" src="../src/img_header/Youtube-Logo.svg" alt="youtube logo"></a>
+            <a href="../index.html"><img id="youtube-logo" src="../src/img_header/Youtube-Logo.svg"
+                    alt="youtube logo"></a>
         </div>
         <!-- 중간 상단 -->
         <div>
             <div id="search-box">
                 <input id="search-box-input-text" type="text" name="search-box" placeholder="Search">
-                <button id="search_button"><img id="search-box-icon" src="../src/img_header/search.svg" name="search"></button>
+                <button id="search_button"><img id="search-box-icon" src="../src/img_header/search.svg"
+                        name="search"></button>
             </div>
             <input id="mic-icon" type="image" src="../src/img_header/mic.svg" name="microphone">
         </div>
@@ -45,8 +47,8 @@
             <div id="video-player"></div>
             <!-- 비디오 설명 부분 채널 주인명과 구독자 수, 구독 버튼(js로 받아옴)-->
             <div id="video-desc"></div>
-            
-                <!-- 댓글 창 구현 -->
+
+            <!-- 댓글 창 구현 -->
             <div id="video-comments">
                 <div id="comments-sortby">
                     <span id="video-comments-count">286 Comments</span>
@@ -99,6 +101,7 @@
             <nav id="top-menu">
                 <ul id="video-aside-menu">
                     <li class="active"><a href="#">All</a></li>
+                    <li><a href="#">추천 영상</a></li>
                     <li><a href="#">From oreumi</a></li>
                     <li><a href="#">From 나와 토끼들</a></li>
                     <li><a href="#">From 개조</a></li>

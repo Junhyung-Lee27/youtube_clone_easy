@@ -97,9 +97,13 @@ async function displayVideoSection(videoInfo) {
 
     const videoDescHTML = `
         <div id="video-channel-title">
-            <img id="video-main-profile" src="${channelInfo.channel_profile}" onclick="navigateToChannel('${channelURL}')">
+            <img id="video-main-profile" src="${
+                channelInfo.channel_profile
+            }" onclick="navigateToChannel('${channelURL}')">
             <div id="video-info-text">
-                <span id="video-main-channel-name" onclick="navigateToChannel('${channelURL}')">${channelInfo.channel_name}</span><br>
+                <span id="video-main-channel-name" onclick="navigateToChannel('${channelURL}')">${
+        channelInfo.channel_name
+    }</span><br>
                 <span id="video-subscriber">${formatsubscribers(channelInfo.subscribers)}</span>
             </div>
             <div>
@@ -118,19 +122,16 @@ async function displayVideoSection(videoInfo) {
 
     const subscribeBtn = document.getElementById("subscribe-btn");
     subscribeBtn.addEventListener("click", function () {
-
-      if (subscribeBtn.textContent === "SUBSCRIBES") {
-        subscribeBtn.textContent = "SUBSCRIBED";
-        subscribeBtn.style.backgroundColor = "white";
-        subscribeBtn.style.color = "black";
-      }
-      else {
-        subscribeBtn.textContent = "SUBSCRIBES";
-        subscribeBtn.style.backgroundColor = "#C00";
-        subscribeBtn.style.color = "#FFF";
-      }
-      
-  });
+        if (subscribeBtn.textContent === "SUBSCRIBES") {
+            subscribeBtn.textContent = "SUBSCRIBED";
+            subscribeBtn.style.backgroundColor = "white";
+            subscribeBtn.style.color = "black";
+        } else {
+            subscribeBtn.textContent = "SUBSCRIBES";
+            subscribeBtn.style.backgroundColor = "#C00";
+            subscribeBtn.style.color = "#FFF";
+        }
+    });
 }
 
 /** 비디오 리스트를 받아 aside에 보여주는 함수 */
@@ -149,7 +150,9 @@ async function displayVideoAside(videoList) {
         videoAsideItems += `
         <div class="video-aside-container" onclick="navigateToVideo('${videoURL}')">
             <div>
-                <video class="video-play fade-in" src="https://storage.googleapis.com/oreumi.appspot.com/video_${videoInfo.video_id}.mp4"></video>
+                <video class="video-play fade-in" src="https://storage.googleapis.com/oreumi.appspot.com/video_${
+                    videoInfo.video_id
+                }.mp4"></video>
                 <image class="video-aside-thumbnail" src="${videoInfo.image_link}"></image>
                 <span class="video-aside-time">0:09</span>
             </div>
@@ -167,40 +170,49 @@ async function displayVideoAside(videoList) {
     // 화면에 추가
     video_aside_section.innerHTML = videoAsideItems;
 
-        // 화면에 비디오 로드된 후 마우스오버 및 아웃 이벤트리스너 추가
+    // 화면에 비디오 로드된 후 마우스오버 및 아웃 이벤트리스너 추가
     let containers = document.getElementsByClassName("video-aside-container");
-        for (let i = 0; i < containers.length; i++) {
-            let container = containers[i];
-            let thumbnail_box = container.querySelector("div");
-            let thumbnail_img = thumbnail_box.querySelector("img")
-            let video_play = thumbnail_box.querySelector(".video-play");
+    for (let i = 0; i < containers.length; i++) {
+        let container = containers[i];
+        let thumbnail_box = container.querySelector("div");
+        let thumbnail_img = thumbnail_box.querySelector("img");
+        let video_play = thumbnail_box.querySelector(".video-play");
 
-            // 마우스 오버됐을 때
-            thumbnail_box.addEventListener('mouseenter', function() {
-                timeoutId = setTimeout(function() {
-                    video_play.style.display = "block";
-                    thumbnail_img.style.height = "0px";
-                    video_play.muted = true;
-                    video_play.play();
-                }, 500);
-            });
+        // 마우스 오버됐을 때
+        thumbnail_box.addEventListener("mouseenter", function () {
+            timeoutId = setTimeout(function () {
+                video_play.style.display = "block";
+                thumbnail_img.style.height = "0px";
+                video_play.muted = true;
+                video_play.play();
+            }, 500);
+        });
 
-            // 마우스 아웃 됐을 때
-            thumbnail_box.addEventListener('mouseleave', function() {
-                clearTimeout(timeoutId);
-                video_play.currentTime = 0;
-                video_play.style.display = "none";
-                thumbnail_img.style.height = "inherit";
-            });
-        }
+        // 마우스 아웃 됐을 때
+        thumbnail_box.addEventListener("mouseleave", function () {
+            clearTimeout(timeoutId);
+            video_play.currentTime = 0;
+            video_play.style.display = "none";
+            thumbnail_img.style.height = "inherit";
+        });
+    }
 }
 
-/** 채널 필터링된 비디오 리스트를 받아 aside에 보여주는 함수 */
-function displayFilteredVideoAside() {
+/** 필터링된 비디오 리스트를 받아 aside에 보여주는 함수 */
+async function displayFilteredVideoAside(videoList) {
     let aside_menu = document.querySelectorAll("#video-aside-menu > li");
 
+    // 현재 비디오 정보 가져오기
+    let currentVideoInfo = await getVideoInfo(video_ID);
+    let targetTagList = currentVideoInfo.video_tag; //현재 비디오 태그
+    let targetVideoId = currentVideoInfo.video_id;
+
+    // 각 비디오들 정보 가져오기
+    let videoInfoPromises = videoList.map((video) => getVideoInfo(video.video_id));
+    let videoInfoList = await Promise.all(videoInfoPromises);
+
     aside_menu.forEach((item) => {
-        item.addEventListener("click", function () {
+        item.addEventListener("click", async function () {
             // active 상태 삭제
             aside_menu.forEach((menuItem) => {
                 menuItem.classList.remove("active");
@@ -210,17 +222,100 @@ function displayFilteredVideoAside() {
             let text_content = item.getElementsByTagName("a")[0].textContent;
             let channelname = text_content.replace("From ", "");
 
-            getVideoList().then((videoList) => {
-                let filteredVideoList;
-                if (text_content === "All") {
-                    filteredVideoList = videoList;
-                } else {
-                    filteredVideoList = videoList.filter(
-                        (video) => video.video_channel === channelname
+            let videoList = await getVideoList();
+            let filteredVideoList;
+
+            // All
+            if (text_content === "All") {
+                filteredVideoList = videoList;
+            }
+
+            // 추천 영상
+            else if (text_content === "추천 영상") {
+                async function getRecommendedVideoList() {
+                    // 유사도 측정결과 가져오기
+                    async function getSimilarity(firstWord, secondWord) {
+                        const openApiURL = "http://aiopen.etri.re.kr:8000/WiseWWN/WordRel";
+                        const access_key = "90fe9cc3-f290-46b6-91e9-da2fded84a22";
+
+                        let requestJson = {
+                            argument: {
+                                first_word: firstWord,
+                                second_word: secondWord,
+                            },
+                        };
+
+                        let response = await fetch(openApiURL, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: access_key,
+                            },
+                            body: JSON.stringify(requestJson),
+                        });
+                        let data = await response.json();
+                        return data.return_object["WWN WordRelInfo"].WordRelInfo.Distance;
+                    }
+
+                    async function calculateVideoSimilarities(videoList, targetTagList) {
+                        let filteredVideoList = [];
+
+                        for (let video of videoList) {
+                            let totalDistance = 0;
+                            let promises = [];
+
+                            for (let videoTag of video.video_tag) {
+                                for (let targetTag of targetTagList) {
+                                    if (videoTag == targetTag) {
+                                        promises.push(0);
+                                    } else {
+                                        promises.push(getSimilarity(videoTag, targetTag));
+                                    }
+                                }
+                            }
+
+                            let distances = await Promise.all(promises);
+
+                            for (let distance of distances) {
+                                if (distance !== -1) {
+                                    totalDistance += distance;
+                                }
+                            }
+
+                            if (totalDistance !== 0) {
+                                if (targetVideoId !== video.video_id) {
+                                    filteredVideoList.push({ ...video, score: totalDistance });
+                                }
+                            }
+                        }
+
+                        filteredVideoList.sort((a, b) => a.score - b.score);
+
+                        filteredVideoList = filteredVideoList.map((video) => ({
+                            ...video,
+                            score: 0,
+                        }));
+                        console.log(filteredVideoList);
+                        return filteredVideoList;
+                    }
+
+                    filteredVideoList = await calculateVideoSimilarities(
+                        videoInfoList,
+                        targetTagList
                     );
+                    return filteredVideoList.slice(0, 5);
                 }
-                displayVideoAside(filteredVideoList);
-            });
+
+                filteredVideoList = await getRecommendedVideoList();
+            }
+
+            // 채널 영상
+            else {
+                filteredVideoList = videoList.filter(
+                    (video) => video.video_channel === channelname
+                );
+            }
+            displayVideoAside(filteredVideoList);
         });
     });
 }
@@ -295,12 +390,11 @@ function formatViews(views) {
 
 function formatsubscribers(subscribersnum) {
     if (subscribersnum >= 10000) {
-      return `구독자 ${Math.round(subscribersnum / 10000)}만명`
+        return `구독자 ${Math.round(subscribersnum / 10000)}만명`;
+    } else {
+        return `구독자 ${subscribersnum}명`;
     }
-    else{
-      return `구독자 ${subscribersnum}명`
-    }
-  }
+}
 
 // 화면 로딩이 완료된 후 실행
 window.onload = function () {
